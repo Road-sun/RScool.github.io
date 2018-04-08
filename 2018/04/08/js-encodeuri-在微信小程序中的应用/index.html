@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        This is my world
+        js encodeuri()在微信小程序中的应用 · This is my world
         
     </title>
     <link rel="icon" href= /assets/bit.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >My blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">js encodeuri()在微信小程序中的应用</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>My blog</a>
 </header>
@@ -62,21 +73,45 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            js encodeuri()在微信小程序中的应用
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 微信小程序>微信小程序</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/04/08</span>
+            </div>
         
     </div>
 </div>
@@ -144,74 +179,47 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="encodeURI"><a href="#encodeURI" class="headerlink" title="encodeURI()"></a>encodeURI()</h4><p>encodeURI() 函数可把字符串作为 URI 进行编码。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">encodeURI</span>(URIstring)</span><br></pre></td></tr></table></figure></p>
+<h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><p>该方法不会对 ASCII 字母和数字进行编码，也不会对这些 ASCII 标点符号进行编码： - _ . ! ~ * ‘ ( ) 。</p>
+<h4 id="encodeURI-在微信小程序中的应用"><a href="#encodeURI-在微信小程序中的应用" class="headerlink" title="encodeURI()在微信小程序中的应用"></a>encodeURI()在微信小程序中的应用</h4><p>因为微信小程序中标签id不能以数字开头，不能使用汉字，命名方法与c语言变量名相仿，只能以下划线与字母开头。所以当不得已时可以使用encodeURI()来转码。</p>
+<h4 id="微信小程序中如何在Mustache-语法（双大括号）中调用函数"><a href="#微信小程序中如何在Mustache-语法（双大括号）中调用函数" class="headerlink" title="微信小程序中如何在Mustache 语法（双大括号）中调用函数"></a>微信小程序中如何在Mustache 语法（双大括号）中调用函数</h4><ol>
+<li>创建<code>.wxs</code>文件，类似<code>.js</code>文件。</li>
+<li><p>在<code>.wxs</code>文件中写函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> encode = &#123;</span><br><span class="line">  <span class="built_in">encodeURI</span>: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">encodeURI</span>(e);</span><br><span class="line">  &#125;,</span><br><span class="line">  encodeURIwithoutPercent: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">encodeURI</span>(e).split(<span class="string">"%"</span>).join(<span class="string">""</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">encodeURI</span>: encode.encodeURI,</span><br><span class="line">  encodeURIWP: encode.encodeURIwithoutPercent</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>.wxml</code>文件中引入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">wxs</span> <span class="attr">module</span>=<span class="string">"module"</span> <span class="attr">src</span>=<span class="string">'module.wxs'</span>&gt;</span><span class="tag">&lt;/<span class="name">wxs</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在大括号中调用函数</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"&#123;&#123;module.encodeURIWP('张三')&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">wxs</span> <span class="attr">module</span>=<span class="string">"module"</span> <span class="attr">src</span>=<span class="string">'module.wxs'</span>&gt;</span><span class="tag">&lt;/<span class="name">wxs</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/04/08/微信小程序改变原生按钮与滚动条样式-1/" title=  微信小程序改变原生按钮与滚动条样式 >
+                    <span>Previous Post</span>
+                    <span> 微信小程序改变原生按钮与滚动条样式</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
     
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2018/04/08/js-encodeuri-在微信小程序中的应用/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>js encodeuri()在微信小程序中的应用</span>
-                    </h2>
-                <div class="abstract-content">
-                    encodeURI()encodeURI() 函数可把字符串作为 URI 进行编码。1encodeURI(URIstring)
-说明该方法不会对 ASCII 字母和数字进行编码，也不会对这些 ASCII 标点符号进行编码： - _ . ! ~ * ‘ ( ) 。
-encodeURI()在微信小程序中的应用因为微信小程序中标签id不能以数字开头，不能使用汉字，命名方法与c语言变量名相仿，只能以下划线与字母开头。所以当不得已时可以使用encodeURI()来转码。
-微信小程序中如何在Mustache 语法（双大括号）中调用函数
-创建.wxs文件，类似.js文件。
-在.wxs文件中写函数
-12...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 微信小程序>微信小程序</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/04/08</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2018/04/08/微信小程序改变原生按钮与滚动条样式-1/" >
-                    <h2 class="abstract-title">
-                        
-                        <span> 微信小程序改变原生按钮与滚动条样式</span>
-                    </h2>
-                <div class="abstract-content">
-                    小程序去掉原生按钮的边框变成直角123456button&#123; border-radius: 0;&#125;button::after&#123; border:0&#125;
-小程序隐藏原生滚动条12345::-webkit-scrollbar&#123;  width: 0;  height: 0;  color: transparent;&#125;
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 微信小程序>微信小程序</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/04/08</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
+    <!--PC版-->
+
+    <!--PC版-->
+
+
     
 </main>
             <!-- profile -->
@@ -255,6 +263,13 @@ encodeURI()在微信小程序中的应用因为微信小程序中标签id不能�
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#encodeURI"><span class="toc-number">1.</span> <span class="toc-text"><a href="#encodeURI" class="headerlink" title="encodeURI()"></a>encodeURI()</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#说明"><span class="toc-number">1.1.</span> <span class="toc-text"><a href="#&#x8BF4;&#x660E;" class="headerlink" title="&#x8BF4;&#x660E;"></a>&#x8BF4;&#x660E;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#encodeURI-在微信小程序中的应用"><span class="toc-number">2.</span> <span class="toc-text"><a href="#encodeURI-&#x5728;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x5E94;&#x7528;" class="headerlink" title="encodeURI()&#x5728;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x5E94;&#x7528;"></a>encodeURI()&#x5728;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x5E94;&#x7528;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#微信小程序中如何在Mustache-语法（双大括号）中调用函数"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x5982;&#x4F55;&#x5728;Mustache-&#x8BED;&#x6CD5;&#xFF08;&#x53CC;&#x5927;&#x62EC;&#x53F7;&#xFF09;&#x4E2D;&#x8C03;&#x7528;&#x51FD;&#x6570;" class="headerlink" title="&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x5982;&#x4F55;&#x5728;Mustache &#x8BED;&#x6CD5;&#xFF08;&#x53CC;&#x5927;&#x62EC;&#x53F7;&#xFF09;&#x4E2D;&#x8C03;&#x7528;&#x51FD;&#x6570;"></a>&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x5982;&#x4F55;&#x5728;Mustache &#x8BED;&#x6CD5;&#xFF08;&#x53CC;&#x5927;&#x62EC;&#x53F7;&#xFF09;&#x4E2D;&#x8C03;&#x7528;&#x51FD;&#x6570;</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">
