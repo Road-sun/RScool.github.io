@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>
+        
+        hexo blog 搭建 · This is my world
+        
+    </title>
+    <link rel="icon" href= /assets/bit.ico>
+    <!-- TODO: 在font-face加载完毕后改变字体  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+    <!-- 提前加载place holder  -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url(/font/Oswald-Regular.ttf);
+        }
+    </style>
+    <style type="text/css">
+        .site-intro-placeholder {
+            position: absolute;
+            z-index: -2;
+            top: 0;
+            left: 0px;
+            width: calc(100% + 300px);
+            height: 100%;
+            background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+            background-position: center center;
+            transform: translate3d(-226px, 0, 0);
+            animation: gradient-move 2.5s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+    <link rel="stylesheet" href = /css/style.css?v=20171020 />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >My blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">hexo blog 搭建</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>My blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            hexo blog 搭建
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = hexo>hexo</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/12/19</span>
+            </div>
+        
+    </div>
+</div>
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <script>
+            var browser = {
+                    versions: function () {
+                        var u = window.navigator.userAgent;
+                        return {
+                            userAgent: u,
+                            trident: u.indexOf('Trident') > -1, //IE内核
+                            presto: u.indexOf('Presto') > -1, //opera内核
+                            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+                            iPad: u.indexOf('iPad') > -1, //是否为iPad
+                            webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+                            weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+                            uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+                        };
+                    }()
+                }
+
+            function fontLoaded(){
+                console.log('font loaded');
+                if (document.getElementsByClassName('site-intro-meta')) {
+                    document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+                    document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+                    var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+                        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+                        if (postIntroTags) {
+                            postIntroTags.classList.add('post-fade-in');
+                        }
+                        if (postIntroMeat) {
+                            postIntroMeat.classList.add('post-fade-in');
+                        }
+                    }
+                }
+                
+            console.log("userAgent:" + browser.versions.userAgent);
+            // UC不支持跨域，所以直接显示
+            if (browser.versions.uc) {
+                console.log("UCBrowser");
+                fontLoaded();
+            } else {
+                WebFont.load({
+                    custom: {
+                        families: ['Oswald-Regular']
+                    },
+                    loading: function () {  //所有字体开始加载
+                        // console.log('loading');
+                    },
+                    active: function () {  //所有字体已渲染
+                        fontLoaded();
+                    },
+                    inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+                        console.log('inactive: timeout');
+                        fontLoaded();
+                    },
+                    timeout: 7000 // Set the timeout to two seconds
+                });
+            }
+        </script>
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="hexo-blog-搭建"><a href="#hexo-blog-搭建" class="headerlink" title="hexo blog 搭建"></a>hexo blog 搭建</h4><p><a href="http://visugar.com/2017/05/04/20170504SetUpHexoBlog/" target="_blank" rel="noopener">学习连接</a></p>
+<h4 id="hexo-绑定个人域名"><a href="#hexo-绑定个人域名" class="headerlink" title="hexo 绑定个人域名"></a>hexo 绑定个人域名</h4><p><a href="http://blog.csdn.net/linshuhe1/article/details/73013730" target="_blank" rel="noopener">学习连接</a></p>
+<h4 id="hexo-Markdown语法"><a href="#hexo-Markdown语法" class="headerlink" title="hexo Markdown语法"></a>hexo Markdown语法</h4><h5 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">! &amp;#33; — 惊叹号Exclamation mark </span><br><span class="line">” &amp;#34; &amp;quot; 双引号Quotation mark </span><br><span class="line"><span class="section"># &amp;#35; — 数字标志Number sign </span></span><br><span class="line">$ &amp;#36; — 美元标志Dollar sign </span><br><span class="line">% &amp;#37; — 百分号Percent sign </span><br><span class="line">&amp; &amp;#38; &amp;amp; Ampersand </span><br><span class="line">‘ &amp;#39; — 单引号Apostrophe </span><br><span class="line">( &amp;#40; — 小括号左边部分Left parenthesis </span><br><span class="line">) &amp;#41; — 小括号右边部分Right parenthesis </span><br><span class="line"><span class="bullet">* </span>&amp;#42; — 星号Asterisk </span><br><span class="line"><span class="bullet">+ </span>&amp;#43; — 加号Plus sign </span><br><span class="line"><span class="xml"><span class="tag">&lt; &amp;#<span class="attr">60</span>; &amp;<span class="attr">lt</span>; 小于号<span class="attr">Less</span> <span class="attr">than</span> </span></span></span><br><span class="line"><span class="xml">= &amp;#61; — 等于符号Equals sign </span></span><br><span class="line"><span class="xml">&gt;</span> &amp;#62; &amp;gt; 大于号Greater than </span><br><span class="line">? &amp;#63; — 问号Question mark </span><br><span class="line">@ &amp;#64; — Commercial at </span><br><span class="line">[ &amp;#91; --- 中括号左边部分Left square bracket </span><br><span class="line">\ &amp;#92; --- 反斜杠Reverse solidus (backslash) </span><br><span class="line">] &amp;#93; — 中括号右边部分Right square bracket </span><br><span class="line">&#123; &amp;#123; — 大括号左边部分Left curly brace </span><br><span class="line">| &amp;#124; — 竖线Vertical bar </span><br><span class="line">&#125; &amp;#125; — 大括号右边部分Right curly brace</span><br></pre></td></tr></table></figure>
+<h5 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"><span class="section">#### 四级标题</span></span><br><span class="line"><span class="section">##### 五级标题</span></span><br><span class="line"><span class="section">###### 六级标题</span></span><br><span class="line"></span><br><span class="line">大标题</span><br><span class="line">=</span><br><span class="line">小标题</span><br><span class="line">-</span><br></pre></td></tr></table></figure>
+<h5 id="粗体斜体"><a href="#粗体斜体" class="headerlink" title="粗体斜体"></a>粗体斜体</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="emphasis">*斜体文本*</span>    <span class="emphasis">_斜体文本_</span></span><br><span class="line"><span class="strong">**粗体文本**</span>    <span class="strong">__粗体文本__</span></span><br><span class="line"><span class="strong">***粗斜体文本**</span>*    <span class="strong">___粗斜体文本__</span>_</span><br></pre></td></tr></table></figure>
+<p><em>斜体文本</em>    <em>斜体文本</em><br><strong>粗体文本</strong>    <strong>粗体文本</strong><br><strong><em>粗斜体文本</em></strong>    <strong><em>粗斜体文本</em></strong></p>
+<h5 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">常用链接方法</span><br><span class="line">文字链接 [<span class="string">链接名称</span>](<span class="link">https://chwshuang.github.io</span>)</span><br><span class="line">网址链接 <span class="xml"><span class="tag">&lt;<span class="name">https:</span>//<span class="attr">chwshuang.github.io</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">高级链接技巧</span><br><span class="line">这个链接用 1 作为网址变量 [<span class="string">Google</span>][<span class="symbol">1</span>].</span><br><span class="line">这个链接用 yahoo 作为网址变量 [<span class="string">Yahoo!</span>][<span class="symbol">yahoo</span>].</span><br><span class="line">然后在文档的结尾为变量赋值（网址）</span><br><span class="line"></span><br><span class="line">  [1]: http://www.google.com/</span><br><span class="line">  [yahoo]: http://www.yahoo.com/</span><br></pre></td></tr></table></figure>
+<p>常用链接方法<br><br>文字链接 <a href="https://chwshuang.github.io" target="_blank" rel="noopener">链接名称</a><br><br>网址链接 <a href="https://chwshuang.github.io" target="_blank" rel="noopener">https://chwshuang.github.io</a><br><br></p>
+<p>高级链接技巧<br><br>这个链接用 1 作为网址变量 <a href="http://www.google.com/" target="_blank" rel="noopener">Google</a>.<br><br>这个链接用 yahoo 作为网址变量 <a href="http://www.yahoo.com/" target="_blank" rel="noopener">Yahoo!</a>.<br><br>然后在文档的结尾为变量赋值（网址）</p>
+<h5 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">普通无序列表</span><br><span class="line"><span class="bullet">- </span>列表文本前使用 [减号+空格]</span><br><span class="line"><span class="bullet">+ </span>列表文本前使用 [加号+空格]</span><br><span class="line"><span class="bullet">* </span>列表文本前使用 [星号+空格]</span><br><span class="line">普通有序列表</span><br><span class="line"><span class="bullet">1. </span>列表前使用 [数字+空格]</span><br><span class="line"><span class="bullet">2. </span>我们会自动帮你添加数字</span><br><span class="line"><span class="bullet">7. </span>不用担心数字不对，显示的时候我们会自动把这行的 7 纠正为 3</span><br><span class="line">列表嵌套</span><br><span class="line"><span class="bullet">1. </span>列出所有元素：</span><br><span class="line"><span class="code">    - 无序列表元素 A</span></span><br><span class="line"><span class="code">        1. 元素 A 的有序子列表</span></span><br><span class="line"><span class="code">    - 前面加四个空格</span></span><br><span class="line"><span class="bullet">2. </span>列表里的多段换行：</span><br><span class="line"><span class="code">    前面必须加四个空格，</span></span><br><span class="line"><span class="code">    这样换行，整体的格式不会乱</span></span><br><span class="line"><span class="bullet">3. </span>列表里引用：</span><br><span class="line"></span><br><span class="line"><span class="code">    &gt; 前面空一行</span></span><br><span class="line"><span class="code">    &gt; 仍然需要在 &gt;  前面加四个空格</span></span><br></pre></td></tr></table></figure>
+<h5 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">普通引用</span><br><span class="line"><span class="quote">&gt; 引用文本前使用 [大于号+空格]</span></span><br><span class="line"><span class="quote">&gt; 折行可以不加，新起一行都要加上哦</span></span><br><span class="line"></span><br><span class="line">引用里嵌套引用</span><br><span class="line"><span class="quote">&gt; 最外层引用</span></span><br><span class="line"><span class="quote">&gt; &gt; 多一个 &gt; 嵌套一层引用</span></span><br><span class="line"><span class="quote">&gt; &gt; &gt; 可以嵌套很多层</span></span><br><span class="line"></span><br><span class="line">引用里嵌套列表</span><br><span class="line"><span class="quote">&gt; - 这是引用里嵌套的一个列表</span></span><br><span class="line"><span class="quote">&gt; - 还可以有子列表</span></span><br><span class="line"><span class="quote">&gt;     * 子列表需要从 - 之后延后四个空格开始</span></span><br></pre></td></tr></table></figure>
+<h5 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片名称</span>](<span class="link">http: //图片地址</span>)</span><br><span class="line">当然，你也可以像网址那样对图片网址使用变量</span><br><span class="line"></span><br><span class="line">这个链接用 1 作为网址变量 [ Google] [ 1].</span><br><span class="line">然后在文档的结尾位变量赋值(网址)</span><br><span class="line"></span><br><span class="line">[<span class="symbol">1</span>]: <span class="link">http: //www.google.com/logo.png</span></span><br><span class="line">也可以使用 HTML 的图片语法来自定义图片的宽高大小</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">”img/gxt.png”</span> <span class="attr">width</span>=<span class="string">”240”</span> <span class="attr">height</span>=<span class="string">”275”</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h5 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h5><p>在当前行的结尾加 2 个空格<br>这行就会新起一行<br>如果是要起一个新段落，只需要空出一行即可。</p>
+<h5 id="分隔符"><a href="#分隔符" class="headerlink" title="分隔符"></a>分隔符</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">前面的段落</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">后面的段落</span><br></pre></td></tr></table></figure>
+<h5 id="小型文本"><a href="#小型文本" class="headerlink" title="小型文本"></a>小型文本</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">small</span>&gt;</span></span>文本内容<span class="xml"><span class="tag">&lt;/<span class="name">small</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h5 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- 注释 --&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h5 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">| 参数           | 说明                 |   默认值            |</span><br><span class="line">| ------------- |:-------------------:|:------------------:|</span><br><span class="line">| host          | 远程主机的地址         |                    |</span><br><span class="line">| user          | 使用者名称            |                    |</span><br><span class="line">| root          |  远程主机的根目录      |                    |</span><br><span class="line">| port          | 端口                 |       22           |</span><br><span class="line">| delete        | 删除远程主机上的旧文件   |  true              |</span><br><span class="line">| verbose       | 显示调试信息           |   true             |</span><br><span class="line">| ignore_errors | 忽略错误              |     false          |</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host</td>
+<td style="text-align:center">远程主机的地址</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>user</td>
+<td style="text-align:center">使用者名称</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>root</td>
+<td style="text-align:center">远程主机的根目录</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>port</td>
+<td style="text-align:center">端口</td>
+<td style="text-align:center">22</td>
+</tr>
+<tr>
+<td>delete</td>
+<td style="text-align:center">删除远程主机上的旧文件</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td>verbose</td>
+<td style="text-align:center">显示调试信息</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td>ignore_errors</td>
+<td style="text-align:center">忽略错误</td>
+<td style="text-align:center">false</td>
+</tr>
+</tbody>
+</table>
+<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">code</span>&gt;</span></span>hello world<span class="xml"><span class="tag">&lt;/<span class="name">code</span>&gt;</span></span></span><br><span class="line">另一种方法(<span class="code">```java</span></span><br><span class="line"><span class="code">           int[] intArray = &#123; 1, 2, 3, 4, 5 &#125;;  </span></span><br><span class="line"><span class="code">           String intArrayString = Arrays.toString(intArray); </span></span><br><span class="line"><span class="code">           System.out.println(intArrayString);  </span></span><br><span class="line"><span class="code">         ```)</span></span><br></pre></td></tr></table></figure>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2018/04/08/微信小程序改变原生按钮与滚动条样式-1/" title=  微信小程序改变原生按钮与滚动条样式 >
+                    <span>Next Post</span>
+                    <span> 微信小程序改变原生按钮与滚动条样式</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2017/12/13/java基础4/" title= java基础4 面向对象 >
+                    <span>Previous Post</span>
+                    <span>java基础4 面向对象</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:739646645@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/Road-sun" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title="rss"></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo-blog-搭建"><span class="toc-number">1.</span> <span class="toc-text"><a href="#hexo-blog-&#x642D;&#x5EFA;" class="headerlink" title="hexo blog &#x642D;&#x5EFA;"></a>hexo blog &#x642D;&#x5EFA;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo-绑定个人域名"><span class="toc-number">2.</span> <span class="toc-text"><a href="#hexo-&#x7ED1;&#x5B9A;&#x4E2A;&#x4EBA;&#x57DF;&#x540D;" class="headerlink" title="hexo &#x7ED1;&#x5B9A;&#x4E2A;&#x4EBA;&#x57DF;&#x540D;"></a>hexo &#x7ED1;&#x5B9A;&#x4E2A;&#x4EBA;&#x57DF;&#x540D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo-Markdown语法"><span class="toc-number">3.</span> <span class="toc-text"><a href="#hexo-Markdown&#x8BED;&#x6CD5;" class="headerlink" title="hexo Markdown&#x8BED;&#x6CD5;"></a>hexo Markdown&#x8BED;&#x6CD5;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#特殊字符"><span class="toc-number">3.1.</span> <span class="toc-text"><a href="#&#x7279;&#x6B8A;&#x5B57;&#x7B26;" class="headerlink" title="&#x7279;&#x6B8A;&#x5B57;&#x7B26;"></a>&#x7279;&#x6B8A;&#x5B57;&#x7B26;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#标题"><span class="toc-number">3.2.</span> <span class="toc-text"><a href="#&#x6807;&#x9898;" class="headerlink" title="&#x6807;&#x9898;"></a>&#x6807;&#x9898;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#粗体斜体"><span class="toc-number">3.3.</span> <span class="toc-text"><a href="#&#x7C97;&#x4F53;&#x659C;&#x4F53;" class="headerlink" title="&#x7C97;&#x4F53;&#x659C;&#x4F53;"></a>&#x7C97;&#x4F53;&#x659C;&#x4F53;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#链接"><span class="toc-number">3.4.</span> <span class="toc-text"><a href="#&#x94FE;&#x63A5;" class="headerlink" title="&#x94FE;&#x63A5;"></a>&#x94FE;&#x63A5;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#列表"><span class="toc-number">3.5.</span> <span class="toc-text"><a href="#&#x5217;&#x8868;" class="headerlink" title="&#x5217;&#x8868;"></a>&#x5217;&#x8868;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#引用"><span class="toc-number">3.6.</span> <span class="toc-text"><a href="#&#x5F15;&#x7528;" class="headerlink" title="&#x5F15;&#x7528;"></a>&#x5F15;&#x7528;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#图片"><span class="toc-number">3.7.</span> <span class="toc-text"><a href="#&#x56FE;&#x7247;" class="headerlink" title="&#x56FE;&#x7247;"></a>&#x56FE;&#x7247;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#换行"><span class="toc-number">3.8.</span> <span class="toc-text"><a href="#&#x6362;&#x884C;" class="headerlink" title="&#x6362;&#x884C;"></a>&#x6362;&#x884C;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#分隔符"><span class="toc-number">3.9.</span> <span class="toc-text"><a href="#&#x5206;&#x9694;&#x7B26;" class="headerlink" title="&#x5206;&#x9694;&#x7B26;"></a>&#x5206;&#x9694;&#x7B26;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#小型文本"><span class="toc-number">3.10.</span> <span class="toc-text"><a href="#&#x5C0F;&#x578B;&#x6587;&#x672C;" class="headerlink" title="&#x5C0F;&#x578B;&#x6587;&#x672C;"></a>&#x5C0F;&#x578B;&#x6587;&#x672C;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#注释"><span class="toc-number">3.11.</span> <span class="toc-text"><a href="#&#x6CE8;&#x91CA;" class="headerlink" title="&#x6CE8;&#x91CA;"></a>&#x6CE8;&#x91CA;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#表格"><span class="toc-number">3.12.</span> <span class="toc-text"><a href="#&#x8868;&#x683C;" class="headerlink" title="&#x8868;&#x683C;"></a>&#x8868;&#x683C;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#代码"><span class="toc-number">3.13.</span> <span class="toc-text"><a href="#&#x4EE3;&#x7801;" class="headerlink" title="&#x4EE3;&#x7801;"></a>&#x4EE3;&#x7801;</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header sidebar-header-show-archive">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 9 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序改变原生按钮与滚动条样式-1/" > 微信小程序改变原生按钮与滚动条样式</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2017/12/19/hexo学习/" >hexo blog 搭建</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/13</span><a class="archive-post-title" href= "/2017/12/13/java基础4/" >java基础4 面向对象</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/13</span><a class="archive-post-title" href= "/2017/12/13/Java基础3/" >Java基础 3 字符串</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/13</span><a class="archive-post-title" href= "/2017/12/13/Java基础2/" >Java基础 2 数组</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/java基础1/" >Java基础 1 数据类型</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2017/12/08/jquery委托事件/" >jquery委托事件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2017/12/08/平滑锚点滚动/" >平滑锚点滚动</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2017/12/08/localStorage/" >localStorage</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">java</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">hexo</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">javascript</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">jquery</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">微信小程序</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #888; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+
