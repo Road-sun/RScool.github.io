@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-         微信小程序改变原生按钮与滚动条样式 · This is my world
+        微信小程序传值以及获取值方法 · This is my world
         
     </title>
     <link rel="icon" href= /assets/bit.ico>
@@ -63,7 +63,7 @@
                 <a href="/" >My blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name"> 微信小程序改变原生按钮与滚动条样式</a>
+                <a href="#" class="post-name">微信小程序传值以及获取值方法</a>
             </div>
     </div>
     
@@ -84,7 +84,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-             微信小程序改变原生按钮与滚动条样式
+            微信小程序传值以及获取值方法
             <!-- 404 -->
             
         </h1>
@@ -101,6 +101,8 @@
             <!-- 文章页标签  -->
             
                 <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
     
         <a class="post-tag" href="javascript:void(0);" data-href = 微信小程序>微信小程序</a>
     
@@ -179,24 +181,37 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h5 id="小程序去掉原生按钮的边框变成直角"><a href="#小程序去掉原生按钮的边框变成直角" class="headerlink" title="小程序去掉原生按钮的边框变成直角"></a>小程序去掉原生按钮的边框变成直角</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">button</span>&#123;</span><br><span class="line"> <span class="attribute">border-radius</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">button</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line"> <span class="attribute">border</span>:<span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="小程序隐藏原生滚动条"><a href="#小程序隐藏原生滚动条" class="headerlink" title="小程序隐藏原生滚动条"></a>小程序隐藏原生滚动条</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">::-webkit-scrollbar</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">color</span>: transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h4 id="设置id的方法标识跳转后传递的参数值"><a href="#设置id的方法标识跳转后传递的参数值" class="headerlink" title="设置id的方法标识跳转后传递的参数值"></a>设置id的方法标识跳转后传递的参数值</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"key1"</span> <span class="attr">bindtap</span>=<span class="string">"getId"</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getID:<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> id=e.currentTarget.id</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="通过使用data-xxxx-的方法来标识要传递的值"><a href="#通过使用data-xxxx-的方法来标识要传递的值" class="headerlink" title="通过使用data - xxxx 的方法来标识要传递的值"></a>通过使用data - xxxx 的方法来标识要传递的值</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">data-id</span>=<span class="string">"key1"</span> <span class="attr">data-key</span>=<span class="string">"key2"</span> <span class="attr">bindtap</span>=<span class="string">"getId"</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getID:<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> id=e.target.dataset.id</span><br><span class="line">  <span class="keyword">var</span> key=e.target.dataset.key</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="微信小程序跨页面获取值"><a href="#微信小程序跨页面获取值" class="headerlink" title="微信小程序跨页面获取值"></a>微信小程序跨页面获取值</h4><p>上一页面传值<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">'../shop/shop?id=3'</span>&gt;</span><span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>第二个页面接收<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">onLoad:<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> id=e.id</span><br><span class="line">  <span class="comment">// var id=getApp().id</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="微信小程序–data的赋值与取值"><a href="#微信小程序–data的赋值与取值" class="headerlink" title="微信小程序–data的赋值与取值"></a>微信小程序–data的赋值与取值</h4><p>Page() 函数用来注册一个页面。接受一个 object 参数，其指定页面的初始数据、生命周期函数、事件处理函数等。其中的参数data用来设置初始数据，WXML 中的动态数据均来自对应 Page 的 data。</p>
+<ul>
+<li><p>页面js文件中这么写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">'Hello MINA!'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>wxml中这么写：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span> &#123;&#123; message &#125;&#125; <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果该数据在操作过程中发生变化，需要将新数据重新绑定到该变量中，写法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setData</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    that.setData(&#123;</span><br><span class="line">      message: <span class="string">'新消息'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果想在js文件中使用data中的数据写法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(that.data.message)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/04/08/js-encodeuri-在微信小程序中的应用/" title= js encodeuri()在微信小程序中的应用 >
-                    <span>Next Post</span>
-                    <span>js encodeuri()在微信小程序中的应用</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2017/12/19/hexo学习/" title= hexo blog 搭建 >
+                <a href= "/2018/04/08/js-encodeuri-在微信小程序中的应用/" title= js encodeuri()在微信小程序中的应用 >
                     <span>Previous Post</span>
-                    <span>hexo blog 搭建</span>
+                    <span>js encodeuri()在微信小程序中的应用</span>
                 </a>
             </li>
         
@@ -260,7 +275,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#小程序去掉原生按钮的边框变成直角"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5C0F;&#x7A0B;&#x5E8F;&#x53BB;&#x6389;&#x539F;&#x751F;&#x6309;&#x94AE;&#x7684;&#x8FB9;&#x6846;&#x53D8;&#x6210;&#x76F4;&#x89D2;" class="headerlink" title="&#x5C0F;&#x7A0B;&#x5E8F;&#x53BB;&#x6389;&#x539F;&#x751F;&#x6309;&#x94AE;&#x7684;&#x8FB9;&#x6846;&#x53D8;&#x6210;&#x76F4;&#x89D2;"></a>&#x5C0F;&#x7A0B;&#x5E8F;&#x53BB;&#x6389;&#x539F;&#x751F;&#x6309;&#x94AE;&#x7684;&#x8FB9;&#x6846;&#x53D8;&#x6210;&#x76F4;&#x89D2;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#小程序隐藏原生滚动条"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x5C0F;&#x7A0B;&#x5E8F;&#x9690;&#x85CF;&#x539F;&#x751F;&#x6EDA;&#x52A8;&#x6761;" class="headerlink" title="&#x5C0F;&#x7A0B;&#x5E8F;&#x9690;&#x85CF;&#x539F;&#x751F;&#x6EDA;&#x52A8;&#x6761;"></a>&#x5C0F;&#x7A0B;&#x5E8F;&#x9690;&#x85CF;&#x539F;&#x751F;&#x6EDA;&#x52A8;&#x6761;</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#设置id的方法标识跳转后传递的参数值"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x8BBE;&#x7F6E;id&#x7684;&#x65B9;&#x6CD5;&#x6807;&#x8BC6;&#x8DF3;&#x8F6C;&#x540E;&#x4F20;&#x9012;&#x7684;&#x53C2;&#x6570;&#x503C;" class="headerlink" title="&#x8BBE;&#x7F6E;id&#x7684;&#x65B9;&#x6CD5;&#x6807;&#x8BC6;&#x8DF3;&#x8F6C;&#x540E;&#x4F20;&#x9012;&#x7684;&#x53C2;&#x6570;&#x503C;"></a>&#x8BBE;&#x7F6E;id&#x7684;&#x65B9;&#x6CD5;&#x6807;&#x8BC6;&#x8DF3;&#x8F6C;&#x540E;&#x4F20;&#x9012;&#x7684;&#x53C2;&#x6570;&#x503C;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过使用data-xxxx-的方法来标识要传递的值"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x901A;&#x8FC7;&#x4F7F;&#x7528;data-xxxx-&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x6807;&#x8BC6;&#x8981;&#x4F20;&#x9012;&#x7684;&#x503C;" class="headerlink" title="&#x901A;&#x8FC7;&#x4F7F;&#x7528;data - xxxx &#x7684;&#x65B9;&#x6CD5;&#x6765;&#x6807;&#x8BC6;&#x8981;&#x4F20;&#x9012;&#x7684;&#x503C;"></a>&#x901A;&#x8FC7;&#x4F7F;&#x7528;data - xxxx &#x7684;&#x65B9;&#x6CD5;&#x6765;&#x6807;&#x8BC6;&#x8981;&#x4F20;&#x9012;&#x7684;&#x503C;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#微信小程序跨页面获取值"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x8DE8;&#x9875;&#x9762;&#x83B7;&#x53D6;&#x503C;" class="headerlink" title="&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x8DE8;&#x9875;&#x9762;&#x83B7;&#x53D6;&#x503C;"></a>&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x8DE8;&#x9875;&#x9762;&#x83B7;&#x53D6;&#x503C;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#微信小程序–data的赋值与取值"><span class="toc-number">4.</span> <span class="toc-text"><a href="#&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x2013;data&#x7684;&#x8D4B;&#x503C;&#x4E0E;&#x53D6;&#x503C;" class="headerlink" title="&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x2013;data&#x7684;&#x8D4B;&#x503C;&#x4E0E;&#x53D6;&#x503C;"></a>&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x2013;data&#x7684;&#x8D4B;&#x503C;&#x4E0E;&#x53D6;&#x503C;</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>

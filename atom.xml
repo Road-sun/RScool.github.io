@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-08T11:59:59.145Z</updated>
+  <updated>2018-04-08T12:42:57.082Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信小程序传值以及获取值方法</title>
+    <link href="http://yoursite.com/2018/04/08/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BC%A0%E5%80%BC%E4%BB%A5%E5%8F%8A%E8%8E%B7%E5%8F%96%E5%80%BC%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2018/04/08/微信小程序传值以及获取值方法/</id>
+    <published>2018-04-08T12:16:16.000Z</published>
+    <updated>2018-04-08T12:42:57.082Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="设置id的方法标识跳转后传递的参数值"><a href="#设置id的方法标识跳转后传递的参数值" class="headerlink" title="设置id的方法标识跳转后传递的参数值"></a>设置id的方法标识跳转后传递的参数值</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"key1"</span> <span class="attr">bindtap</span>=<span class="string">"getId"</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getID:<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> id=e.currentTarget.id</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="通过使用data-xxxx-的方法来标识要传递的值"><a href="#通过使用data-xxxx-的方法来标识要传递的值" class="headerlink" title="通过使用data - xxxx 的方法来标识要传递的值"></a>通过使用data - xxxx 的方法来标识要传递的值</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">data-id</span>=<span class="string">"key1"</span> <span class="attr">data-key</span>=<span class="string">"key2"</span> <span class="attr">bindtap</span>=<span class="string">"getId"</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getID:<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> id=e.target.dataset.id</span><br><span class="line">  <span class="keyword">var</span> key=e.target.dataset.key</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="微信小程序跨页面获取值"><a href="#微信小程序跨页面获取值" class="headerlink" title="微信小程序跨页面获取值"></a>微信小程序跨页面获取值</h4><p>上一页面传值<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">'../shop/shop?id=3'</span>&gt;</span><span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span><br></pre></td></tr></table></figure></p><p>第二个页面接收<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">onLoad:<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> id=e.id</span><br><span class="line">  <span class="comment">// var id=getApp().id</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="微信小程序–data的赋值与取值"><a href="#微信小程序–data的赋值与取值" class="headerlink" title="微信小程序–data的赋值与取值"></a>微信小程序–data的赋值与取值</h4><p>Page() 函数用来注册一个页面。接受一个 object 参数，其指定页面的初始数据、生命周期函数、事件处理函数等。其中的参数data用来设置初始数据，WXML 中的动态数据均来自对应 Page 的 data。</p><ul><li><p>页面js文件中这么写：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">'Hello MINA!'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li><li><p>wxml中这么写：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span> &#123;&#123; message &#125;&#125; <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>如果该数据在操作过程中发生变化，需要将新数据重新绑定到该变量中，写法如下：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setData</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    that.setData(&#123;</span><br><span class="line">      message: <span class="string">'新消息'</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>如果想在js文件中使用data中的数据写法如下：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(that.data.message)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;设置id的方法标识跳转后传递的参数值&quot;&gt;&lt;a href=&quot;#设置id的方法标识跳转后传递的参数值&quot; class=&quot;headerlink&quot; title=&quot;设置id的方法标识跳转后传递的参数值&quot;&gt;&lt;/a&gt;设置id的方法标识跳转后传递的参数值&lt;/h4&gt;&lt;figure c
+      
+    
+    </summary>
+    
+      <category term="微信小程序学习" scheme="http://yoursite.com/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+      <category term="微信小程序" scheme="http://yoursite.com/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>js encodeuri()在微信小程序中的应用</title>
