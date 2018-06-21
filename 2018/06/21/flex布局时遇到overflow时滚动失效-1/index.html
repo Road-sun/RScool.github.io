@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        This is my world
+        flex布局时遇到overflow时滚动失效 · This is my world
         
     </title>
     <link rel="icon" href= /assets/bit.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >My blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">flex布局时遇到overflow时滚动失效</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>My blog</a>
 </header>
@@ -62,21 +73,37 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            flex布局时遇到overflow时滚动失效
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/06/21</span>
+            </div>
         
     </div>
 </div>
@@ -144,316 +171,38 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>###使用flex布局时，有些需要滚动显示全部内容的元素不能滚动，其原因在于overflow失效。</p>
+<p>解决方法 ： 如果要超出范围，需要滚动条出现，最好<code>display:block</code>,因为flex是柔性盒子布局，所有的子元素都会被父元素装下，甚至可能自动缩小子元素的大小<br><br><br>&#8195;&#8195;如果一定要使用flex布局且出现滚动条，必要设置父元素和子元素的宽高，<br>   不使用<code>overflow:auto</code>，使用<code>overflow:scroll</code></p>
+<h3 id="flex-grow的使用"><a href="#flex-grow的使用" class="headerlink" title="flex-grow的使用"></a>flex-grow的使用</h3><p>flex-grow  属性用于设置或检索弹性盒子的扩展比率。(父元素的<strong><em>多余空白空间</em></strong>会以子元素flex-grow的值比例分配)<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"kid1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"kid2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"kid3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1000px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.kid1</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.kid2</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.kid3</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*初始width=0,多余部分为100%，所以会按比例划分*/</span></span><br><span class="line"><span class="comment">/*按1:2:3划分*/</span></span><br></pre></td></tr></table></figure>
+<p>如果要使子元素换行，则需要<code>flex-warp:warp</code></p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" title= 在微信小程序中使用阿里图标库的图标 >
+                    <span>Previous Post</span>
+                    <span>在微信小程序中使用阿里图标库的图标</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
     
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/19/hexo学习/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>hexo blog 搭建</span>
-                    </h2>
-                <div class="abstract-content">
-                    hexo blog 搭建学习连接
-hexo 绑定个人域名学习连接
-hexo Markdown语法特殊字符12345678910111213141516171819202122! &amp;#33; — 惊叹号Exclamation mark ” &amp;#34; &amp;quot; 双引号Quotation mark # &amp;#35; — 数字标志Number sign $ &amp;#36; — 美元标志Dollar sign % &amp;#37; — 百分号Percent sign &amp; &amp;#38; &amp;amp; Ampersand ‘ &amp;#3...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = hexo>hexo</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/19</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/13/java基础4/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>java基础4 面向对象</span>
-                    </h2>
-                <div class="abstract-content">
-                    方法重载与方法覆写的区别
+    <!--PC版-->
+
+    <!--PC版-->
 
 
-区别
-方法重载
-方法复写
-
-
-
-
-英文
-Overloading
-Override
-
-
-概念
-方法名称相同,参数的个数或者类型不同
-方法名称相同,参数的个数和类型相同,方法的访问权限不能更严格
-
-
-使用范围
-发生在同一个类中
-发生在继承关系中,是由子类进行复写
-
-
-
-
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = java>java</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/13</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/13/Java基础3/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Java基础 3 字符串</span>
-                    </h2>
-                <div class="abstract-content">
-                    字符串字符串比较 使用equals()比较 1234String str1="hello";String str2=new String("hello");str1.equals(str2);str1.equalsIgnoreCase(str2);//忽略大小写
-字符串与字符数组，byte数组的转换 1234567String str1="hello";char c[]=str1.toCharArray();//字符串变字符数组String str2=new String(c);//字符数组变字符串String str3=new String(c,0,3);//hel 起始位置 长度by...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = java>java</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/13</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/13/Java基础2/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Java基础 2 数组</span>
-                    </h2>
-                <div class="abstract-content">
-                    数组数组声明123String[] aArray = new String[5];  String[] bArray = &#123;"a","b","c", "d", "e"&#125;;  String[] cArray = new String[]&#123;"a","b","c","d","e"&#125;;
-数组遍历输出1234int[] intArray = &#123; 1, 2, 3, 4, 5 &#125;;  String intArrayString = Arrays.toString(intArray); System.out.println(intArraySt...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = java>java</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/13</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/12/java基础1/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Java基础 1 数据类型</span>
-                    </h2>
-                <div class="abstract-content">
-                    java标识符  java中包、类、方法、变量的名字可由任意顺序的大小写字母、数字、下划线(_)、美元符号($)组成。
-java注释
-单行注释： //。
-多行注释   / &#42;…*/。
-文档注释  /&#42;&#42;…*/。123/**@author lly*/
-
-
-数据类型
-
-
-数据类型
-大小位
-可表示的范围
-
-
-
-
-byte
-8
--128~127
-
-
-short
-16
--32768~32767
-
-
-int
-32
--2147483648~2147483647
-
-
-long
-64
-很长
-
-
-float
-32
--3.4E38~3.4E38
-
-
-double
-64
--1.7E308...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = java>java</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/12</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/08/jquery委托事件/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>jquery委托事件</span>
-                    </h2>
-                <div class="abstract-content">
-                    为未来新添加的节点绑定事件未绑定委托事件以下例子只能通过点击第一个 p元素 来创建节点，点击 新生成的p元素 是不会有反应的。123&lt;div class="container"&gt;    &lt;p&gt;点击创建一个新的p元素&lt;/p&gt;&lt;/div&gt;
-123$(".container p").click(function()&#123;  $(this).after("&lt;p&gt;点击创建一个新的p元素&lt;/p&gt;");&#125;);
-绑定委托事件使用 on()方法来为未来节点绑定事件。1234//使用on方法$(".container")...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = jquery>jquery</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/08</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/08/平滑锚点滚动/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>平滑锚点滚动</span>
-                    </h2>
-                <div class="abstract-content">
-                    123&lt;a id="submit" href="#" page-scroll="#second"&gt;submit&lt;/a&gt;&lt;div style="width: 100%;height: 100vh;background-color: red" id="first"&gt;&lt;/div&gt;&lt;div style="width: 100%;height: 100vh;background-color: yellow" id="second"&gt;&lt;/div&gt;
-1234567891011121314151617$(document).read...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = jquery>jquery</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/08</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/08/localStorage/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>localStorage</span>
-                    </h2>
-                <div class="abstract-content">
-                    localStorage特性域内安全、永久保存。即客户端或浏览器中来自同一域名的所有页面都可访问localStorage数据且数据除了删除否则永久保存，但客户端或浏览器之间的数据相互独立。
-判断浏览器是否支持localStorage123456if(!window.localStorage)&#123;            alert("浏览器支持localstorage");            return false;        &#125;else&#123;            //主逻辑业务        &#125;
-localStorage写入localStor...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/08</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
     
 </main>
             <!-- profile -->
@@ -497,6 +246,13 @@ localStorage写入localStor...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-grow的使用"><span class="toc-number">1.</span> <span class="toc-text"><a href="#flex-grow&#x7684;&#x4F7F;&#x7528;" class="headerlink" title="flex-grow&#x7684;&#x4F7F;&#x7528;"></a>flex-grow&#x7684;&#x4F7F;&#x7528;</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">
