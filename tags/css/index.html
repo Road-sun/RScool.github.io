@@ -149,14 +149,15 @@
     
     
         <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/13/Java基础3/" >
+            <a class="content-show-full" href = "/2018/06/21/flex布局时遇到overflow时滚动失效-1/" >
                     <h2 class="abstract-title">
                         
-                        <span>Java基础 3 字符串</span>
+                        <span>flex布局时遇到overflow时滚动失效</span>
                     </h2>
                 <div class="abstract-content">
-                    字符串字符串比较 使用equals()比较 1234String str1="hello";String str2=new String("hello");str1.equals(str2);str1.equalsIgnoreCase(str2);//忽略大小写
-字符串与字符数组，byte数组的转换 1234567String str1="hello";char c[]=str1.toCharArray();//字符串变字符数组String str2=new String(c);//字符数组变字符串String str3=new String(c,0,3);//hel 起始位置 长度by...
+                    ###使用flex布局时，有些需要滚动显示全部内容的元素不能滚动，其原因在于overflow失效。
+解决方法 ： 如果要超出范围，需要滚动条出现，最好display:block,因为flex是柔性盒子布局，所有的子元素都会被父元素装下，甚至可能自动缩小子元素的大小&#8195;&#8195;如果一定要使用flex布局且出现滚动条，必要设置父元素和子元素的宽高，   不使用overflow:auto，使用overflow:scroll
+flex-grow的使用flex-grow  属性用于设置或检索弹性盒子的扩展比率。(父元素的多余空白空间会以子元素flex-grow的值比例分配)1234...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -164,13 +165,13 @@
                 
                 <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = java>java</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = css>css</a>
     
 </div>
                 
                 <!-- date  -->
                 <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/13</span>
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/06/21</span>
                 </div>
             </div>
         </article>
