@@ -179,10 +179,10 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>微信小程序底层实现侧滑餐单<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--侧滑栏--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"left &#123;&#123;sideslip ?'left-right-shift':'left-left-shift'&#125;&#125;"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>item1<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>item2<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>item3<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>item4<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--主页    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"right &#123;&#123;sideslip ?'right-right-shift':'right-left-shift'&#125;&#125;"</span> &gt;</span></span><br><span class="line">       <span class="comment">&lt;!--遮罩层--&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"&#123;&#123;sideslip ?'sideslip':'shade-cunceal'&#125;&#125; "</span> <span class="attr">bindtap</span>=<span class="string">'touchSideslip'</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">view</span> <span class="attr">bindtap</span>=<span class="string">'touchSideslip'</span>&gt;</span>点击开始侧滑<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">       this is a main body.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+        <p>###微信小程序底层实现侧滑餐单<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--侧滑栏--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"left &#123;&#123;sideslip ?'left-right-shift':'left-left-shift'&#125;&#125;"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>item1<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>item2<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>item3<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>item4<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--主页    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"right &#123;&#123;sideslip ?'right-right-shift':'right-left-shift'&#125;&#125;"</span> &gt;</span></span><br><span class="line">       <span class="comment">&lt;!--遮罩层--&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"&#123;&#123;sideslip ?'sideslip':'shade-cunceal'&#125;&#125; "</span> <span class="attr">bindtap</span>=<span class="string">'touchSideslip'</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">view</span> <span class="attr">bindtap</span>=<span class="string">'touchSideslip'</span>&gt;</span>点击开始侧滑<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">       this is a main body.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.main</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">     <span class="attribute">position</span>: absolute;</span><br><span class="line">     <span class="attribute">display</span>: flex;</span><br><span class="line">     <span class="attribute">width</span>: <span class="number">75%</span>;</span><br><span class="line">     <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">     <span class="attribute">transform</span>:  <span class="built_in">translate</span>(-100%,0%); </span><br><span class="line">     <span class="attribute">-webkit-transform</span>:  <span class="built_in">translate</span>(-100%,0%);</span><br><span class="line">     <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(225, 225, 225, 0.91);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item</span>&#123;</span><br><span class="line">     <span class="attribute">display</span>: flex;</span><br><span class="line">     <span class="attribute">align-items</span>: center;</span><br><span class="line">     <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">     <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">     <span class="attribute">height</span>: <span class="number">80</span>rpx;</span><br><span class="line">     <span class="attribute">padding-left</span>: <span class="number">20</span>rpx;</span><br><span class="line">     <span class="attribute">font-size</span>: <span class="number">30</span>rpx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*遮罩层*/</span></span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">     <span class="attribute">display</span>: flex;</span><br><span class="line">     <span class="attribute">flex-direction</span>: column;</span><br><span class="line">     <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">     <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">     <span class="attribute">z-index</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.shade</span>&#123;</span><br><span class="line">     <span class="attribute">display</span>: block;</span><br><span class="line">     <span class="attribute">position</span>: absolute; </span><br><span class="line">     <span class="attribute">z-index</span>: <span class="number">1</span>;</span><br><span class="line">     <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">     <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">     <span class="attribute">background</span>: <span class="built_in">rgba</span>(9, 9, 9, 0.7);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*侧滑栏左移*/</span></span><br><span class="line"><span class="selector-class">.left-left-shift</span>&#123;</span><br><span class="line">     <span class="attribute">transition</span>: transform <span class="number">0.3s</span>;</span><br><span class="line">     <span class="attribute">transform</span>:  <span class="built_in">translate</span>(0%,0%); </span><br><span class="line">     <span class="attribute">-webkit-transform</span>:  <span class="built_in">translate</span>(0%,0%);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*侧滑栏右移（移回）*/</span></span><br><span class="line"><span class="selector-class">.left-right-shift</span>&#123;</span><br><span class="line">     <span class="attribute">transition</span>: transform <span class="number">0.3s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*主页右移*/</span></span><br><span class="line"><span class="selector-class">.right-right-shift</span>&#123;</span><br><span class="line">     <span class="attribute">position</span>: absolute;</span><br><span class="line">     <span class="attribute">transition</span>: transform <span class="number">0.3s</span>;</span><br><span class="line">     <span class="attribute">transform</span>:  <span class="built_in">translate</span>(75%,0%); </span><br><span class="line">     <span class="attribute">-webkit-transform</span>:  <span class="built_in">translate</span>(75%,0%);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*主页左移*/</span></span><br><span class="line"><span class="selector-class">.right-left-shift</span>&#123;</span><br><span class="line">     <span class="attribute">position</span>: absolute;</span><br><span class="line">     <span class="attribute">transition</span>: transform <span class="number">0.3s</span>;</span><br><span class="line">     <span class="attribute">transform</span>:  <span class="built_in">translate</span>(0%,0%); </span><br><span class="line">     <span class="attribute">-webkit-transform</span>:  <span class="built_in">translate</span>(0%,0%);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*遮罩层隐藏*/</span></span><br><span class="line"><span class="selector-class">.shade-cunceal</span>&#123;</span><br><span class="line">     <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    sideslip:<span class="literal">false</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">//点击侧滑</span></span><br><span class="line">touchSideslip:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.data.sideslip)&#123;</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        sideslip:<span class="literal">false</span>, </span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        sideslip: <span class="literal">true</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>效果<br><br><img src="http://p74fhw4q5.bkt.clouddn.com/blog/sideslip.gif" alt="效果图"></p>
+<p>###效果<br><img src="http://p74fhw4q5.bkt.clouddn.com/blog/sideslip.gif" alt="效果图"></p>
 
     </article>
     <!-- 前后页  -->
@@ -441,16 +441,40 @@
     
     
     
-    
-    
-    
-    
     <div class="total-archive"> Total : 14 </div>
     
     <div class="post-archive">
     
     
     
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2017/12/08/jquery委托事件/" >jquery委托事件</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/06/23/微信小程序改变原生按钮与滚动条样式-1/" >[Untitled Post]</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
@@ -467,12 +491,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序传值以及获取值方法/" >微信小程序传值以及获取值方法</a>
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >在微信小程序中使用阿里图标库的图标</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >在微信小程序中使用阿里图标库的图标</a>
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序传值以及获取值方法/" >微信小程序传值以及获取值方法</a>
         </li>
     
     
@@ -516,34 +540,6 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2017/12/08/jquery委托事件/" >jquery委托事件</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/06/23/微信小程序改变原生按钮与滚动条样式-1/" >[Untitled Post]</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2017 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2017/12/08/平滑锚点滚动/" >平滑锚点滚动</a>
         </li>
     
@@ -561,13 +557,13 @@
     
         <span class="sidebar-tag-name"><a href= "#">java</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">hexo</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">javascript</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">微信小程序</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">jquery</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">hexo</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
