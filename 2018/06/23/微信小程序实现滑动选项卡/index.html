@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        js encodeuri()在微信小程序中的应用 · This is my world
+        微信小程序实现滑动选项卡 · This is my world
         
     </title>
     <link rel="icon" href= /assets/bit.ico>
@@ -63,7 +63,7 @@
                 <a href="/" >My blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">js encodeuri()在微信小程序中的应用</a>
+                <a href="#" class="post-name">微信小程序实现滑动选项卡</a>
             </div>
     </div>
     
@@ -84,7 +84,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            js encodeuri()在微信小程序中的应用
+            微信小程序实现滑动选项卡
             <!-- 404 -->
             
         </h1>
@@ -102,15 +102,13 @@
             
                 <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-href = 微信小程序>微信小程序</a>
     
 </div>
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/04/08</span>
+                <span class="post-intro-time">2018/06/23</span>
             </div>
         
     </div>
@@ -181,37 +179,25 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h4 id="encodeURI"><a href="#encodeURI" class="headerlink" title="encodeURI()"></a>encodeURI()</h4><p>encodeURI() 函数可把字符串作为 URI 进行编码。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">encodeURI</span>(URIstring)</span><br></pre></td></tr></table></figure></p>
-<h5 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h5><p>该方法不会对 ASCII 字母和数字进行编码，也不会对这些 ASCII 标点符号进行编码： - _ . ! ~ * ‘ ( ) 。</p>
-<h4 id="encodeURI-在微信小程序中的应用"><a href="#encodeURI-在微信小程序中的应用" class="headerlink" title="encodeURI()在微信小程序中的应用"></a>encodeURI()在微信小程序中的应用</h4><p>因为微信小程序中标签id不能以数字开头，不能使用汉字，命名方法与c语言变量名相仿，只能以下划线与字母开头。所以当不得已时可以使用encodeURI()来转码。</p>
-<h4 id="微信小程序中如何在Mustache-语法（双大括号）中调用函数"><a href="#微信小程序中如何在Mustache-语法（双大括号）中调用函数" class="headerlink" title="微信小程序中如何在Mustache 语法（双大括号）中调用函数"></a>微信小程序中如何在Mustache 语法（双大括号）中调用函数</h4><ol>
-<li>创建<code>.wxs</code>文件，类似<code>.js</code>文件。</li>
-<li><p>在<code>.wxs</code>文件中写函数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> encode = &#123;</span><br><span class="line">  <span class="built_in">encodeURI</span>: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">encodeURI</span>(e);</span><br><span class="line">  &#125;,</span><br><span class="line">  encodeURIwithoutPercent: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">encodeURI</span>(e).split(<span class="string">"%"</span>).join(<span class="string">""</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="built_in">encodeURI</span>: encode.encodeURI,</span><br><span class="line">  encodeURIWP: encode.encodeURIwithoutPercent</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>.wxml</code>文件中引入</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">wxs</span> <span class="attr">module</span>=<span class="string">"module"</span> <span class="attr">src</span>=<span class="string">'module.wxs'</span>&gt;</span><span class="tag">&lt;/<span class="name">wxs</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在大括号中调用函数</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">id</span>=<span class="string">"&#123;&#123;module.encodeURIWP('张三')&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">wxs</span> <span class="attr">module</span>=<span class="string">"module"</span> <span class="attr">src</span>=<span class="string">'module.wxs'</span>&gt;</span><span class="tag">&lt;/<span class="name">wxs</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ol>
+        <h3 id="微信小程序利用swiper实现滑动tab"><a href="#微信小程序利用swiper实现滑动tab" class="headerlink" title="微信小程序利用swiper实现滑动tab"></a>微信小程序利用swiper实现滑动tab</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">'main-tab'</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">"iconfont icon-yinyue &#123;&#123;current==0 ?'main-tab-is':''&#125;&#125;"</span> <span class="attr">bindtap</span>=<span class="string">'changeTab'</span> <span class="attr">data-current</span>=<span class="string">'0'</span>&gt;</span><span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">"iconfont icon-play_icon &#123;&#123;current==1 ?'main-tab-is':''&#125;&#125;"</span> <span class="attr">bindtap</span>=<span class="string">'changeTab'</span> <span class="attr">data-current</span>=<span class="string">'1'</span>&gt;</span><span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">"iconfont icon-vynil &#123;&#123;current==2 ?'main-tab-is':''&#125;&#125;"</span> <span class="attr">bindtap</span>=<span class="string">'changeTab'</span> <span class="attr">data-current</span>=<span class="string">'2'</span>&gt;</span><span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">swiper</span> <span class="attr">duration</span>=<span class="string">'200'</span> <span class="attr">current</span>=<span class="string">'&#123;&#123;current&#125;&#125;'</span> <span class="attr">bindchange</span>=<span class="string">"bindChange"</span> <span class="attr">class</span>=<span class="string">'main-swiper'</span>&gt;</span></span><br><span class="line">      </span><br><span class="line">      <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span>&gt;</span>1<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span>&gt;</span>2<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">swiper-item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">view</span>&gt;</span>3<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">swiper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.main-tab</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">font-weight</span>: <span class="number">500</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">rgba</span>(246, 246, 246, 0.67) </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.main-tab-is</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: white</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.main-swiper</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">    current:<span class="number">0</span>,</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">//点击切换</span></span><br><span class="line">changeTab:<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      current: e.target.dataset.current</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br><span class="line">  <span class="comment">//滑动切换</span></span><br><span class="line">bindChange: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">      current: e.detail.current,</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img src="http://p74fhw4q5.bkt.clouddn.com/blog/tabslip.gif" alt="效果图"></p>
+<h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3><ul>
+<li>利用swiper控件的current属性 <a href="https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html" target="_blank" rel="noopener">请移步</a></li>
+<li>图标由阿里图标库引入 <a href="https://road-sun.github.io/2018/04/08/%E5%9C%A8%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E5%9B%BE%E6%A0%87%E5%BA%93%E7%9A%84%E5%9B%BE%E6%A0%87/" target="_blank" rel="noopener">请移步</a></li>
+<li>微信小程序数据绑定 <a href="https://road-sun.github.io/2018/04/08/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BC%A0%E5%80%BC%E4%BB%A5%E5%8F%8A%E8%8E%B7%E5%8F%96%E5%80%BC%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">请移步</a></li>
+</ul>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/04/08/微信小程序传值以及获取值方法/" title= 微信小程序传值以及获取值方法 >
-                    <span>Next Post</span>
-                    <span>微信小程序传值以及获取值方法</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2018/04/08/微信小程序改变原生按钮与滚动条样式-1/" title=  微信小程序改变原生按钮与滚动条样式 >
+                <a href= "/2018/06/23/微信小程序实现侧滑菜单/" title= 微信小程序实现侧滑菜单 >
                     <span>Previous Post</span>
-                    <span> 微信小程序改变原生按钮与滚动条样式</span>
+                    <span>微信小程序实现侧滑菜单</span>
                 </a>
             </li>
         
@@ -275,7 +261,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#encodeURI"><span class="toc-number">1.</span> <span class="toc-text"><a href="#encodeURI" class="headerlink" title="encodeURI()"></a>encodeURI()</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#说明"><span class="toc-number">1.1.</span> <span class="toc-text"><a href="#&#x8BF4;&#x660E;" class="headerlink" title="&#x8BF4;&#x660E;"></a>&#x8BF4;&#x660E;</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#encodeURI-在微信小程序中的应用"><span class="toc-number">2.</span> <span class="toc-text"><a href="#encodeURI-&#x5728;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x5E94;&#x7528;" class="headerlink" title="encodeURI()&#x5728;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x5E94;&#x7528;"></a>encodeURI()&#x5728;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x5E94;&#x7528;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#微信小程序中如何在Mustache-语法（双大括号）中调用函数"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x5982;&#x4F55;&#x5728;Mustache-&#x8BED;&#x6CD5;&#xFF08;&#x53CC;&#x5927;&#x62EC;&#x53F7;&#xFF09;&#x4E2D;&#x8C03;&#x7528;&#x51FD;&#x6570;" class="headerlink" title="&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x5982;&#x4F55;&#x5728;Mustache &#x8BED;&#x6CD5;&#xFF08;&#x53CC;&#x5927;&#x62EC;&#x53F7;&#xFF09;&#x4E2D;&#x8C03;&#x7528;&#x51FD;&#x6570;"></a>&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x5982;&#x4F55;&#x5728;Mustache &#x8BED;&#x6CD5;&#xFF08;&#x53CC;&#x5927;&#x62EC;&#x53F7;&#xFF09;&#x4E2D;&#x8C03;&#x7528;&#x51FD;&#x6570;</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#微信小程序利用swiper实现滑动tab"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x5229;&#x7528;swiper&#x5B9E;&#x73B0;&#x6ED1;&#x52A8;tab" class="headerlink" title="&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x5229;&#x7528;swiper&#x5B9E;&#x73B0;&#x6ED1;&#x52A8;tab"></a>&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x5229;&#x7528;swiper&#x5B9E;&#x73B0;&#x6ED1;&#x52A8;tab</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#效果"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x6548;&#x679C;" class="headerlink" title="&#x6548;&#x679C;"></a>&#x6548;&#x679C;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现思路"><span class="toc-number">3.</span> <span class="toc-text"><a href="#&#x5B9E;&#x73B0;&#x601D;&#x8DEF;" class="headerlink" title="&#x5B9E;&#x73B0;&#x601D;&#x8DEF;"></a>&#x5B9E;&#x73B0;&#x601D;&#x8DEF;</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
