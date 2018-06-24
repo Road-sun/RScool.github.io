@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        This is my world
+        vue与微信小程序中获取当前选中元素 · This is my world
         
     </title>
     <link rel="icon" href= /assets/bit.ico>
@@ -50,11 +50,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >My blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">vue与微信小程序中获取当前选中元素</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>My blog</a>
 </header>
@@ -62,21 +73,45 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            vue与微信小程序中获取当前选中元素
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 微信小程序>微信小程序</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = vue>vue</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/06/24</span>
+            </div>
         
     </div>
 </div>
@@ -144,236 +179,37 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h3 id="vue-获取当前元素"><a href="#vue-获取当前元素" class="headerlink" title="vue 获取当前元素"></a>vue 获取当前元素</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">v-on:click</span>=<span class="string">"typeStyle($event)"</span>&gt;</span>萨克斯萨克<span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">typeStyle: function (e) &#123;</span><br><span class="line"></span><br><span class="line">    var et = e.target;</span><br><span class="line">    &lt;!--当前元素，可修改（能够用此方法获取到他的子元素等）--&gt;</span><br><span class="line">    var ec = e.currentTarget;</span><br><span class="line">    &lt;!--当前元素，不可修改（不能用此方法获取到他的子元素等--&gt;</span><br><span class="line">    $(ec)</span><br><span class="line">    &lt;!--当前jq元素,配合jquery,dom--&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>微信小程序类似，监听bindtap事件</p>
+<p>在原生<strong>js与jquery中this指向永远和currentTarget指向一致（只考虑this的普通函数调用）。<br>但是在<strong>vue</strong>中,this指向vue实例，所以控制事件选中不能用this</strong></p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/06/23/微信小程序实现滑动选项卡/" title= 微信小程序实现滑动选项卡 >
+                    <span>Previous Post</span>
+                    <span>微信小程序实现滑动选项卡</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
     
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/13/Java基础3/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Java基础 3 字符串</span>
-                    </h2>
-                <div class="abstract-content">
-                    字符串字符串比较 使用equals()比较 1234String str1="hello";String str2=new String("hello");str1.equals(str2);str1.equalsIgnoreCase(str2);//忽略大小写
-字符串与字符数组，byte数组的转换 1234567String str1="hello";char c[]=str1.toCharArray();//字符串变字符数组String str2=new String(c);//字符数组变字符串String str3=new String(c,0,3);//hel 起始位置 长度by...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = java>java</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/13</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/13/Java基础2/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Java基础 2 数组</span>
-                    </h2>
-                <div class="abstract-content">
-                    数组数组声明123String[] aArray = new String[5];  String[] bArray = &#123;"a","b","c", "d", "e"&#125;;  String[] cArray = new String[]&#123;"a","b","c","d","e"&#125;;
-数组遍历输出1234int[] intArray = &#123; 1, 2, 3, 4, 5 &#125;;  String intArrayString = Arrays.toString(intArray); System.out.println(intArraySt...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = java>java</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/13</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/12/java基础1/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Java基础 1 数据类型</span>
-                    </h2>
-                <div class="abstract-content">
-                    java标识符  java中包、类、方法、变量的名字可由任意顺序的大小写字母、数字、下划线(_)、美元符号($)组成。
-java注释
-单行注释： //。
-多行注释   / &#42;…*/。
-文档注释  /&#42;&#42;…*/。123/**@author lly*/
+    <!--PC版-->
+
+    <!--PC版-->
 
 
-数据类型
-
-
-数据类型
-大小位
-可表示的范围
-
-
-
-
-byte
-8
--128~127
-
-
-short
-16
--32768~32767
-
-
-int
-32
--2147483648~2147483647
-
-
-long
-64
-很长
-
-
-float
-32
--3.4E38~3.4E38
-
-
-double
-64
--1.7E308...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = java>java</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/12</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/08/jquery委托事件/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>jquery委托事件</span>
-                    </h2>
-                <div class="abstract-content">
-                    为未来新添加的节点绑定事件未绑定委托事件以下例子只能通过点击第一个 p元素 来创建节点，点击 新生成的p元素 是不会有反应的。123&lt;div class="container"&gt;    &lt;p&gt;点击创建一个新的p元素&lt;/p&gt;&lt;/div&gt;
-123$(".container p").click(function()&#123;  $(this).after("&lt;p&gt;点击创建一个新的p元素&lt;/p&gt;");&#125;);
-绑定委托事件使用 on()方法来为未来节点绑定事件。1234//使用on方法$(".container")...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = jquery>jquery</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/08</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/08/平滑锚点滚动/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>平滑锚点滚动</span>
-                    </h2>
-                <div class="abstract-content">
-                    123&lt;a id="submit" href="#" page-scroll="#second"&gt;submit&lt;/a&gt;&lt;div style="width: 100%;height: 100vh;background-color: red" id="first"&gt;&lt;/div&gt;&lt;div style="width: 100%;height: 100vh;background-color: yellow" id="second"&gt;&lt;/div&gt;
-1234567891011121314151617$(document).read...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = jquery>jquery</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/08</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/08/localStorage/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>localStorage</span>
-                    </h2>
-                <div class="abstract-content">
-                    localStorage特性域内安全、永久保存。即客户端或浏览器中来自同一域名的所有页面都可访问localStorage数据且数据除了删除否则永久保存，但客户端或浏览器之间的数据相互独立。
-判断浏览器是否支持localStorage123456if(!window.localStorage)&#123;            alert("浏览器支持localstorage");            return false;        &#125;else&#123;            //主逻辑业务        &#125;
-localStorage写入localStor...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = javascript>javascript</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/08</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/">#PREV</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
     
 </main>
             <!-- profile -->
@@ -417,6 +253,13 @@ localStorage写入localStor...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-获取当前元素"><span class="toc-number">1.</span> <span class="toc-text"><a href="#vue-&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5143;&#x7D20;" class="headerlink" title="vue &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5143;&#x7D20;"></a>vue &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5143;&#x7D20;</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">
