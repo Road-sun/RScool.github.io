@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>
+        
+        Java基础 3 字符串 · This is my world
+        
+    </title>
+    <link rel="icon" href= /assets/bit.ico>
+    <!-- TODO: 在font-face加载完毕后改变字体  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+    <!-- 提前加载place holder  -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url(/font/Oswald-Regular.ttf);
+        }
+    </style>
+    <style type="text/css">
+        .site-intro-placeholder {
+            position: absolute;
+            z-index: -2;
+            top: 0;
+            left: 0px;
+            width: calc(100% + 300px);
+            height: 100%;
+            background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+            background-position: center center;
+            transform: translate3d(-226px, 0, 0);
+            animation: gradient-move 2.5s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+    <link rel="stylesheet" href = /css/style.css?v=20171020 />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >My blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Java基础 3 字符串</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>My blog</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Java基础 3 字符串
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = java>java</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/12/13</span>
+            </div>
+        
+    </div>
+</div>
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <script>
+            var browser = {
+                    versions: function () {
+                        var u = window.navigator.userAgent;
+                        return {
+                            userAgent: u,
+                            trident: u.indexOf('Trident') > -1, //IE内核
+                            presto: u.indexOf('Presto') > -1, //opera内核
+                            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+                            iPad: u.indexOf('iPad') > -1, //是否为iPad
+                            webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+                            weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+                            uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+                        };
+                    }()
+                }
+
+            function fontLoaded(){
+                console.log('font loaded');
+                if (document.getElementsByClassName('site-intro-meta')) {
+                    document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+                    document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+                    var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+                        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+                        if (postIntroTags) {
+                            postIntroTags.classList.add('post-fade-in');
+                        }
+                        if (postIntroMeat) {
+                            postIntroMeat.classList.add('post-fade-in');
+                        }
+                    }
+                }
+                
+            console.log("userAgent:" + browser.versions.userAgent);
+            // UC不支持跨域，所以直接显示
+            if (browser.versions.uc) {
+                console.log("UCBrowser");
+                fontLoaded();
+            } else {
+                WebFont.load({
+                    custom: {
+                        families: ['Oswald-Regular']
+                    },
+                    loading: function () {  //所有字体开始加载
+                        // console.log('loading');
+                    },
+                    active: function () {  //所有字体已渲染
+                        fontLoaded();
+                    },
+                    inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+                        console.log('inactive: timeout');
+                        fontLoaded();
+                    },
+                    timeout: 7000 // Set the timeout to two seconds
+                });
+            }
+        </script>
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h5 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h5><p> 使用equals()比较<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str1=<span class="string">"hello"</span>;</span><br><span class="line">String str2=<span class="keyword">new</span> String(<span class="string">"hello"</span>);</span><br><span class="line">str1.equals(str2);</span><br><span class="line">str1.equalsIgnoreCase(str2);<span class="comment">//忽略大小写</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="字符串与字符数组，byte数组的转换"><a href="#字符串与字符数组，byte数组的转换" class="headerlink" title="字符串与字符数组，byte数组的转换"></a>字符串与字符数组，byte数组的转换</h5> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String str1=<span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">char</span> c[]=str1.toCharArray();<span class="comment">//字符串变字符数组</span></span><br><span class="line">String str2=<span class="keyword">new</span> String(c);<span class="comment">//字符数组变字符串</span></span><br><span class="line">String str3=<span class="keyword">new</span> String(c,<span class="number">0</span>,<span class="number">3</span>);<span class="comment">//hel 起始位置 长度</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">byte</span> b[]=str1.getBytes();</span><br><span class="line">String str2=<span class="keyword">new</span> String(b,<span class="number">0</span>,<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="从字符串中取出指定位置的字符"><a href="#从字符串中取出指定位置的字符" class="headerlink" title="从字符串中取出指定位置的字符"></a>从字符串中取出指定位置的字符</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String str1=<span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">char</span> a=str1.charAt(<span class="number">3</span>);<span class="comment">//取出字符串第四个字符</span></span><br></pre></td></tr></table></figure>
+<h5 id="查找一个指定字符串是否存在"><a href="#查找一个指定字符串是否存在" class="headerlink" title="查找一个指定字符串是否存在"></a>查找一个指定字符串是否存在</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str1=<span class="string">"hello"</span>;</span><br><span class="line">str1.indexOf(<span class="string">"e"</span>); <span class="comment">//返回位置，没查到返回-1</span></span><br><span class="line">str1.indexOf(<span class="string">"c"</span>,<span class="number">3</span>); <span class="comment">//从指定位置查询</span></span><br></pre></td></tr></table></figure>
+<h5 id="字符串去左右空格，字符串截取"><a href="#字符串去左右空格，字符串截取" class="headerlink" title="字符串去左右空格，字符串截取"></a>字符串去左右空格，字符串截取</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str1.trim();</span><br><span class="line">str1.substring(<span class="number">6</span>);<span class="comment">//从第7个位置开始截取</span></span><br><span class="line">str1.substring(<span class="number">0</span>,<span class="number">5</span>);<span class="comment">//截取0~5个位置的内容</span></span><br></pre></td></tr></table></figure>
+<h5 id="按照指定要求拆分字符串"><a href="#按照指定要求拆分字符串" class="headerlink" title="按照指定要求拆分字符串"></a>按照指定要求拆分字符串</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s[] =str1.split(<span class="string">" "</span>); <span class="comment">//按空格进行字符串的拆分</span></span><br><span class="line">str1.split(<span class="string">"*"</span>) <span class="comment">//按*号进行字符串拆分</span></span><br></pre></td></tr></table></figure>
+<h5 id="字符串大小写转换"><a href="#字符串大小写转换" class="headerlink" title="字符串大小写转换"></a>字符串大小写转换</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str1.toUpperCase();<span class="comment">//转成大写</span></span><br><span class="line">str1.toLowerCase();<span class="comment">//转成小写</span></span><br></pre></td></tr></table></figure>
+<h5 id="判断是否以指定的字符串开头或结尾"><a href="#判断是否以指定的字符串开头或结尾" class="headerlink" title="判断是否以指定的字符串开头或结尾"></a>判断是否以指定的字符串开头或结尾</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str1.starsWith(<span class="string">"*"</span>);<span class="comment">//判断是否以“*”结尾，返回ture</span></span><br><span class="line">str1.endsWith(<span class="string">"*"</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="将一个指定的字符串替换成其他的字符串"><a href="#将一个指定的字符串替换成其他的字符串" class="headerlink" title="将一个指定的字符串替换成其他的字符串"></a>将一个指定的字符串替换成其他的字符串</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String str1=<span class="string">"hello"</span>;</span><br><span class="line">str1.replaceAll(<span class="string">"l"</span>,<span class="string">"x"</span>);<span class="comment">//hexxo</span></span><br></pre></td></tr></table></figure>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2017/12/13/java基础4/" title= java基础4 面向对象 >
+                    <span>Next Post</span>
+                    <span>java基础4 面向对象</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2017/12/13/Java基础2/" title= Java基础 2 数组 >
+                    <span>Previous Post</span>
+                    <span>Java基础 2 数组</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:739646645@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/Road-sun" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title="rss"></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x5B57;&#x7B26;&#x4E32;" class="headerlink" title="&#x5B57;&#x7B26;&#x4E32;"></a>&#x5B57;&#x7B26;&#x4E32;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#字符串比较"><span class="toc-number">1.0.1.</span> <span class="toc-text"><a href="#&#x5B57;&#x7B26;&#x4E32;&#x6BD4;&#x8F83;" class="headerlink" title="&#x5B57;&#x7B26;&#x4E32;&#x6BD4;&#x8F83;"></a>&#x5B57;&#x7B26;&#x4E32;&#x6BD4;&#x8F83;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字符串与字符数组，byte数组的转换"><span class="toc-number">1.0.2.</span> <span class="toc-text"><a href="#&#x5B57;&#x7B26;&#x4E32;&#x4E0E;&#x5B57;&#x7B26;&#x6570;&#x7EC4;&#xFF0C;byte&#x6570;&#x7EC4;&#x7684;&#x8F6C;&#x6362;" class="headerlink" title="&#x5B57;&#x7B26;&#x4E32;&#x4E0E;&#x5B57;&#x7B26;&#x6570;&#x7EC4;&#xFF0C;byte&#x6570;&#x7EC4;&#x7684;&#x8F6C;&#x6362;"></a>&#x5B57;&#x7B26;&#x4E32;&#x4E0E;&#x5B57;&#x7B26;&#x6570;&#x7EC4;&#xFF0C;byte&#x6570;&#x7EC4;&#x7684;&#x8F6C;&#x6362;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#从字符串中取出指定位置的字符"><span class="toc-number">1.0.3.</span> <span class="toc-text"><a href="#&#x4ECE;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x53D6;&#x51FA;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;&#x5B57;&#x7B26;" class="headerlink" title="&#x4ECE;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x53D6;&#x51FA;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;&#x5B57;&#x7B26;"></a>&#x4ECE;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x53D6;&#x51FA;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;&#x5B57;&#x7B26;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查找一个指定字符串是否存在"><span class="toc-number">1.0.4.</span> <span class="toc-text"><a href="#&#x67E5;&#x627E;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x5426;&#x5B58;&#x5728;" class="headerlink" title="&#x67E5;&#x627E;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x5426;&#x5B58;&#x5728;"></a>&#x67E5;&#x627E;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x5426;&#x5B58;&#x5728;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字符串去左右空格，字符串截取"><span class="toc-number">1.0.5.</span> <span class="toc-text"><a href="#&#x5B57;&#x7B26;&#x4E32;&#x53BB;&#x5DE6;&#x53F3;&#x7A7A;&#x683C;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x622A;&#x53D6;" class="headerlink" title="&#x5B57;&#x7B26;&#x4E32;&#x53BB;&#x5DE6;&#x53F3;&#x7A7A;&#x683C;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x622A;&#x53D6;"></a>&#x5B57;&#x7B26;&#x4E32;&#x53BB;&#x5DE6;&#x53F3;&#x7A7A;&#x683C;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x622A;&#x53D6;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#按照指定要求拆分字符串"><span class="toc-number">1.0.6.</span> <span class="toc-text"><a href="#&#x6309;&#x7167;&#x6307;&#x5B9A;&#x8981;&#x6C42;&#x62C6;&#x5206;&#x5B57;&#x7B26;&#x4E32;" class="headerlink" title="&#x6309;&#x7167;&#x6307;&#x5B9A;&#x8981;&#x6C42;&#x62C6;&#x5206;&#x5B57;&#x7B26;&#x4E32;"></a>&#x6309;&#x7167;&#x6307;&#x5B9A;&#x8981;&#x6C42;&#x62C6;&#x5206;&#x5B57;&#x7B26;&#x4E32;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字符串大小写转换"><span class="toc-number">1.0.7.</span> <span class="toc-text"><a href="#&#x5B57;&#x7B26;&#x4E32;&#x5927;&#x5C0F;&#x5199;&#x8F6C;&#x6362;" class="headerlink" title="&#x5B57;&#x7B26;&#x4E32;&#x5927;&#x5C0F;&#x5199;&#x8F6C;&#x6362;"></a>&#x5B57;&#x7B26;&#x4E32;&#x5927;&#x5C0F;&#x5199;&#x8F6C;&#x6362;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#判断是否以指定的字符串开头或结尾"><span class="toc-number">1.0.8.</span> <span class="toc-text"><a href="#&#x5224;&#x65AD;&#x662F;&#x5426;&#x4EE5;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5F00;&#x5934;&#x6216;&#x7ED3;&#x5C3E;" class="headerlink" title="&#x5224;&#x65AD;&#x662F;&#x5426;&#x4EE5;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5F00;&#x5934;&#x6216;&#x7ED3;&#x5C3E;"></a>&#x5224;&#x65AD;&#x662F;&#x5426;&#x4EE5;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5F00;&#x5934;&#x6216;&#x7ED3;&#x5C3E;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#将一个指定的字符串替换成其他的字符串"><span class="toc-number">1.0.9.</span> <span class="toc-text"><a href="#&#x5C06;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x66FF;&#x6362;&#x6210;&#x5176;&#x4ED6;&#x7684;&#x5B57;&#x7B26;&#x4E32;" class="headerlink" title="&#x5C06;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x66FF;&#x6362;&#x6210;&#x5176;&#x4ED6;&#x7684;&#x5B57;&#x7B26;&#x4E32;"></a>&#x5C06;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x66FF;&#x6362;&#x6210;&#x5176;&#x4ED6;&#x7684;&#x5B57;&#x7B26;&#x4E32;</span></a></li></ol></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header sidebar-header-show-archive">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 16 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/24</span><a class="archive-post-title" href= "/2018/06/24/vue与微信小程序中获取当前选中元素/" >vue与微信小程序中获取当前选中元素</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/23</span><a class="archive-post-title" href= "/2018/06/23/微信小程序实现滑动选项卡/" >微信小程序实现滑动选项卡</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/23</span><a class="archive-post-title" href= "/2018/06/23/微信小程序实现侧滑菜单/" >微信小程序实现侧滑菜单</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/21</span><a class="archive-post-title" href= "/2018/06/21/flex布局时遇到overflow时滚动失效-1/" >flex布局时遇到overflow时滚动失效</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >在微信小程序中使用阿里图标库的图标</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序传值以及获取值方法/" >微信小程序传值以及获取值方法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/js-encodeuri-在微信小程序中的应用/" >js encodeuri()在微信小程序中的应用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序改变原生按钮与滚动条样式-1/" > 微信小程序改变原生按钮与滚动条样式</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href= "/2017/12/19/hexo学习/" >hexo blog 搭建</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/13</span><a class="archive-post-title" href= "/2017/12/13/java基础4/" >java基础4 面向对象</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/13</span><a class="archive-post-title" href= "/2017/12/13/Java基础3/" >Java基础 3 字符串</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/13</span><a class="archive-post-title" href= "/2017/12/13/Java基础2/" >Java基础 2 数组</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/java基础1/" >Java基础 1 数据类型</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2017/12/08/jquery委托事件/" >jquery委托事件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2017/12/08/平滑锚点滚动/" >平滑锚点滚动</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2017/12/08/localStorage/" >localStorage</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">java</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">css</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">hexo</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">javascript</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">jquery</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">vue</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">微信小程序</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #888; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+
