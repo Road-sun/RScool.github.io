@@ -15,7 +15,7 @@
     <meta name="description" content="做自己爱做的事，爱自己在做的事！">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>localStorage · This is my world</title>
+    <title>localStorage与sessionStorage · This is my world</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -225,7 +225,7 @@
                 <a href="/" >My blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">localStorage</a>
+                <a href="#" class="post-name">localStorage与sessionStorage</a>
             </div>
     </div>
     
@@ -257,7 +257,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            localStorage
+            localStorage与sessionStorage
             <!-- 404 -->
             
         </h1>
@@ -282,7 +282,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">224</span> / Reading time: <span class="post-count">1 min</span></span>
+                        <span>Word count: <span class="post-count">312</span> / Reading time: <span class="post-count">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -416,6 +416,9 @@ height:50vh;
 <h3 id="localStorage写入"><a href="#localStorage写入" class="headerlink" title="localStorage写入"></a>localStorage写入</h3><p>localStorage.setItem(键名，键值)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> localStorage.setItem(<span class="string">"coffeeType"</span>, <span class="string">"mocha"</span>);      </span><br><span class="line"><span class="comment">//存储键名为coffeeType和键值为mocha的数据到本地</span></span><br><span class="line"> localStorage.setItem(<span class="string">"coffeePrice"</span>, <span class="string">"28"</span>);       </span><br><span class="line"><span class="comment">//存储键名为coffeePrice和键值为28的数据到本地</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="localStorage读取"><a href="#localStorage读取" class="headerlink" title="localStorage读取"></a>localStorage读取</h3><p>localStorage.getItem(键名)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> data = localStorage.getItem(<span class="string">"coffeeType"</span>);   </span><br><span class="line"><span class="comment">//读取对应键名为coffeeType的数据</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="localStorage删除"><a href="#localStorage删除" class="headerlink" title="localStorage删除"></a>localStorage删除</h3><p>localStorage.removeItem(键名)<br>localStorage.clear()<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">localStorage.removeItem(<span class="string">"coffeeType"</span>);           </span><br><span class="line"><span class="comment">//从本地存储中移除键名为coffeeType的数据</span></span><br><span class="line">localStorage.clear();     </span><br><span class="line"> <span class="comment">//清除本地储存的所有数据</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 枚举localStorage的方法：</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;localStorage.length;i++)&#123;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">var</span> name = localStorage.key(i)​;</span><br><span class="line">     <span class="keyword">var</span> value = localStorage.getItem(name);​</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h1><h3 id="特性-1"><a href="#特性-1" class="headerlink" title="特性"></a>特性</h3><p>sessionStorage生命周期为当前窗口或标签页，一旦窗口或标签页被永久关闭了，那么所有通过sessionStorage存储的数据也就被清空了。</p>
+<h4 id="sessionStorage写入"><a href="#sessionStorage写入" class="headerlink" title="sessionStorage写入"></a>sessionStorage写入</h4><p>与localStorag类似</p>
 
     </article>
     <!-- license  -->
@@ -570,7 +573,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#localStorage"><span class="toc-number">1.</span> <span class="toc-text"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特性"><span class="toc-number">1.0.1.</span> <span class="toc-text"><a href="#&#x7279;&#x6027;" class="headerlink" title="&#x7279;&#x6027;"></a>&#x7279;&#x6027;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断浏览器是否支持localStorage"><span class="toc-number">1.0.2.</span> <span class="toc-text"><a href="#&#x5224;&#x65AD;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x5426;&#x652F;&#x6301;localStorage" class="headerlink" title="&#x5224;&#x65AD;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x5426;&#x652F;&#x6301;localStorage"></a>&#x5224;&#x65AD;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x5426;&#x652F;&#x6301;localStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localStorage写入"><span class="toc-number">1.0.3.</span> <span class="toc-text"><a href="#localStorage&#x5199;&#x5165;" class="headerlink" title="localStorage&#x5199;&#x5165;"></a>localStorage&#x5199;&#x5165;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localStorage读取"><span class="toc-number">1.0.4.</span> <span class="toc-text"><a href="#localStorage&#x8BFB;&#x53D6;" class="headerlink" title="localStorage&#x8BFB;&#x53D6;"></a>localStorage&#x8BFB;&#x53D6;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localStorage删除"><span class="toc-number">1.0.5.</span> <span class="toc-text"><a href="#localStorage&#x5220;&#x9664;" class="headerlink" title="localStorage&#x5220;&#x9664;"></a>localStorage&#x5220;&#x9664;</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#localStorage"><span class="toc-number">1.</span> <span class="toc-text"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特性"><span class="toc-number">1.0.1.</span> <span class="toc-text"><a href="#&#x7279;&#x6027;" class="headerlink" title="&#x7279;&#x6027;"></a>&#x7279;&#x6027;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断浏览器是否支持localStorage"><span class="toc-number">1.0.2.</span> <span class="toc-text"><a href="#&#x5224;&#x65AD;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x5426;&#x652F;&#x6301;localStorage" class="headerlink" title="&#x5224;&#x65AD;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x5426;&#x652F;&#x6301;localStorage"></a>&#x5224;&#x65AD;&#x6D4F;&#x89C8;&#x5668;&#x662F;&#x5426;&#x652F;&#x6301;localStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localStorage写入"><span class="toc-number">1.0.3.</span> <span class="toc-text"><a href="#localStorage&#x5199;&#x5165;" class="headerlink" title="localStorage&#x5199;&#x5165;"></a>localStorage&#x5199;&#x5165;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localStorage读取"><span class="toc-number">1.0.4.</span> <span class="toc-text"><a href="#localStorage&#x8BFB;&#x53D6;" class="headerlink" title="localStorage&#x8BFB;&#x53D6;"></a>localStorage&#x8BFB;&#x53D6;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localStorage删除"><span class="toc-number">1.0.5.</span> <span class="toc-text"><a href="#localStorage&#x5220;&#x9664;" class="headerlink" title="localStorage&#x5220;&#x9664;"></a>localStorage&#x5220;&#x9664;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sessionStorage"><span class="toc-number">2.</span> <span class="toc-text"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特性-1"><span class="toc-number">2.0.1.</span> <span class="toc-text"><a href="#&#x7279;&#x6027;-1" class="headerlink" title="&#x7279;&#x6027;"></a>&#x7279;&#x6027;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sessionStorage写入"><span class="toc-number">2.0.1.1.</span> <span class="toc-text"><a href="#sessionStorage&#x5199;&#x5165;" class="headerlink" title="sessionStorage&#x5199;&#x5165;"></a>sessionStorage&#x5199;&#x5165;</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -583,6 +586,14 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -853,22 +864,22 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >在微信小程序中使用阿里图标库的图标</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序传值以及获取值方法/" >微信小程序传值以及获取值方法</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序改变原生按钮与滚动条样式-1/" > 微信小程序改变原生按钮与滚动条样式</a>
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >在微信小程序中使用阿里图标库的图标</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/js-encodeuri-在微信小程序中的应用/" >js encodeuri()在微信小程序中的应用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序改变原生按钮与滚动条样式-1/" > 微信小程序改变原生按钮与滚动条样式</a>
         </li>
     
     
@@ -917,7 +928,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2017/12/08/localStorage/" >localStorage</a>
+            <span class="archive-post-date">12/08</span><a class="archive-post-title" href= "/2017/12/08/localStorage/" >localStorage与sessionStorage</a>
         </li>
     
     </div>
@@ -933,15 +944,15 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="css"><span class="iconfont-archer">&#xe606;</span>css</span>
     
+        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
+    
         <span class="sidebar-tag-name" data-tags="javascript"><span class="iconfont-archer">&#xe606;</span>javascript</span>
     
-        <span class="sidebar-tag-name" data-tags="jquery"><span class="iconfont-archer">&#xe606;</span>jquery</span>
-    
-        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
+        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
         <span class="sidebar-tag-name" data-tags="微信小程序"><span class="iconfont-archer">&#xe606;</span>微信小程序</span>
     
-        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
+        <span class="sidebar-tag-name" data-tags="jquery"><span class="iconfont-archer">&#xe606;</span>jquery</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -978,19 +989,19 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="JavaWeb"><span class="iconfont-archer">&#xe60a;</span>JavaWeb</span>
     
-        <span class="sidebar-category-name" data-categories="java基础程序设计"><span class="iconfont-archer">&#xe60a;</span>java基础程序设计</span>
-    
         <span class="sidebar-category-name" data-categories="java面向对象基础"><span class="iconfont-archer">&#xe60a;</span>java面向对象基础</span>
     
-        <span class="sidebar-category-name" data-categories="委托事件"><span class="iconfont-archer">&#xe60a;</span>委托事件</span>
+        <span class="sidebar-category-name" data-categories="java基础程序设计"><span class="iconfont-archer">&#xe60a;</span>java基础程序设计</span>
     
         <span class="sidebar-category-name" data-categories="hexo学习"><span class="iconfont-archer">&#xe60a;</span>hexo学习</span>
     
+        <span class="sidebar-category-name" data-categories="javascript"><span class="iconfont-archer">&#xe60a;</span>javascript</span>
+    
         <span class="sidebar-category-name" data-categories="微信小程序学习"><span class="iconfont-archer">&#xe60a;</span>微信小程序学习</span>
     
-        <span class="sidebar-category-name" data-categories="平滑锚点滚动"><span class="iconfont-archer">&#xe60a;</span>平滑锚点滚动</span>
+        <span class="sidebar-category-name" data-categories="委托事件"><span class="iconfont-archer">&#xe60a;</span>委托事件</span>
     
-        <span class="sidebar-category-name" data-categories="localStorage"><span class="iconfont-archer">&#xe60a;</span>localStorage</span>
+        <span class="sidebar-category-name" data-categories="平滑锚点滚动"><span class="iconfont-archer">&#xe60a;</span>平滑锚点滚动</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
