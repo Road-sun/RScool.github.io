@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://road-sun.github.io/"/>
-  <updated>2018-09-01T08:45:12.273Z</updated>
+  <updated>2018-09-01T09:24:01.441Z</updated>
   <id>https://road-sun.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于HTML5中meta name=&#39;viewport&#39; 的用法</title>
+    <link href="https://road-sun.github.io/2018/09/01/%E5%85%B3%E4%BA%8EHTML5%E4%B8%ADmeta-name-viewport-%E7%9A%84%E7%94%A8%E6%B3%95/"/>
+    <id>https://road-sun.github.io/2018/09/01/关于HTML5中meta-name-viewport-的用法/</id>
+    <published>2018-09-01T09:12:01.000Z</published>
+    <updated>2018-09-01T09:24:01.441Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="通用定义"><a href="#通用定义" class="headerlink" title="通用定义"></a>通用定义</h4><p>触摸屏设备IOS、Android等对网站meta的定义，经常用的时候就是复制下面几行代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-capable"</span> <span class="attr">content</span>=<span class="string">"yes"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-status-bar-style"</span> <span class="attr">content</span>=<span class="string">"black"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no"</span>&gt;</span></span><br></pre></td></tr></table></figure></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"</span>&gt;</span></span><br></pre></td></tr></table></figure><ul><li>width - viewport的宽度 height - viewport的高度 </li><li>initial-scale - 初始的缩放比例 </li><li>minimum-scale - 允许用户缩放到的最小比例 </li><li>maximum-scale - 允许用户缩放到的最大比例 </li><li>user-scalable - 用户是否可以手动缩放</li></ul><h4 id="iOS设备对meta定义的私有属性"><a href="#iOS设备对meta定义的私有属性" class="headerlink" title="iOS设备对meta定义的私有属性"></a>iOS设备对meta定义的私有属性</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-capable"</span> <span class="attr">content</span>=<span class="string">"yes"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!--在iPhone 手机上默认值是（电话号码显示为拨号的超链接）,可将telephone=no，则手机号码不被显示为拨号链接--&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-capable"</span> <span class="attr">content</span>=<span class="string">"yes"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!--网站开启对web app程序的支持。web app程序就是html5的应用程序。--&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-status-bar-style"</span> <span class="attr">content</span>=<span class="string">"black"</span> /&gt;</span></span><br><span class="line"><span class="comment">&lt;!--在web app应用下状态条（屏幕顶部条）的颜色。 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）。 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--若值为“black-translucent”将会占据页面px位置，浮在页面上方（会覆盖页面20px高度–iphone4和itouch4的Retina屏幕为40px）。--&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;通用定义&quot;&gt;&lt;a href=&quot;#通用定义&quot; class=&quot;headerlink&quot; title=&quot;通用定义&quot;&gt;&lt;/a&gt;通用定义&lt;/h4&gt;&lt;p&gt;触摸屏设备IOS、Android等对网站meta的定义，经常用的时候就是复制下面几行代码&lt;br&gt;&lt;figure class=
+      
+    
+    </summary>
+    
+      <category term="移动端问题" scheme="https://road-sun.github.io/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%97%AE%E9%A2%98/"/>
+    
+    
+      <category term="html meta" scheme="https://road-sun.github.io/tags/html-meta/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>手机QQ分享网页变成xml卡片</title>
+    <link href="https://road-sun.github.io/2018/09/01/%E6%89%8B%E6%9C%BAQQ%E5%88%86%E4%BA%AB%E7%BD%91%E9%A1%B5%E5%8F%98%E6%88%90xml%E5%8D%A1%E7%89%87/"/>
+    <id>https://road-sun.github.io/2018/09/01/手机QQ分享网页变成xml卡片/</id>
+    <published>2018-09-01T09:03:03.000Z</published>
+    <updated>2018-09-01T09:06:23.265Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">itemprop</span>=<span class="string">"name"</span> <span class="attr">content</span>=<span class="string">"网站标题"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">itemprop</span>=<span class="string">"image"</span> <span class="attr">content</span>=<span class="string">"网站要显示的图片链接"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">itemprop</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">"网站内容"</span> /&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=
+      
+    
+    </summary>
+    
+      <category term="qqxml卡片" scheme="https://road-sun.github.io/categories/qqxml%E5%8D%A1%E7%89%87/"/>
+    
+    
+      <category term="html meta" scheme="https://road-sun.github.io/tags/html-meta/"/>
+    
+  </entry>
   
   <entry>
     <title>微信小程序实现网易云音乐过程记录</title>
