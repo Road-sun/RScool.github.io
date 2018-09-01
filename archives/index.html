@@ -178,7 +178,7 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-    <link rel="icon" href= "/assets/main.ico" />
+    <link rel="icon" href= "/assets/main .ico" />
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
     <link rel="preload" href="/scripts/main.js" as="script" />
@@ -354,6 +354,48 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/07/07/微信小程序实现网易云音乐过程记录/" >
+            
+                <span>微信小程序实现网易云音乐过程记录</span>
+        </a>
+        <div class="abstract-content">
+            搭建基础页面
+滑动选项卡 请移步
+侧滑菜单 请移步 
+使用阿里图标库图标 请移步
+
+使用qq音乐api来获取歌曲来源，实现音乐播放
+学习地址
+补充：
+微信小程序不存在跨域问题，所以不需要使用jsonp，所以调用接口时要去掉其中的jsonp
+要把https://c.y.qq.com/设置为request 合法域名，否则无法访问实现音乐播放
+
+
+起初使用微信小程序中的audio组件，但是audio只能在程序内播放，当小程序切入后台便停止播放，这与自己当时的想法不符，只能放弃。
+最后查看文档，终于找到wx.getBackgroundAudioManager()，背景音频播放接口，可以实现以上功...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/07/07</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "微信小程序">微信小程序</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/06/26/JSP与Servlet基础/" >
             
                 <span>JSP与Servlet基础</span>
@@ -414,9 +456,9 @@ JSP 转发与重定向1234//转发（共...
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "vue">vue</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags = "微信小程序">微信小程序</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "vue">vue</a>
     
 </div>
             
@@ -642,37 +684,6 @@ encodeURI()在微信小程序中的应用因为微信小程序中标签id不能�
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "微信小程序">微信小程序</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/12/19/hexo学习/" >
-            
-                <span>hexo blog 搭建</span>
-        </a>
-        <div class="abstract-content">
-            hexo blog 搭建学习连接
-hexo 绑定个人域名学习连接
-hexo Markdown语法特殊字符12345678910111213141516171819202122! &amp;#33; — 惊叹号Exclamation mark ” &amp;#34; &amp;quot; 双引号Quotation mark # &amp;#35; — 数字标志Number sign $ &amp;#36; — 美元标志Dollar sign % &amp;#37; — 百分号Percent sign &amp; &amp;#38; &amp;amp; Ampersand ‘ &amp;#3...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/12/19</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "hexo">hexo</a>
     
 </div>
             
@@ -1012,9 +1023,12 @@ hexo Markdown语法特殊字符12345678910111213141516171819202122! &amp;#33; �
     
     
     
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 17
+        Total : 18
         <!-- search  -->
         </div>
             <div class="site-search popup-trigger">
@@ -1029,6 +1043,11 @@ hexo Markdown语法特殊字符12345678910111213141516171819202122! &amp;#33; �
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/07</span><a class="archive-post-title" href= "/2018/07/07/微信小程序实现网易云音乐过程记录/" >微信小程序实现网易云音乐过程记录</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1057,22 +1076,22 @@ hexo Markdown语法特殊字符12345678910111213141516171819202122! &amp;#33; �
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序传值以及获取值方法/" >微信小程序传值以及获取值方法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >在微信小程序中使用阿里图标库的图标</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/js-encodeuri-在微信小程序中的应用/" >js encodeuri()在微信小程序中的应用</a>
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序传值以及获取值方法/" >微信小程序传值以及获取值方法</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序改变原生按钮与滚动条样式-1/" > 微信小程序改变原生按钮与滚动条样式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/js-encodeuri-在微信小程序中的应用/" >js encodeuri()在微信小程序中的应用</a>
         </li>
     
     
@@ -1137,15 +1156,15 @@ hexo Markdown语法特殊字符12345678910111213141516171819202122! &amp;#33; �
     
         <span class="sidebar-tag-name" data-tags="css"><span class="iconfont-archer">&#xe606;</span>css</span>
     
-        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
-    
         <span class="sidebar-tag-name" data-tags="javascript"><span class="iconfont-archer">&#xe606;</span>javascript</span>
-    
-        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
         <span class="sidebar-tag-name" data-tags="微信小程序"><span class="iconfont-archer">&#xe606;</span>微信小程序</span>
     
+        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
+    
         <span class="sidebar-tag-name" data-tags="jquery"><span class="iconfont-archer">&#xe606;</span>jquery</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1182,19 +1201,19 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="JavaWeb"><span class="iconfont-archer">&#xe60a;</span>JavaWeb</span>
     
-        <span class="sidebar-category-name" data-categories="java面向对象基础"><span class="iconfont-archer">&#xe60a;</span>java面向对象基础</span>
-    
         <span class="sidebar-category-name" data-categories="java基础程序设计"><span class="iconfont-archer">&#xe60a;</span>java基础程序设计</span>
     
-        <span class="sidebar-category-name" data-categories="hexo学习"><span class="iconfont-archer">&#xe60a;</span>hexo学习</span>
-    
-        <span class="sidebar-category-name" data-categories="javascript"><span class="iconfont-archer">&#xe60a;</span>javascript</span>
+        <span class="sidebar-category-name" data-categories="java面向对象基础"><span class="iconfont-archer">&#xe60a;</span>java面向对象基础</span>
     
         <span class="sidebar-category-name" data-categories="微信小程序学习"><span class="iconfont-archer">&#xe60a;</span>微信小程序学习</span>
+    
+        <span class="sidebar-category-name" data-categories="javascript"><span class="iconfont-archer">&#xe60a;</span>javascript</span>
     
         <span class="sidebar-category-name" data-categories="委托事件"><span class="iconfont-archer">&#xe60a;</span>委托事件</span>
     
         <span class="sidebar-category-name" data-categories="平滑锚点滚动"><span class="iconfont-archer">&#xe60a;</span>平滑锚点滚动</span>
+    
+        <span class="sidebar-category-name" data-categories="hexo学习"><span class="iconfont-archer">&#xe60a;</span>hexo学习</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
