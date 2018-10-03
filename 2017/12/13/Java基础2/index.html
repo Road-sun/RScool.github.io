@@ -427,7 +427,7 @@ height:50vh;
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">arraycopy</span><span class="params">(Object src,  <span class="keyword">int</span>  srcPos,Object dest, <span class="keyword">int</span> destPos,<span class="keyword">int</span> length)</span></span>;</span><br><span class="line"><span class="comment">//源数组名称，源数组开始点，目标数组名称，目标数组开始点，复制长度</span></span><br><span class="line">System.arraycopy(arr1, <span class="number">0</span>, arr2, <span class="number">0</span>, arr1.length);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Arrays.copyOf()</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Arrays.copyOf(<span class="built_in">Object</span> src,<span class="built_in">int</span> length);</span><br><span class="line"><span class="comment">//源数组名称，复制长度</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Arrays.copyOf(Object src,int length);</span><br><span class="line">//源数组名称，复制长度</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h5 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++)&#123; </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array[i].length; j++)&#123; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//array.length 行长度</span></span><br><span class="line"><span class="comment">//array[i].length 列长度</span></span><br><span class="line"><span class="comment">//array[i][j].length 内容长度</span></span><br></pre></td></tr></table></figure>
@@ -860,9 +860,52 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 20
+        Total : 23
         <!-- search  -->
         </div>
             <div class="site-search popup-trigger">
@@ -877,6 +920,21 @@ top:50vh;
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2018/10/03/学习使用git提交代码/" >学习使用git提交代码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2018/09/26/微信小程序图片懒加载/" >微信小程序图片懒加载</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2018/09/26/mysql-id自增/" >mysql id自增</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -920,12 +978,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序传值以及获取值方法/" >微信小程序传值以及获取值方法</a>
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >在微信小程序中使用阿里图标库的图标</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >在微信小程序中使用阿里图标库的图标</a>
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序传值以及获取值方法/" >微信小程序传值以及获取值方法</a>
         </li>
     
     
@@ -992,25 +1050,29 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="JSP"><span class="iconfont-archer">&#xe606;</span>JSP</span>
+    
+        <span class="sidebar-tag-name" data-tags="Servlet"><span class="iconfont-archer">&#xe606;</span>Servlet</span>
+    
         <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="css"><span class="iconfont-archer">&#xe606;</span>css</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
     
         <span class="sidebar-tag-name" data-tags="javascript"><span class="iconfont-archer">&#xe606;</span>javascript</span>
     
         <span class="sidebar-tag-name" data-tags="jquery"><span class="iconfont-archer">&#xe606;</span>jquery</span>
     
-        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
-    
-        <span class="sidebar-tag-name" data-tags="JSP"><span class="iconfont-archer">&#xe606;</span>JSP</span>
-    
-        <span class="sidebar-tag-name" data-tags="Servlet"><span class="iconfont-archer">&#xe606;</span>Servlet</span>
-    
         <span class="sidebar-tag-name" data-tags="微信小程序"><span class="iconfont-archer">&#xe606;</span>微信小程序</span>
+    
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
         <span class="sidebar-tag-name" data-tags="html meta"><span class="iconfont-archer">&#xe606;</span>html meta</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1045,23 +1107,27 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
+        <span class="sidebar-category-name" data-categories="JavaWeb"><span class="iconfont-archer">&#xe60a;</span>JavaWeb</span>
+    
         <span class="sidebar-category-name" data-categories="java基础程序设计"><span class="iconfont-archer">&#xe60a;</span>java基础程序设计</span>
     
         <span class="sidebar-category-name" data-categories="java面向对象基础"><span class="iconfont-archer">&#xe60a;</span>java面向对象基础</span>
     
-        <span class="sidebar-category-name" data-categories="委托事件"><span class="iconfont-archer">&#xe60a;</span>委托事件</span>
-    
         <span class="sidebar-category-name" data-categories="hexo学习"><span class="iconfont-archer">&#xe60a;</span>hexo学习</span>
     
-        <span class="sidebar-category-name" data-categories="JavaWeb"><span class="iconfont-archer">&#xe60a;</span>JavaWeb</span>
+        <span class="sidebar-category-name" data-categories="委托事件"><span class="iconfont-archer">&#xe60a;</span>委托事件</span>
     
         <span class="sidebar-category-name" data-categories="微信小程序学习"><span class="iconfont-archer">&#xe60a;</span>微信小程序学习</span>
     
+        <span class="sidebar-category-name" data-categories="javascript"><span class="iconfont-archer">&#xe60a;</span>javascript</span>
+    
+        <span class="sidebar-category-name" data-categories="mysql"><span class="iconfont-archer">&#xe60a;</span>mysql</span>
+    
         <span class="sidebar-category-name" data-categories="移动端问题"><span class="iconfont-archer">&#xe60a;</span>移动端问题</span>
     
-        <span class="sidebar-category-name" data-categories="平滑锚点滚动"><span class="iconfont-archer">&#xe60a;</span>平滑锚点滚动</span>
+        <span class="sidebar-category-name" data-categories="git"><span class="iconfont-archer">&#xe60a;</span>git</span>
     
-        <span class="sidebar-category-name" data-categories="javascript"><span class="iconfont-archer">&#xe60a;</span>javascript</span>
+        <span class="sidebar-category-name" data-categories="平滑锚点滚动"><span class="iconfont-archer">&#xe60a;</span>平滑锚点滚动</span>
     
         <span class="sidebar-category-name" data-categories="qqxml卡片"><span class="iconfont-archer">&#xe60a;</span>qqxml卡片</span>
     

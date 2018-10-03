@@ -416,6 +416,126 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/10/03/学习使用git提交代码/" >
+            
+                <span>学习使用git提交代码</span>
+        </a>
+        <div class="abstract-content">
+            
+git init把这个文件夹变成Git可管理的仓库（第一次）
+
+修改本地代码
+
+git status 查看状态
+
+git add把项目添加到仓库git add .  添加所有
+
+git status 查看状态
+
+git commit -m “注释内容” 提交到远程仓库
+
+git pull –rebase origin master 合并分支
+
+git push origin master 推送到远程仓库git push -u origin master第一次推送要加上 -u
+
+
+原文地址
+
+查看远程仓库地址git remote -v
+
+修改远程仓库地址git remote set-ur...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "git">git</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/09/26/微信小程序图片懒加载/" >
+            
+                <span>微信小程序图片懒加载</span>
+        </a>
+        <div class="abstract-content">
+            12345&lt;scroll-view class='second-body' scroll-y='true' bindscroll='getScroll'&gt;    &lt;block wx:for="&#123;&#123;img&#125;&#125;"&gt;        &lt;image src="&#123;&#123;imgLazy[index]? 'item.src':'img.jpg'&#125;&#125;"&gt;&lt;/image&gt;    &lt;/block&gt;&lt;/scroll-view&gt;
+1234567891011121314...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/26</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "微信小程序">微信小程序</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/09/26/mysql-id自增/" >
+            
+                <span>mysql id自增</span>
+        </a>
+        <div class="abstract-content">
+            
+创建表格时添加
+1create table table1(id int auto_increment primary key,...)
+
+创建表格后添加
+1alter table table1 add id int auto_increment primary key;
+
+id从10000开始自增
+1alter table users AUTO_INCREMENT=10000;
+
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/26</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "mysql">mysql</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/09/01/关于HTML5中meta-name-viewport-的用法/" >
             
                 <span>关于HTML5中meta name=&#39;viewport&#39; 的用法</span>
@@ -602,110 +722,10 @@ JSP 转发与重定向1234//转发（共...
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/06/21/flex布局时遇到overflow时滚动失效-1/" >
-            
-                <span>flex布局时遇到overflow时滚动失效</span>
-        </a>
-        <div class="abstract-content">
-            使用flex布局时，有些需要滚动显示全部内容的元素不能滚动，其原因在于overflow失效。解决方法 ： 如果要超出范围，需要滚动条出现，最好display:block,因为flex是柔性盒子布局，所有的子元素都会被父元素装下，甚至可能自动缩小子元素的大小&#8195;&#8195;如果一定要使用flex布局且出现滚动条，必要设置父元素和子元素的宽高，   不使用overflow:auto，使用overflow:scroll
-flex-grow的使用flex-grow  属性用于设置或检索弹性盒子的扩展比率。(父元素的多余空白空间会以子元素flex-grow的值比例分配)12345&lt...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "css">css</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >
-            
-                <span>在微信小程序中使用阿里图标库的图标</span>
-        </a>
-        <div class="abstract-content">
-            
-打开阿里图标库，选取自己所需要的图标  iconfont
-选择好图标添加入库，添加至项目（没有创建项目的先创建项目）
-图标管理-&gt;我的项目-&gt;下载至本地
-解压压缩包-&gt;打开iconfont.css复制其中内容
-123456789101112131415161718192021222324@font-face &#123;font-family: "iconfont";  src: url('iconfont.eot?t=1523193795427'); /* IE9*/  src: url('iconfont.eot?t=1523193795427#iefix') f...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/04/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "javascript">javascript</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "微信小程序">微信小程序</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/04/08/微信小程序传值以及获取值方法/" >
-            
-                <span>微信小程序传值以及获取值方法</span>
-        </a>
-        <div class="abstract-content">
-            设置id的方法标识跳转后传递的参数值1&lt;view id="key1" bindtap="getId"&gt;&lt;/view&gt;
-123getID:function (e) &#123;  var id=e.currentTarget.id&#125;
-通过使用data - xxxx 的方法来标识要传递的值1&lt;view data-id="key1" data-key="key2" bindtap="getId"&gt;&lt;/view&gt;
-1234getID:function (e) &#123;  var id=e.target.dataset.id  var ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/04/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "javascript">javascript</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "微信小程序">微信小程序</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">NEXT &#62;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1154,9 +1174,52 @@ flex-grow的使用flex-grow  属性用于设置或检索弹性盒子的扩展比
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 20
+        Total : 23
         <!-- search  -->
         </div>
             <div class="site-search popup-trigger">
@@ -1171,6 +1234,21 @@ flex-grow的使用flex-grow  属性用于设置或检索弹性盒子的扩展比
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2018/10/03/学习使用git提交代码/" >学习使用git提交代码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2018/09/26/微信小程序图片懒加载/" >微信小程序图片懒加载</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2018/09/26/mysql-id自增/" >mysql id自增</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1214,12 +1292,12 @@ flex-grow的使用flex-grow  属性用于设置或检索弹性盒子的扩展比
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序传值以及获取值方法/" >微信小程序传值以及获取值方法</a>
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >在微信小程序中使用阿里图标库的图标</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >在微信小程序中使用阿里图标库的图标</a>
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序传值以及获取值方法/" >微信小程序传值以及获取值方法</a>
         </li>
     
     
@@ -1286,25 +1364,29 @@ flex-grow的使用flex-grow  属性用于设置或检索弹性盒子的扩展比
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="JSP"><span class="iconfont-archer">&#xe606;</span>JSP</span>
+    
+        <span class="sidebar-tag-name" data-tags="Servlet"><span class="iconfont-archer">&#xe606;</span>Servlet</span>
+    
         <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="css"><span class="iconfont-archer">&#xe606;</span>css</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
     
         <span class="sidebar-tag-name" data-tags="javascript"><span class="iconfont-archer">&#xe606;</span>javascript</span>
     
         <span class="sidebar-tag-name" data-tags="jquery"><span class="iconfont-archer">&#xe606;</span>jquery</span>
     
-        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
-    
-        <span class="sidebar-tag-name" data-tags="JSP"><span class="iconfont-archer">&#xe606;</span>JSP</span>
-    
-        <span class="sidebar-tag-name" data-tags="Servlet"><span class="iconfont-archer">&#xe606;</span>Servlet</span>
-    
         <span class="sidebar-tag-name" data-tags="微信小程序"><span class="iconfont-archer">&#xe606;</span>微信小程序</span>
+    
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
         <span class="sidebar-tag-name" data-tags="html meta"><span class="iconfont-archer">&#xe606;</span>html meta</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1339,23 +1421,27 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
+        <span class="sidebar-category-name" data-categories="JavaWeb"><span class="iconfont-archer">&#xe60a;</span>JavaWeb</span>
+    
         <span class="sidebar-category-name" data-categories="java基础程序设计"><span class="iconfont-archer">&#xe60a;</span>java基础程序设计</span>
     
         <span class="sidebar-category-name" data-categories="java面向对象基础"><span class="iconfont-archer">&#xe60a;</span>java面向对象基础</span>
     
-        <span class="sidebar-category-name" data-categories="委托事件"><span class="iconfont-archer">&#xe60a;</span>委托事件</span>
-    
         <span class="sidebar-category-name" data-categories="hexo学习"><span class="iconfont-archer">&#xe60a;</span>hexo学习</span>
     
-        <span class="sidebar-category-name" data-categories="JavaWeb"><span class="iconfont-archer">&#xe60a;</span>JavaWeb</span>
+        <span class="sidebar-category-name" data-categories="委托事件"><span class="iconfont-archer">&#xe60a;</span>委托事件</span>
     
         <span class="sidebar-category-name" data-categories="微信小程序学习"><span class="iconfont-archer">&#xe60a;</span>微信小程序学习</span>
     
+        <span class="sidebar-category-name" data-categories="javascript"><span class="iconfont-archer">&#xe60a;</span>javascript</span>
+    
+        <span class="sidebar-category-name" data-categories="mysql"><span class="iconfont-archer">&#xe60a;</span>mysql</span>
+    
         <span class="sidebar-category-name" data-categories="移动端问题"><span class="iconfont-archer">&#xe60a;</span>移动端问题</span>
     
-        <span class="sidebar-category-name" data-categories="平滑锚点滚动"><span class="iconfont-archer">&#xe60a;</span>平滑锚点滚动</span>
+        <span class="sidebar-category-name" data-categories="git"><span class="iconfont-archer">&#xe60a;</span>git</span>
     
-        <span class="sidebar-category-name" data-categories="javascript"><span class="iconfont-archer">&#xe60a;</span>javascript</span>
+        <span class="sidebar-category-name" data-categories="平滑锚点滚动"><span class="iconfont-archer">&#xe60a;</span>平滑锚点滚动</span>
     
         <span class="sidebar-category-name" data-categories="qqxml卡片"><span class="iconfont-archer">&#xe60a;</span>qqxml卡片</span>
     

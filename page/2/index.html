@@ -369,6 +369,106 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/06/21/flex布局时遇到overflow时滚动失效-1/" >
+            
+                <span>flex布局时遇到overflow时滚动失效</span>
+        </a>
+        <div class="abstract-content">
+            使用flex布局时，有些需要滚动显示全部内容的元素不能滚动，其原因在于overflow失效。解决方法 ： 如果要超出范围，需要滚动条出现，最好display:block,因为flex是柔性盒子布局，所有的子元素都会被父元素装下，甚至可能自动缩小子元素的大小&#8195;&#8195;如果一定要使用flex布局且出现滚动条，必要设置父元素和子元素的宽高，   不使用overflow:auto，使用overflow:scroll
+flex-grow的使用flex-grow  属性用于设置或检索弹性盒子的扩展比率。(父元素的多余空白空间会以子元素flex-grow的值比例分配)12345&lt...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/06/21</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "css">css</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >
+            
+                <span>在微信小程序中使用阿里图标库的图标</span>
+        </a>
+        <div class="abstract-content">
+            
+打开阿里图标库，选取自己所需要的图标  iconfont
+选择好图标添加入库，添加至项目（没有创建项目的先创建项目）
+图标管理-&gt;我的项目-&gt;下载至本地
+解压压缩包-&gt;打开iconfont.css复制其中内容
+123456789101112131415161718192021222324@font-face &#123;font-family: "iconfont";  src: url('iconfont.eot?t=1523193795427'); /* IE9*/  src: url('iconfont.eot?t=1523193795427#iefix') f...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/04/08</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "javascript">javascript</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "微信小程序">微信小程序</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/04/08/微信小程序传值以及获取值方法/" >
+            
+                <span>微信小程序传值以及获取值方法</span>
+        </a>
+        <div class="abstract-content">
+            设置id的方法标识跳转后传递的参数值1&lt;view id="key1" bindtap="getId"&gt;&lt;/view&gt;
+123getID:function (e) &#123;  var id=e.currentTarget.id&#125;
+通过使用data - xxxx 的方法来标识要传递的值1&lt;view data-id="key1" data-key="key2" bindtap="getId"&gt;&lt;/view&gt;
+1234getID:function (e) &#123;  var id=e.target.dataset.id  var ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/04/08</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "javascript">javascript</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "微信小程序">微信小程序</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/04/08/js-encodeuri-在微信小程序中的应用/" >
             
                 <span>js encodeuri()在微信小程序中的应用</span>
@@ -649,106 +749,10 @@ double
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/12/08/jquery委托事件/" >
-            
-                <span>jquery委托事件</span>
-        </a>
-        <div class="abstract-content">
-            为未来新添加的节点绑定事件未绑定委托事件以下例子只能通过点击第一个 p元素 来创建节点，点击 新生成的p元素 是不会有反应的。123&lt;div class="container"&gt;    &lt;p&gt;点击创建一个新的p元素&lt;/p&gt;&lt;/div&gt;
-123$(".container p").click(function()&#123;  $(this).after("&lt;p&gt;点击创建一个新的p元素&lt;/p&gt;");&#125;);
-绑定委托事件使用 on()方法来为未来节点绑定事件。1234//使用on方法$(".container")...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/12/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "javascript">javascript</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "jquery">jquery</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/12/08/平滑锚点滚动/" >
-            
-                <span>平滑锚点滚动</span>
-        </a>
-        <div class="abstract-content">
-            123&lt;a id="submit" href="#" page-scroll="#second"&gt;submit&lt;/a&gt;&lt;div style="width: 100%;height: 100vh;background-color: red" id="first"&gt;&lt;/div&gt;&lt;div style="width: 100%;height: 100vh;background-color: yellow" id="second"&gt;&lt;/div&gt;
-1234567891011121314151617$(document).read...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/12/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "javascript">javascript</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "jquery">jquery</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/12/08/localStorage/" >
-            
-                <span>localStorage与sessionStorage</span>
-        </a>
-        <div class="abstract-content">
-            localStorage特性域内安全、永久保存。即客户端或浏览器中来自同一域名的所有页面都可访问localStorage数据且数据除了删除否则永久保存，但客户端或浏览器之间的数据相互独立。
-判断浏览器是否支持localStorage123456if(!window.localStorage)&#123;            alert("浏览器支持localstorage");            return false;        &#125;else&#123;            //主逻辑业务        &#125;
-localStorage写入localStor...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/12/08</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "javascript">javascript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/">&#60; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+        <a class="extend prev" rel="prev" href="/">&#60; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1197,9 +1201,52 @@ localStorage写入localStor...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 20
+        Total : 23
         <!-- search  -->
         </div>
             <div class="site-search popup-trigger">
@@ -1214,6 +1261,21 @@ localStorage写入localStor...
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2018/10/03/学习使用git提交代码/" >学习使用git提交代码</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2018/09/26/微信小程序图片懒加载/" >微信小程序图片懒加载</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2018/09/26/mysql-id自增/" >mysql id自增</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1257,12 +1319,12 @@ localStorage写入localStor...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序传值以及获取值方法/" >微信小程序传值以及获取值方法</a>
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >在微信小程序中使用阿里图标库的图标</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >在微信小程序中使用阿里图标库的图标</a>
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序传值以及获取值方法/" >微信小程序传值以及获取值方法</a>
         </li>
     
     
@@ -1329,25 +1391,29 @@ localStorage写入localStor...
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="JSP"><span class="iconfont-archer">&#xe606;</span>JSP</span>
+    
+        <span class="sidebar-tag-name" data-tags="Servlet"><span class="iconfont-archer">&#xe606;</span>Servlet</span>
+    
         <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="css"><span class="iconfont-archer">&#xe606;</span>css</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
     
         <span class="sidebar-tag-name" data-tags="javascript"><span class="iconfont-archer">&#xe606;</span>javascript</span>
     
         <span class="sidebar-tag-name" data-tags="jquery"><span class="iconfont-archer">&#xe606;</span>jquery</span>
     
-        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
-    
-        <span class="sidebar-tag-name" data-tags="JSP"><span class="iconfont-archer">&#xe606;</span>JSP</span>
-    
-        <span class="sidebar-tag-name" data-tags="Servlet"><span class="iconfont-archer">&#xe606;</span>Servlet</span>
-    
         <span class="sidebar-tag-name" data-tags="微信小程序"><span class="iconfont-archer">&#xe606;</span>微信小程序</span>
+    
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
         <span class="sidebar-tag-name" data-tags="html meta"><span class="iconfont-archer">&#xe606;</span>html meta</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1382,23 +1448,27 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
+        <span class="sidebar-category-name" data-categories="JavaWeb"><span class="iconfont-archer">&#xe60a;</span>JavaWeb</span>
+    
         <span class="sidebar-category-name" data-categories="java基础程序设计"><span class="iconfont-archer">&#xe60a;</span>java基础程序设计</span>
     
         <span class="sidebar-category-name" data-categories="java面向对象基础"><span class="iconfont-archer">&#xe60a;</span>java面向对象基础</span>
     
-        <span class="sidebar-category-name" data-categories="委托事件"><span class="iconfont-archer">&#xe60a;</span>委托事件</span>
-    
         <span class="sidebar-category-name" data-categories="hexo学习"><span class="iconfont-archer">&#xe60a;</span>hexo学习</span>
     
-        <span class="sidebar-category-name" data-categories="JavaWeb"><span class="iconfont-archer">&#xe60a;</span>JavaWeb</span>
+        <span class="sidebar-category-name" data-categories="委托事件"><span class="iconfont-archer">&#xe60a;</span>委托事件</span>
     
         <span class="sidebar-category-name" data-categories="微信小程序学习"><span class="iconfont-archer">&#xe60a;</span>微信小程序学习</span>
     
+        <span class="sidebar-category-name" data-categories="javascript"><span class="iconfont-archer">&#xe60a;</span>javascript</span>
+    
+        <span class="sidebar-category-name" data-categories="mysql"><span class="iconfont-archer">&#xe60a;</span>mysql</span>
+    
         <span class="sidebar-category-name" data-categories="移动端问题"><span class="iconfont-archer">&#xe60a;</span>移动端问题</span>
     
-        <span class="sidebar-category-name" data-categories="平滑锚点滚动"><span class="iconfont-archer">&#xe60a;</span>平滑锚点滚动</span>
+        <span class="sidebar-category-name" data-categories="git"><span class="iconfont-archer">&#xe60a;</span>git</span>
     
-        <span class="sidebar-category-name" data-categories="javascript"><span class="iconfont-archer">&#xe60a;</span>javascript</span>
+        <span class="sidebar-category-name" data-categories="平滑锚点滚动"><span class="iconfont-archer">&#xe60a;</span>平滑锚点滚动</span>
     
         <span class="sidebar-category-name" data-categories="qqxml卡片"><span class="iconfont-archer">&#xe60a;</span>qqxml卡片</span>
     
