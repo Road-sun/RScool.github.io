@@ -411,8 +411,7 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h3 id="使用flex布局时，有些需要滚动显示全部内容的元素不能滚动，其原因在于overflow失效。"><a href="#使用flex布局时，有些需要滚动显示全部内容的元素不能滚动，其原因在于overflow失效。" class="headerlink" title="使用flex布局时，有些需要滚动显示全部内容的元素不能滚动，其原因在于overflow失效。"></a>使用flex布局时，有些需要滚动显示全部内容的元素不能滚动，其原因在于overflow失效。</h3><p>解决方法 ： 如果要超出范围，需要滚动条出现，最好<code>display:block</code>,因为flex是柔性盒子布局，所有的子元素都会被父元素装下，甚至可能自动缩小子元素的大小<br><br><br>&#8195;&#8195;如果一定要使用flex布局且出现滚动条，必要设置父元素和子元素的宽高，<br>   不使用<code>overflow:auto</code>，使用<code>overflow:scroll</code></p>
-<a id="more"></a>
+        <p>&#8195;&#8195;使用flex布局时，有些需要滚动显示全部内容的元素不能滚动，其原因在于overflow失效。<br>&#8195;&#8195;解决方法 ： 如果要超出范围，需要滚动条出现，最好<code>display:block</code>,因为flex是柔性盒子布局，所有的子元素都会被父元素装下，甚至可能自动缩小子元素的大小<br>&#8195;&#8195;如果一定要使用flex布局且出现滚动条，必要设置父元素和子元素的宽高，<br>   不使用<code>overflow:auto</code>，使用<code>overflow:scroll</code><br><a id="more"></a></p>
 <h3 id="flex-grow的使用"><a href="#flex-grow的使用" class="headerlink" title="flex-grow的使用"></a>flex-grow的使用</h3><p>flex-grow  属性用于设置或检索弹性盒子的扩展比率。(父元素的<strong><em>多余空白空间</em></strong>会以子元素flex-grow的值比例分配)<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"kid1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"kid2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"kid3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1000px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.kid1</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.kid2</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.kid3</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*初始width=0,多余部分为100%，所以会按比例划分*/</span></span><br><span class="line"><span class="comment">/*按1:2:3划分*/</span></span><br></pre></td></tr></table></figure>
 <p>如果要使子元素换行，则需要<code>flex-warp:warp</code></p>
@@ -575,7 +574,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用flex布局时，有些需要滚动显示全部内容的元素不能滚动，其原因在于overflow失效。"><span class="toc-number">1.</span> <span class="toc-text"><a href="#&#x4F7F;&#x7528;flex&#x5E03;&#x5C40;&#x65F6;&#xFF0C;&#x6709;&#x4E9B;&#x9700;&#x8981;&#x6EDA;&#x52A8;&#x663E;&#x793A;&#x5168;&#x90E8;&#x5185;&#x5BB9;&#x7684;&#x5143;&#x7D20;&#x4E0D;&#x80FD;&#x6EDA;&#x52A8;&#xFF0C;&#x5176;&#x539F;&#x56E0;&#x5728;&#x4E8E;overflow&#x5931;&#x6548;&#x3002;" class="headerlink" title="&#x4F7F;&#x7528;flex&#x5E03;&#x5C40;&#x65F6;&#xFF0C;&#x6709;&#x4E9B;&#x9700;&#x8981;&#x6EDA;&#x52A8;&#x663E;&#x793A;&#x5168;&#x90E8;&#x5185;&#x5BB9;&#x7684;&#x5143;&#x7D20;&#x4E0D;&#x80FD;&#x6EDA;&#x52A8;&#xFF0C;&#x5176;&#x539F;&#x56E0;&#x5728;&#x4E8E;overflow&#x5931;&#x6548;&#x3002;"></a>&#x4F7F;&#x7528;flex&#x5E03;&#x5C40;&#x65F6;&#xFF0C;&#x6709;&#x4E9B;&#x9700;&#x8981;&#x6EDA;&#x52A8;&#x663E;&#x793A;&#x5168;&#x90E8;&#x5185;&#x5BB9;&#x7684;&#x5143;&#x7D20;&#x4E0D;&#x80FD;&#x6EDA;&#x52A8;&#xFF0C;&#x5176;&#x539F;&#x56E0;&#x5728;&#x4E8E;overflow&#x5931;&#x6548;&#x3002;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-grow的使用"><span class="toc-number">2.</span> <span class="toc-text"><a href="#flex-grow&#x7684;&#x4F7F;&#x7528;" class="headerlink" title="flex-grow&#x7684;&#x4F7F;&#x7528;"></a>flex-grow&#x7684;&#x4F7F;&#x7528;</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-grow的使用"><span class="toc-number">1.</span> <span class="toc-text"><a href="#flex-grow&#x7684;&#x4F7F;&#x7528;" class="headerlink" title="flex-grow&#x7684;&#x4F7F;&#x7528;"></a>flex-grow&#x7684;&#x4F7F;&#x7528;</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -588,6 +587,10 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
     
     
     
@@ -952,22 +955,22 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >在微信小程序中使用阿里图标库的图标</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序传值以及获取值方法/" >微信小程序传值以及获取值方法</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/js-encodeuri-在微信小程序中的应用/" >js encodeuri()在微信小程序中的应用</a>
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >在微信小程序中使用阿里图标库的图标</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序改变原生按钮与滚动条样式-1/" > 微信小程序改变原生按钮与滚动条样式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/js-encodeuri-在微信小程序中的应用/" >js encodeuri()在微信小程序中的应用</a>
         </li>
     
     
@@ -1024,11 +1027,11 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
         <span class="sidebar-tag-name" data-tags="JSP"><span class="iconfont-archer">&#xe606;</span>JSP</span>
     
         <span class="sidebar-tag-name" data-tags="Servlet"><span class="iconfont-archer">&#xe606;</span>Servlet</span>
-    
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
     
@@ -1036,9 +1039,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="javascript"><span class="iconfont-archer">&#xe606;</span>javascript</span>
     
-        <span class="sidebar-tag-name" data-tags="微信小程序"><span class="iconfont-archer">&#xe606;</span>微信小程序</span>
-    
         <span class="sidebar-tag-name" data-tags="jquery"><span class="iconfont-archer">&#xe606;</span>jquery</span>
+    
+        <span class="sidebar-tag-name" data-tags="微信小程序"><span class="iconfont-archer">&#xe606;</span>微信小程序</span>
     
         <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
@@ -1081,17 +1084,17 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
+        <span class="sidebar-category-name" data-categories="java面向对象基础"><span class="iconfont-archer">&#xe60a;</span>java面向对象基础</span>
+    
         <span class="sidebar-category-name" data-categories="JavaWeb"><span class="iconfont-archer">&#xe60a;</span>JavaWeb</span>
     
         <span class="sidebar-category-name" data-categories="java基础程序设计"><span class="iconfont-archer">&#xe60a;</span>java基础程序设计</span>
     
-        <span class="sidebar-category-name" data-categories="java面向对象基础"><span class="iconfont-archer">&#xe60a;</span>java面向对象基础</span>
-    
         <span class="sidebar-category-name" data-categories="hexo学习"><span class="iconfont-archer">&#xe60a;</span>hexo学习</span>
     
-        <span class="sidebar-category-name" data-categories="微信小程序学习"><span class="iconfont-archer">&#xe60a;</span>微信小程序学习</span>
-    
         <span class="sidebar-category-name" data-categories="委托事件"><span class="iconfont-archer">&#xe60a;</span>委托事件</span>
+    
+        <span class="sidebar-category-name" data-categories="微信小程序学习"><span class="iconfont-archer">&#xe60a;</span>微信小程序学习</span>
     
         <span class="sidebar-category-name" data-categories="javascript"><span class="iconfont-archer">&#xe60a;</span>javascript</span>
     
