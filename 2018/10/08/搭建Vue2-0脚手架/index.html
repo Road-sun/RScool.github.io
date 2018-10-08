@@ -282,7 +282,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">666</span> / Reading time: <span class="post-count">3 min</span></span>
+                        <span>Word count: <span class="post-count">721</span> / Reading time: <span class="post-count">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -411,7 +411,7 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h4 id="vue-cli搭建"><a href="#vue-cli搭建" class="headerlink" title="vue-cli搭建"></a>vue-cli搭建</h4><ul>
+        <h3 id="vue-cli搭建"><a href="#vue-cli搭建" class="headerlink" title="vue-cli搭建"></a>vue-cli搭建</h3><ul>
 <li>安装webpack  <ul>
 <li>全局安装 <code>npm install webpack -g</code>   </li>
 <li>查看版本 <code> webpack -v</code>  </li>
@@ -438,13 +438,21 @@ height:50vh;
 <li>打包项目<code>npm run build</code></li>
 <li>修改端口 config/index.js<br><img src="http://p74fhw4q5.bkt.clouddn.com/blog/10868449-3a6a5874d3e8d445.png" alt="index.js"></li>
 <li>assetsPublicPath 应该为’./‘ 这样打包后生成的dist文件路径才能正确</li>
-<li>npm run dev后,项目会在localhost:8075上显示,如果要关闭服务器,Ctrl+C退出,如果用的git bash,则需要在任务管理器中终结node进程。  </li>
+<li>npm run dev后,项目会在localhost:8075上显示,如果要关闭服务器,Ctrl+C退出,如果用的git bash,则需要在任务管理器中终结node进程。</li>
+<li>生成的dist可以直接放入到服务器上  </li>
 </ul>
 </li>
 <li><a href="https://blog.csdn.net/wulala_hei/article/details/80488674" target="_blank" rel="noopener">原文地址</a>  </li>
 </ul>
-<h4 id="Vuex安装"><a href="#Vuex安装" class="headerlink" title="Vuex安装"></a>Vuex安装</h4><p>  cd到项目文件下 <code>npm install –save vuex</code></p>
-<h4 id="Vue-sass-安装"><a href="#Vue-sass-安装" class="headerlink" title="Vue sass 安装"></a>Vue sass 安装</h4><ul>
+<h3 id="Vuex安装"><a href="#Vuex安装" class="headerlink" title="Vuex安装"></a>Vuex安装</h3><ul>
+<li>cd到项目文件下 <code>npm install –save vuex</code></li>
+<li><p>使用Vuex</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> vuex <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line">Vue.use(vuex);</span><br><span class="line"><span class="keyword">var</span> store = <span class="keyword">new</span> vuex.Store(&#123;<span class="comment">//store对象</span></span><br><span class="line">    state:&#123;</span><br><span class="line">        show:<span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://segmentfault.com/a/1190000009404727" target="_blank" rel="noopener">学习地址</a></p>
+</li>
+</ul>
+<h3 id="Vue-sass-安装"><a href="#Vue-sass-安装" class="headerlink" title="Vue sass 安装"></a>Vue sass 安装</h3><ul>
 <li>cd到项目文件下 <code>npm install sass-loader node-sass vue-style-loader –D</code></li>
 <li><p>打开build文件夹下面的webpack.base.config.js</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">        &#123;  <span class="comment">//手动添加这一段，相当于是编译识别sass!</span></span><br><span class="line">           test: <span class="regexp">/\.scss$/</span>,</span><br><span class="line">           loaders: [<span class="string">"style"</span>, <span class="string">"css"</span>, <span class="string">"sass"</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -454,6 +462,9 @@ height:50vh;
 </li>
 <li><p><a href="https://www.jianshu.com/p/8e60048baeb7" target="_blank" rel="noopener">原文地址</a>  </p>
 </li>
+</ul>
+<h3 id="vue-router学习"><a href="#vue-router学习" class="headerlink" title="vue-router学习"></a>vue-router学习</h3><ul>
+<li><a href="https://segmentfault.com/a/1190000011123089" target="_blank" rel="noopener">学习地址</a></li>
 </ul>
 
     </article>
@@ -602,7 +613,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#vue-cli搭建"><span class="toc-number">1.</span> <span class="toc-text"><a href="#vue-cli&#x642D;&#x5EFA;" class="headerlink" title="vue-cli&#x642D;&#x5EFA;"></a>vue-cli&#x642D;&#x5EFA;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vuex安装"><span class="toc-number">2.</span> <span class="toc-text"><a href="#Vuex&#x5B89;&#x88C5;" class="headerlink" title="Vuex&#x5B89;&#x88C5;"></a>Vuex&#x5B89;&#x88C5;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue-sass-安装"><span class="toc-number">3.</span> <span class="toc-text"><a href="#Vue-sass-&#x5B89;&#x88C5;" class="headerlink" title="Vue sass &#x5B89;&#x88C5;"></a>Vue sass &#x5B89;&#x88C5;</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-cli搭建"><span class="toc-number">1.</span> <span class="toc-text"><a href="#vue-cli&#x642D;&#x5EFA;" class="headerlink" title="vue-cli&#x642D;&#x5EFA;"></a>vue-cli&#x642D;&#x5EFA;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vuex安装"><span class="toc-number">2.</span> <span class="toc-text"><a href="#Vuex&#x5B89;&#x88C5;" class="headerlink" title="Vuex&#x5B89;&#x88C5;"></a>Vuex&#x5B89;&#x88C5;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-sass-安装"><span class="toc-number">3.</span> <span class="toc-text"><a href="#Vue-sass-&#x5B89;&#x88C5;" class="headerlink" title="Vue sass &#x5B89;&#x88C5;"></a>Vue sass &#x5B89;&#x88C5;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-router学习"><span class="toc-number">4.</span> <span class="toc-text"><a href="#vue-router&#x5B66;&#x4E60;" class="headerlink" title="vue-router&#x5B66;&#x4E60;"></a>vue-router&#x5B66;&#x4E60;</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -615,6 +626,34 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -973,22 +1012,22 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序传值以及获取值方法/" >微信小程序传值以及获取值方法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" >在微信小程序中使用阿里图标库的图标</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序改变原生按钮与滚动条样式-1/" > 微信小程序改变原生按钮与滚动条样式</a>
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序传值以及获取值方法/" >微信小程序传值以及获取值方法</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/js-encodeuri-在微信小程序中的应用/" >js encodeuri()在微信小程序中的应用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/08</span><a class="archive-post-title" href= "/2018/04/08/微信小程序改变原生按钮与滚动条样式-1/" > 微信小程序改变原生按钮与滚动条样式</a>
         </li>
     
     
@@ -1045,29 +1084,29 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
-    
         <span class="sidebar-tag-name" data-tags="JSP"><span class="iconfont-archer">&#xe606;</span>JSP</span>
     
         <span class="sidebar-tag-name" data-tags="Servlet"><span class="iconfont-archer">&#xe606;</span>Servlet</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="css"><span class="iconfont-archer">&#xe606;</span>css</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
     
         <span class="sidebar-tag-name" data-tags="javascript"><span class="iconfont-archer">&#xe606;</span>javascript</span>
     
         <span class="sidebar-tag-name" data-tags="jquery"><span class="iconfont-archer">&#xe606;</span>jquery</span>
     
-        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
-    
         <span class="sidebar-tag-name" data-tags="微信小程序"><span class="iconfont-archer">&#xe606;</span>微信小程序</span>
-    
-        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
-    
-        <span class="sidebar-tag-name" data-tags="css"><span class="iconfont-archer">&#xe606;</span>css</span>
-    
-        <span class="sidebar-tag-name" data-tags="html meta"><span class="iconfont-archer">&#xe606;</span>html meta</span>
     
         <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
-        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
+    
+        <span class="sidebar-tag-name" data-tags="html meta"><span class="iconfont-archer">&#xe606;</span>html meta</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1102,31 +1141,31 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="java基础程序设计"><span class="iconfont-archer">&#xe60a;</span>java基础程序设计</span>
-    
         <span class="sidebar-category-name" data-categories="JavaWeb"><span class="iconfont-archer">&#xe60a;</span>JavaWeb</span>
+    
+        <span class="sidebar-category-name" data-categories="java基础程序设计"><span class="iconfont-archer">&#xe60a;</span>java基础程序设计</span>
     
         <span class="sidebar-category-name" data-categories="java面向对象基础"><span class="iconfont-archer">&#xe60a;</span>java面向对象基础</span>
     
-        <span class="sidebar-category-name" data-categories="委托事件"><span class="iconfont-archer">&#xe60a;</span>委托事件</span>
+        <span class="sidebar-category-name" data-categories="hexo学习"><span class="iconfont-archer">&#xe60a;</span>hexo学习</span>
     
-        <span class="sidebar-category-name" data-categories="git"><span class="iconfont-archer">&#xe60a;</span>git</span>
+        <span class="sidebar-category-name" data-categories="委托事件"><span class="iconfont-archer">&#xe60a;</span>委托事件</span>
     
         <span class="sidebar-category-name" data-categories="微信小程序学习"><span class="iconfont-archer">&#xe60a;</span>微信小程序学习</span>
     
         <span class="sidebar-category-name" data-categories="javascript"><span class="iconfont-archer">&#xe60a;</span>javascript</span>
     
-        <span class="sidebar-category-name" data-categories="平滑锚点滚动"><span class="iconfont-archer">&#xe60a;</span>平滑锚点滚动</span>
+        <span class="sidebar-category-name" data-categories="mysql"><span class="iconfont-archer">&#xe60a;</span>mysql</span>
     
         <span class="sidebar-category-name" data-categories="移动端问题"><span class="iconfont-archer">&#xe60a;</span>移动端问题</span>
     
-        <span class="sidebar-category-name" data-categories="mysql"><span class="iconfont-archer">&#xe60a;</span>mysql</span>
+        <span class="sidebar-category-name" data-categories="git"><span class="iconfont-archer">&#xe60a;</span>git</span>
+    
+        <span class="sidebar-category-name" data-categories="平滑锚点滚动"><span class="iconfont-archer">&#xe60a;</span>平滑锚点滚动</span>
     
         <span class="sidebar-category-name" data-categories="qqxml卡片"><span class="iconfont-archer">&#xe60a;</span>qqxml卡片</span>
     
         <span class="sidebar-category-name" data-categories="Vue学习"><span class="iconfont-archer">&#xe60a;</span>Vue学习</span>
-    
-        <span class="sidebar-category-name" data-categories="hexo学习"><span class="iconfont-archer">&#xe60a;</span>hexo学习</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
