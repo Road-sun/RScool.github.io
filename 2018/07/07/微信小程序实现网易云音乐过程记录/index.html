@@ -449,7 +449,7 @@ height:50vh;
    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//播放列表页面js</span></span><br><span class="line"> <span class="keyword">const</span> backgroundAudioManager = wx.getBackgroundAudioManager()</span><br><span class="line"> </span><br><span class="line"> data: &#123;</span><br><span class="line">     allMusic: [],</span><br><span class="line"> &#125;,</span><br><span class="line"></span><br><span class="line"> toPlay: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">           </span><br><span class="line">     <span class="keyword">let</span> id = e.currentTarget.dataset.mid</span><br><span class="line">     <span class="keyword">let</span> music = <span class="keyword">this</span>.data.allMusic[id]</span><br><span class="line">     <span class="keyword">var</span> valmusic = <span class="built_in">JSON</span>.stringify(music)</span><br><span class="line">                                                                                             </span><br><span class="line">     backgroundAudioManager.title = music.name</span><br><span class="line">     backgroundAudioManager.singer = music.author</span><br><span class="line">     backgroundAudioManager.coverImgUr = <span class="string">'http://imgcache.qq.com/music/photo/album_300/'</span> + music.img % <span class="number">100</span> + <span class="string">'/300_albumpic_'</span> + music.img + <span class="string">'_0.jpg'</span></span><br><span class="line">     backgroundAudioManager.src = <span class="string">'http://ws.stream.qqmusic.qq.com/C100'</span> + music.url + <span class="string">'.m4a?fromtag=0&amp;guid=126548448'</span></span><br><span class="line"> </span><br><span class="line">     wx.setStorage(&#123;</span><br><span class="line">       key: <span class="string">"music"</span>,</span><br><span class="line">       data: valmusic</span><br><span class="line">     &#125;)</span><br><span class="line">   &#125;,</span><br></pre></td></tr></table></figure>
 <p>   该页面为歌曲列表页面，在此页面选择歌曲则进行播放，并将歌曲信息记录到本地。</p>
    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.js</span></span><br><span class="line">   data: &#123;</span><br><span class="line">       music: &#123;&#125;,</span><br><span class="line">       playlist: [],</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//获取当前播放音乐</span></span><br><span class="line">     getPlayMuscic: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">var</span> that = <span class="keyword">this</span></span><br><span class="line">       wx.getStorage(&#123;</span><br><span class="line">         key: <span class="string">'music'</span>,</span><br><span class="line">         success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">           <span class="keyword">let</span> musica = <span class="built_in">JSON</span>.parse(res.data)</span><br><span class="line">           <span class="comment">//因为在本地存储的数据为字符串</span></span><br><span class="line">           that.setData(&#123;</span><br><span class="line">             music: musica,</span><br><span class="line">           &#125;)</span><br><span class="line">           that.getList()</span><br><span class="line">           <span class="comment">// console.log('a')</span></span><br><span class="line">         &#125;</span><br><span class="line">       &#125;)</span><br><span class="line">     &#125;,</span><br><span class="line">   </span><br><span class="line">     <span class="comment">//从本地获取播放列表</span></span><br><span class="line">     getList: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">var</span> that = <span class="keyword">this</span></span><br><span class="line">       wx.getStorage(&#123;</span><br><span class="line">         key: <span class="string">'playlist'</span>,</span><br><span class="line">         success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">           <span class="keyword">let</span> pllist = <span class="built_in">JSON</span>.parse(res.data)</span><br><span class="line">           that.setData(&#123;</span><br><span class="line">             playlist: pllist</span><br><span class="line">           &#125;)</span><br><span class="line">           that.addMusicToList()</span><br><span class="line">           <span class="comment">// console.log('b')</span></span><br><span class="line">           that.setPlaylistToLocal()</span><br><span class="line">           that.judgeLoodId()</span><br><span class="line">         &#125;,</span><br><span class="line">       &#125;)</span><br><span class="line">   </span><br><span class="line">     &#125;,</span><br><span class="line">   </span><br><span class="line">     <span class="comment">//向list中添加当前播放音乐</span></span><br><span class="line">     addMusicToList: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">var</span> that = <span class="keyword">this</span></span><br><span class="line">       <span class="keyword">let</span> mus = <span class="keyword">this</span>.data.music</span><br><span class="line">       <span class="keyword">let</span> newlist = <span class="keyword">this</span>.data.playlist</span><br><span class="line">       <span class="keyword">let</span> isRepeat = <span class="literal">false</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; newlist.length; i++) &#123;</span><br><span class="line">         <span class="keyword">if</span> (mus.url == newlist[i].url) &#123;</span><br><span class="line">           isRepeat = <span class="literal">true</span></span><br><span class="line">         &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span> (!isRepeat) &#123;</span><br><span class="line">         <span class="keyword">let</span> len = newlist.length</span><br><span class="line">         newlist[len] = mus</span><br><span class="line">         that.setData(&#123;</span><br><span class="line">           playlist: newlist</span><br><span class="line">         &#125;)</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;,</span><br><span class="line">   </span><br><span class="line">     <span class="comment">//将playlist存入本地</span></span><br><span class="line">     setPlaylistToLocal: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">var</span> that = <span class="keyword">this</span></span><br><span class="line">       <span class="keyword">let</span> newlist = <span class="built_in">JSON</span>.stringify(<span class="keyword">this</span>.data.playlist)</span><br><span class="line">       wx.setStorage(&#123;</span><br><span class="line">         key: <span class="string">'playlist'</span>,</span><br><span class="line">         data: newlist,</span><br><span class="line">       &#125;)</span><br><span class="line">       <span class="comment">// console.log(this.data.music)</span></span><br><span class="line">       <span class="comment">// console.log(this.data.playlist)</span></span><br><span class="line">     &#125;,</span><br><span class="line">   </span><br><span class="line">     <span class="comment">//判断当前播放歌曲在列表中的位置</span></span><br><span class="line">     judgeLoodId: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">let</span> music = <span class="keyword">this</span>.data.music</span><br><span class="line">       <span class="keyword">let</span> list = <span class="keyword">this</span>.data.playlist</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; list.length; i++) &#123;</span><br><span class="line">         <span class="keyword">if</span> (music.url == list[i].url) &#123;</span><br><span class="line">           <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">             loopId: i</span><br><span class="line">           &#125;)</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;,</span><br><span class="line">     </span><br><span class="line">     onLoad: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">       <span class="comment">//获取播放信息，播放列表流程</span></span><br><span class="line">       <span class="keyword">this</span>.getPlayMuscic();</span><br><span class="line">       <span class="comment">// console.log(this.data.loopId)</span></span><br><span class="line">        wx.getStorage(&#123;</span><br><span class="line">          key: <span class="string">'playStyle'</span>,</span><br><span class="line">          success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">            that.setData(&#123;</span><br><span class="line">                playStyle: res.data</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;)</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
-<p><a herf="https://github.com/Road-sun/wxMusic">项目地址</a>   </p>
+<p><a href="https://github.com/Road-sun/wxMusic" target="_blank" rel="noopener">项目地址</a>   </p>
 
     </article>
     <!-- license  -->
@@ -900,24 +900,9 @@ top:50vh;
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 23
+        Total : 24
         <!-- search  -->
         </div>
             <div class="site-search popup-trigger">
@@ -932,6 +917,11 @@ top:50vh;
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/08</span><a class="archive-post-title" href= "/2018/10/08/搭建Vue2-0脚手架/" >搭建Vue2.0脚手架</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -950,12 +940,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2018/09/01/手机QQ分享网页变成xml卡片/" >手机QQ分享网页变成xml卡片</a>
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2018/09/01/关于HTML5中meta-name-viewport-的用法/" >关于HTML5中meta name='viewport' 的用法</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2018/09/01/关于HTML5中meta-name-viewport-的用法/" >关于HTML5中meta name='viewport' 的用法</a>
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href= "/2018/09/01/手机QQ分享网页变成xml卡片/" >手机QQ分享网页变成xml卡片</a>
         </li>
     
     
@@ -1068,23 +1058,23 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Servlet"><span class="iconfont-archer">&#xe606;</span>Servlet</span>
     
-        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
-    
         <span class="sidebar-tag-name" data-tags="javascript"><span class="iconfont-archer">&#xe606;</span>javascript</span>
     
         <span class="sidebar-tag-name" data-tags="jquery"><span class="iconfont-archer">&#xe606;</span>jquery</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="微信小程序"><span class="iconfont-archer">&#xe606;</span>微信小程序</span>
     
-        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
+        <span class="sidebar-tag-name" data-tags="Vue"><span class="iconfont-archer">&#xe606;</span>Vue</span>
     
         <span class="sidebar-tag-name" data-tags="css"><span class="iconfont-archer">&#xe606;</span>css</span>
     
         <span class="sidebar-tag-name" data-tags="html meta"><span class="iconfont-archer">&#xe606;</span>html meta</span>
     
-        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1123,25 +1113,27 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="JavaWeb"><span class="iconfont-archer">&#xe60a;</span>JavaWeb</span>
     
-        <span class="sidebar-category-name" data-categories="hexo学习"><span class="iconfont-archer">&#xe60a;</span>hexo学习</span>
-    
         <span class="sidebar-category-name" data-categories="java面向对象基础"><span class="iconfont-archer">&#xe60a;</span>java面向对象基础</span>
     
         <span class="sidebar-category-name" data-categories="委托事件"><span class="iconfont-archer">&#xe60a;</span>委托事件</span>
     
-        <span class="sidebar-category-name" data-categories="mysql"><span class="iconfont-archer">&#xe60a;</span>mysql</span>
+        <span class="sidebar-category-name" data-categories="git"><span class="iconfont-archer">&#xe60a;</span>git</span>
     
         <span class="sidebar-category-name" data-categories="微信小程序学习"><span class="iconfont-archer">&#xe60a;</span>微信小程序学习</span>
     
-        <span class="sidebar-category-name" data-categories="移动端问题"><span class="iconfont-archer">&#xe60a;</span>移动端问题</span>
-    
-        <span class="sidebar-category-name" data-categories="git"><span class="iconfont-archer">&#xe60a;</span>git</span>
+        <span class="sidebar-category-name" data-categories="javascript"><span class="iconfont-archer">&#xe60a;</span>javascript</span>
     
         <span class="sidebar-category-name" data-categories="平滑锚点滚动"><span class="iconfont-archer">&#xe60a;</span>平滑锚点滚动</span>
     
-        <span class="sidebar-category-name" data-categories="javascript"><span class="iconfont-archer">&#xe60a;</span>javascript</span>
+        <span class="sidebar-category-name" data-categories="移动端问题"><span class="iconfont-archer">&#xe60a;</span>移动端问题</span>
+    
+        <span class="sidebar-category-name" data-categories="mysql"><span class="iconfont-archer">&#xe60a;</span>mysql</span>
     
         <span class="sidebar-category-name" data-categories="qqxml卡片"><span class="iconfont-archer">&#xe60a;</span>qqxml卡片</span>
+    
+        <span class="sidebar-category-name" data-categories="Vue学习"><span class="iconfont-archer">&#xe60a;</span>Vue学习</span>
+    
+        <span class="sidebar-category-name" data-categories="hexo学习"><span class="iconfont-archer">&#xe60a;</span>hexo学习</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

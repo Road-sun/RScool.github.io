@@ -15,7 +15,7 @@
     <meta name="description" content="做自己爱做的事，爱自己在做的事！">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Find Error · This is my world</title>
+    <title>搭建Vue2.0脚手架 · This is my world</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -70,6 +70,8 @@
 
     <link rel="preload" href= /css/style.css?v=20180604 as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= /css/mobile.css?v=20180604 media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -209,7 +211,7 @@
 </head>
 
     
-        <body class="four-zero-four-body">
+        <body class="post-body">
     
     
 <header class="header">
@@ -217,6 +219,15 @@
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >My blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">搭建Vue2.0脚手架</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>My blog</a>
 </header>
@@ -230,32 +241,74 @@
 
 
 
+height:50vh;
+
 >
     
     <!-- 主页  -->
     
     
-    <!-- about页 -->
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/404-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(https://source.unsplash.com/random)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Find Error
-            <!-- about -->
+            搭建Vue2.0脚手架
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-                May the Force be with you :&#41;
+            
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Vue">Vue</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count">666</span> / Reading time: <span class="post-count">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/10/08</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -356,8 +409,101 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <!-- 不可以删除，否则会调用post的layout  -->
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="vue-cli搭建"><a href="#vue-cli搭建" class="headerlink" title="vue-cli搭建"></a>vue-cli搭建</h4><ul>
+<li>安装webpack  <ul>
+<li>全局安装 <code>npm install webpack -g</code>   </li>
+<li>查看版本 <code> webpack -v</code>  </li>
+<li>安装webpack-cli依赖 <code> npm install webpack webpack-cli -g</code></li>
+</ul>
+</li>
+<li>安装vue-cli<ul>
+<li>全局安装 <code>npm install –global vue-cli</code></li>
+<li>查看版本 <code> vue -V</code></li>
+</ul>
+</li>
+<li><p>用vue-cli来构建项目</p>
+<ul>
+<li>新建一个文件夹用来存放项目 ，cd到该文件下</li>
+<li><p><code>vue init webpack xxx</code> xxx为自定义的项目名称</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Project name (baoge)： -----项目名称，直接回车，按照括号中默认名字（注意这里的名字不能有大写字母，如果有会报错Sorry, name can no longer contain capital letters），阮一峰老师博客为什么文件名要小写 ，可以参考一下。</span><br><span class="line">Project description (A Vue.js project)： ----项目描述，也可直接点击回车，使用默认名字</span><br><span class="line">Author ()： ----作者，输入你的大名接下来会让用户选择：</span><br><span class="line">Runtime + Compiler: recommended for most users 运行加编译，既然已经说了推荐，就选它了Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specificHTML) are ONLY allowed in .vue files - render functions are required elsewhere 仅运行时，已经有推荐了就选择第一个了</span><br><span class="line">Install vue-router? (Y/n) 是否安装vue-router，这是官方的路由，大多数情况下都使用，这里就输入“y”后回车即可。</span><br><span class="line">Use ESLint to lint your code? (Y/n) 是否使用ESLint管理代码，ESLint是个代码风格管理工具，是用来统一代码风格的，一般项目中都会使用。接下来也是选择题</span><br><span class="line">Pick an ESLint preset (Use arrow keys) 选择一个ESLint预设，编写vue项目时的代码风格，直接y回车</span><br><span class="line">Setup unit tests with Karma + Mocha? (Y/n) 是否安装单元测试，我选择安装y回车</span><br><span class="line">Setup e2e tests with Nightwatch(Y/n)? 是否安装e2e测试 ，我选择安装y回车</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cd到xxx文件夹下，安装依赖<code>npm install</code><br><img src="http://p74fhw4q5.bkt.clouddn.com/blog/10868449-01a038fa573b22c8.png" alt="文件目录"></p>
+</li>
+</ul>
+</li>
+<li>启动项目<ul>
+<li>启动项目<code>npm run dev</code></li>
+<li>打包项目<code>npm run build</code></li>
+<li>修改端口 config/index.js<br><img src="http://p74fhw4q5.bkt.clouddn.com/blog/10868449-3a6a5874d3e8d445.png" alt="index.js"></li>
+<li>assetsPublicPath 应该为’./‘ 这样打包后生成的dist文件路径才能正确</li>
+<li>npm run dev后,项目会在localhost:8075上显示,如果要关闭服务器,Ctrl+C退出,如果用的git bash,则需要在任务管理器中终结node进程。  </li>
+</ul>
+</li>
+<li><a href="https://blog.csdn.net/wulala_hei/article/details/80488674" target="_blank" rel="noopener">原文地址</a>  </li>
+</ul>
+<h4 id="Vuex安装"><a href="#Vuex安装" class="headerlink" title="Vuex安装"></a>Vuex安装</h4><p>  cd到项目文件下 <code>npm install –save vuex</code></p>
+<h4 id="Vue-sass-安装"><a href="#Vue-sass-安装" class="headerlink" title="Vue sass 安装"></a>Vue sass 安装</h4><ul>
+<li>cd到项目文件下 <code>npm install sass-loader node-sass vue-style-loader –D</code></li>
+<li><p>打开build文件夹下面的webpack.base.config.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">        &#123;  <span class="comment">//手动添加这一段，相当于是编译识别sass!</span></span><br><span class="line">           test: <span class="regexp">/\.scss$/</span>,</span><br><span class="line">           loaders: [<span class="string">"style"</span>, <span class="string">"css"</span>, <span class="string">"sass"</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用时加上 lang=”scss”</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">"scss"</span> <span class="attr">scoped</span>=<span class="string">""</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    $primary-color: #333;</span></span><br><span class="line"><span class="undefined">    body &#123;</span></span><br><span class="line"><span class="undefined">      color: $primary-color;  </span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://www.jianshu.com/p/8e60048baeb7" target="_blank" rel="noopener">原文地址</a>  </p>
+</li>
+</ul>
 
+    </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/10/03/学习使用git提交代码/" title= 学习使用git提交代码 >
+                    <div class="prevTitle">学习使用git提交代码</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid= MTAyMC8zNzYwMi8xNDEzMw==>
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!--PC和WAP自适应版-->
+
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
             <!-- profile -->
             
         </div>
@@ -440,6 +586,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#vue-cli搭建"><span class="toc-number">1.</span> <span class="toc-text"><a href="#vue-cli&#x642D;&#x5EFA;" class="headerlink" title="vue-cli&#x642D;&#x5EFA;"></a>vue-cli&#x642D;&#x5EFA;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vuex安装"><span class="toc-number">2.</span> <span class="toc-text"><a href="#Vuex&#x5B89;&#x88C5;" class="headerlink" title="Vuex&#x5B89;&#x88C5;"></a>Vuex&#x5B89;&#x88C5;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue-sass-安装"><span class="toc-number">3.</span> <span class="toc-text"><a href="#Vue-sass-&#x5B89;&#x88C5;" class="headerlink" title="Vue sass &#x5B89;&#x88C5;"></a>Vue sass &#x5B89;&#x88C5;</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1019,6 +1183,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
