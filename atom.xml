@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://road-sun.github.io/"/>
-  <updated>2018-10-08T15:54:36.854Z</updated>
+  <updated>2018-10-12T13:21:28.350Z</updated>
   <id>https://road-sun.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>对包含块（containing block）和块级格式化上下文（BFC）的理解</title>
+    <link href="https://road-sun.github.io/2018/10/12/%E5%AF%B9%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%88BCF%EF%BC%89%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <id>https://road-sun.github.io/2018/10/12/对块级格式化上下文（BCF）的理解/</id>
+    <published>2018-10-12T12:13:01.000Z</published>
+    <updated>2018-10-12T13:21:28.350Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>Block fomatting context(简称BFC)。它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。<br>（个人理解：因为浏览器渲染时是一个一个box(矩形的块)为单位开始渲染。每一个块根据大小宽高进行排列布局，每一个块内部又有自己的排列布局，BFC内部的渲染则与外部没有任何关系）</p><h4 id="BFC布局规则"><a href="#BFC布局规则" class="headerlink" title="BFC布局规则"></a>BFC布局规则</h4><ul><li>内部的Box会在垂直方向，一个接一个地放置</li><li>Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠。</li><li>每个元素的margin-box(margin之后的外边距)的左边， 与包含块border-box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。</li><li>BFC的区域不会与float box（浮动和盒子）重叠。</li><li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</li><li>计算BFC的高度时，浮动元素也参与计算。</li></ul><h4 id="创建BFC"><a href="#创建BFC" class="headerlink" title="创建BFC"></a>创建BFC</h4><ul><li>根元素</li><li>float属性不为none</li><li>position为absolute或fixed</li><li>display为inline-block, table-cell, table-caption, flex, inline-flex</li><li>overflow不为visible( hidden,scroll,auto, )</li></ul><h4 id="BFC的作用"><a href="#BFC的作用" class="headerlink" title="BFC的作用"></a>BFC的作用</h4><ul><li>可以包含浮动元素</li><li>不被浮动元素覆盖</li><li>阻止父子元素的margin折叠</li></ul><h4 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h4><p><a href="https://blog.csdn.net/taotao6039/article/details/37520765" target="_blank" rel="noopener">文1</a><br><a href="https://www.jianshu.com/p/66632298e355" target="_blank" rel="noopener">文2</a></p><p>个人理解:</p><ul><li>如果两个元素的父元素不为BFC 则其中一个元素浮动的话会与另一个元素重叠</li><li>如果两个元素都浮动，则不能撑开父元素，即父元素没有高度</li><li>如果两个元素都不浮动，则元素会竖排，直接的距离由margin决定，如果第一个元素有margin-bottom,而第二个元素有margin-top，则两个margin会重叠<br>总结：BFC可以将外界与内部隔离，使之互相直接不影响。<br>说明：用BFC清除浮动影响时一般用overflow:auto,不会造成太大影响。IE应添加zoom:1</li></ul><h3 id="包含块（containing-block）"><a href="#包含块（containing-block）" class="headerlink" title="包含块（containing block）"></a>包含块（containing block）</h3><p><a href="https://blog.csdn.net/ruoyiqing/article/details/38963281" target="_blank" rel="noopener">推荐阅读</a></p><h4 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h4><ul><li>包含块不一定是父元素的边界</li><li>块内内容有可能溢出包含块</li><li>包含块的宽度有可能为负</li><li><ul><li>根元素的包含块为初始包含块，大小与viewport相同</li><li>position为relative或者static的元素，它的包含块由最近的块级（display为block,list-item, table）祖先元素的内容框组成</li><li>如果元素position为fixed。对于连续媒体，它的包含块为viewport</li><li>绝对定位（”position: absolute”）元素的包含块由离它最近的 ‘position’ 属性为 ‘absolute’、’relative’ 或者 ‘fixed’ 的祖先元素创建。若没有，则包含块为初始包含块。<ul><li>如果其祖先元素是行内元素，则包含块取决于其祖先元素的 ‘direction’ 特性。<ul><li>如果 ‘direction’ 是 ‘ltr’，包含块的顶、左边是祖先元素生成的第一个框的顶、左内边距边界(padding edges) ，右、下边是祖先元素生成的最后一个框的右、下内边距边界(padding edges)</li><li>如果 ‘direction’ 是 ‘rtl’，包含块的顶、右边是祖先元素生成的第一个框的顶、右内边距边界 (padding edges) ，左、下边是祖先元素生成的最后一个框的左、下内边距边界 (padding edges)</li></ul></li><li>如果祖先元素不是行内元素，那么包含块的区域应该是祖先元素的（padding edges）内边距边界</li></ul></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;BFC&quot;&gt;&lt;a href=&quot;#BFC&quot; class=&quot;headerlink&quot; title=&quot;BFC&quot;&gt;&lt;/a&gt;BFC&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;p
+      
+    
+    </summary>
+    
+      <category term="html深入理解" scheme="https://road-sun.github.io/categories/html%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3/"/>
+    
+    
+      <category term="css" scheme="https://road-sun.github.io/tags/css/"/>
+    
+      <category term="html" scheme="https://road-sun.github.io/tags/html/"/>
+    
+  </entry>
   
   <entry>
     <title>搭建Vue2.0脚手架</title>
@@ -506,31 +533,6 @@
     </summary>
     
       <category term="java面向对象基础" scheme="https://road-sun.github.io/categories/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="java" scheme="https://road-sun.github.io/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java基础 2 数组</title>
-    <link href="https://road-sun.github.io/2017/12/13/Java%E5%9F%BA%E7%A1%802/"/>
-    <id>https://road-sun.github.io/2017/12/13/Java基础2/</id>
-    <published>2017-12-13T02:16:24.000Z</published>
-    <updated>2017-12-13T10:47:45.092Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h5 id="数组声明"><a href="#数组声明" class="headerlink" title="数组声明"></a>数组声明</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String[] aArray = <span class="keyword">new</span> String[<span class="number">5</span>];  </span><br><span class="line">String[] bArray = &#123;<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>, <span class="string">"d"</span>, <span class="string">"e"</span>&#125;;  </span><br><span class="line">String[] cArray = <span class="keyword">new</span> String[]&#123;<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>,<span class="string">"d"</span>,<span class="string">"e"</span>&#125;;</span><br></pre></td></tr></table></figure><h5 id="数组遍历输出"><a href="#数组遍历输出" class="headerlink" title="数组遍历输出"></a>数组遍历输出</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] intArray = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span> &#125;;  </span><br><span class="line">String intArrayString = Arrays.toString(intArray); </span><br><span class="line">System.out.println(intArrayString);  </span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure><h5 id="数组排序-查找"><a href="#数组排序-查找" class="headerlink" title="数组排序,查找"></a>数组排序,查找</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> b[]=&#123;<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">6</span>&#125;</span><br><span class="line">java.util.Arrays.sort(b);</span><br><span class="line"><span class="comment">// 将数组按照升序排列 b[]=&#123;2,4,4,5,6,6,7,9&#125;</span></span><br><span class="line">Array.binarySearch(b,<span class="number">2</span>);</span><br><span class="line"><span class="comment">//0</span></span><br><span class="line">Array.binarySearch(b,<span class="number">5</span>);</span><br><span class="line"><span class="comment">//3</span></span><br><span class="line">Array.binarySearch(b,<span class="number">3</span>);</span><br><span class="line"><span class="comment">//-2</span></span><br><span class="line">Array.binarySearch(b,<span class="number">6</span>);</span><br><span class="line"><span class="comment">//-8</span></span><br><span class="line">Array.binarySearch(b,<span class="number">10</span>);</span><br><span class="line"><span class="comment">//-9</span></span><br></pre></td></tr></table></figure><p>总结：binarySearch()方法的返回值为：1. 如果找到关键字，则返回值为关键字在数组中的位置索引，且索引从0开始。 2. 如果没有找到关键字，返回值为负的插入点值，所谓插入点值就是第一个比关键字大的元素在数组中的位置索引，而且这个位置索引从1开始。</p><h5 id="数组复制"><a href="#数组复制" class="headerlink" title="数组复制"></a>数组复制</h5><ol><li><p>按址复制</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] array = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] array1 = array;</span><br><span class="line">array1[<span class="number">2</span>] = <span class="number">3</span>;</span><br><span class="line">System.out.println(Arrays.toString(array));</span><br><span class="line"><span class="comment">//[1,3,3]</span></span><br><span class="line"><span class="comment">//按地址复制，内容改变，原数组内容也改变</span></span><br></pre></td></tr></table></figure></li><li><p>按值复制</p></li></ol><ul><li><p>System.arraycopy()</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">arraycopy</span><span class="params">(Object src,  <span class="keyword">int</span>  srcPos,Object dest, <span class="keyword">int</span> destPos,<span class="keyword">int</span> length)</span></span>;</span><br><span class="line"><span class="comment">//源数组名称，源数组开始点，目标数组名称，目标数组开始点，复制长度</span></span><br><span class="line">System.arraycopy(arr1, <span class="number">0</span>, arr2, <span class="number">0</span>, arr1.length);</span><br></pre></td></tr></table></figure></li><li><p>Arrays.copyOf()</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Arrays.copyOf(Object src,int length);</span><br><span class="line">//源数组名称，复制长度</span><br></pre></td></tr></table></figure></li></ul><h5 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++)&#123; </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array[i].length; j++)&#123; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//array.length 行长度</span></span><br><span class="line"><span class="comment">//array[i].length 列长度</span></span><br><span class="line"><span class="comment">//array[i][j].length 内容长度</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;数组&quot;&gt;&lt;a href=&quot;#数组&quot; class=&quot;headerlink&quot; title=&quot;数组&quot;&gt;&lt;/a&gt;数组&lt;/h3&gt;&lt;h5 id=&quot;数组声明&quot;&gt;&lt;a href=&quot;#数组声明&quot; class=&quot;headerlink&quot; title=&quot;数组声明&quot;&gt;&lt;/a&gt;数组声明&lt;/h
-      
-    
-    </summary>
-    
-      <category term="java基础程序设计" scheme="https://road-sun.github.io/categories/java%E5%9F%BA%E7%A1%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
     
       <category term="java" scheme="https://road-sun.github.io/tags/java/"/>

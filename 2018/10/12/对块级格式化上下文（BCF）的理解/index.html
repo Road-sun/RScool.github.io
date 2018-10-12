@@ -15,7 +15,7 @@
     <meta name="description" content="做自己爱做的事，爱自己在做的事！">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>flex布局时遇到overflow时滚动失效 · This is my world</title>
+    <title>对包含块（containing block）和块级格式化上下文（BFC）的理解 · This is my world</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -225,7 +225,7 @@
                 <a href="/" >My blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">flex布局时遇到overflow时滚动失效</a>
+                <a href="#" class="post-name">对包含块（containing block）和块级格式化上下文（BFC）的理解</a>
             </div>
     </div>
     
@@ -257,7 +257,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            flex布局时遇到overflow时滚动失效
+            对包含块（containing block）和块级格式化上下文（BFC）的理解
             <!-- 404 -->
             
         </h1>
@@ -278,16 +278,18 @@ height:50vh;
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "css">css</a>
     
+        <a class="post-tag" href="javascript:void(0);" data-tags = "html">html</a>
+    
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">293</span> / Reading time: <span class="post-count">1 min</span></span>
+                        <span>Word count: <span class="post-count">885</span> / Reading time: <span class="post-count">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/06/21</span>
+                    <span class="post-intro-time">2018/10/12</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -411,36 +413,69 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>&#8195;&#8195;使用flex布局时，有些需要滚动显示全部内容的元素不能滚动，其原因在于overflow失效。<br>&#8195;&#8195;解决方法 ： 如果要超出范围，需要滚动条出现，最好<code>display:block</code>,因为flex是柔性盒子布局，所有的子元素都会被父元素装下，甚至可能自动缩小子元素的大小<br>&#8195;&#8195;如果一定要使用flex布局且出现滚动条，必要设置父元素和子元素的宽高，<br>   不使用<code>overflow:auto</code>，使用<code>overflow:scroll</code><br><a id="more"></a></p>
-<h3 id="flex-grow的使用"><a href="#flex-grow的使用" class="headerlink" title="flex-grow的使用"></a>flex-grow的使用</h3><p>flex-grow  属性用于设置或检索弹性盒子的扩展比率。(父元素的<strong><em>多余空白空间</em></strong>会以子元素flex-grow的值比例分配)<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"kid1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"kid2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"kid3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1000px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.kid1</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.kid2</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.kid3</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">flex-grow</span>: <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*初始width=0,多余部分为100%，所以会按比例划分*/</span></span><br><span class="line"><span class="comment">/*按1:2:3划分*/</span></span><br></pre></td></tr></table></figure>
-<p>如果要使子元素换行，则需要<code>flex-warp:warp</code></p>
+        <h3 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>Block fomatting context(简称BFC)。它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。<br>（个人理解：因为浏览器渲染时是一个一个box(矩形的块)为单位开始渲染。每一个块根据大小宽高进行排列布局，每一个块内部又有自己的排列布局，BFC内部的渲染则与外部没有任何关系）</p>
+<h4 id="BFC布局规则"><a href="#BFC布局规则" class="headerlink" title="BFC布局规则"></a>BFC布局规则</h4><ul>
+<li>内部的Box会在垂直方向，一个接一个地放置</li>
+<li>Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠。</li>
+<li>每个元素的margin-box(margin之后的外边距)的左边， 与包含块border-box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。</li>
+<li>BFC的区域不会与float box（浮动和盒子）重叠。</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</li>
+<li>计算BFC的高度时，浮动元素也参与计算。</li>
+</ul>
+<h4 id="创建BFC"><a href="#创建BFC" class="headerlink" title="创建BFC"></a>创建BFC</h4><ul>
+<li>根元素</li>
+<li>float属性不为none</li>
+<li>position为absolute或fixed</li>
+<li>display为inline-block, table-cell, table-caption, flex, inline-flex</li>
+<li>overflow不为visible( hidden,scroll,auto, )</li>
+</ul>
+<h4 id="BFC的作用"><a href="#BFC的作用" class="headerlink" title="BFC的作用"></a>BFC的作用</h4><ul>
+<li>可以包含浮动元素</li>
+<li>不被浮动元素覆盖</li>
+<li>阻止父子元素的margin折叠</li>
+</ul>
+<h4 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h4><p><a href="https://blog.csdn.net/taotao6039/article/details/37520765" target="_blank" rel="noopener">文1</a><br><a href="https://www.jianshu.com/p/66632298e355" target="_blank" rel="noopener">文2</a></p>
+<p>个人理解:</p>
+<ul>
+<li>如果两个元素的父元素不为BFC 则其中一个元素浮动的话会与另一个元素重叠</li>
+<li>如果两个元素都浮动，则不能撑开父元素，即父元素没有高度</li>
+<li>如果两个元素都不浮动，则元素会竖排，直接的距离由margin决定，如果第一个元素有margin-bottom,而第二个元素有margin-top，则两个margin会重叠<br>总结：BFC可以将外界与内部隔离，使之互相直接不影响。<br>说明：用BFC清除浮动影响时一般用overflow:auto,不会造成太大影响。IE应添加zoom:1</li>
+</ul>
+<h3 id="包含块（containing-block）"><a href="#包含块（containing-block）" class="headerlink" title="包含块（containing block）"></a>包含块（containing block）</h3><p><a href="https://blog.csdn.net/ruoyiqing/article/details/38963281" target="_blank" rel="noopener">推荐阅读</a></p>
+<h4 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h4><ul>
+<li>包含块不一定是父元素的边界</li>
+<li>块内内容有可能溢出包含块</li>
+<li>包含块的宽度有可能为负</li>
+<li><ul>
+<li>根元素的包含块为初始包含块，大小与viewport相同</li>
+<li>position为relative或者static的元素，它的包含块由最近的块级（display为block,list-item, table）祖先元素的内容框组成</li>
+<li>如果元素position为fixed。对于连续媒体，它的包含块为viewport</li>
+<li>绝对定位（”position: absolute”）元素的包含块由离它最近的 ‘position’ 属性为 ‘absolute’、’relative’ 或者 ‘fixed’ 的祖先元素创建。若没有，则包含块为初始包含块。<ul>
+<li>如果其祖先元素是行内元素，则包含块取决于其祖先元素的 ‘direction’ 特性。<ul>
+<li>如果 ‘direction’ 是 ‘ltr’，包含块的顶、左边是祖先元素生成的第一个框的顶、左内边距边界(padding edges) ，右、下边是祖先元素生成的最后一个框的右、下内边距边界(padding edges)</li>
+<li>如果 ‘direction’ 是 ‘rtl’，包含块的顶、右边是祖先元素生成的第一个框的顶、右内边距边界 (padding edges) ，左、下边是祖先元素生成的最后一个框的左、下内边距边界 (padding edges)</li>
+</ul>
+</li>
+<li>如果祖先元素不是行内元素，那么包含块的区域应该是祖先元素的（padding edges）内边距边界</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
     </article>
     <!-- license  -->
-    
-        <div class="license-wrapper">
-            <p>原文作者: <a href="https://road-sun.github.io">Road Sun</a>
-            <p>原文链接: <a href="https://road-sun.github.io/2018/06/21/flex布局时遇到overflow时滚动失效-1/">https://road-sun.github.io/2018/06/21/flex布局时遇到overflow时滚动失效-1/</a>
-            <p>发表日期: <a href="https://road-sun.github.io/2018/06/21/flex布局时遇到overflow时滚动失效-1/">June 21st 2018, 10:51:16 pm</a>
-            <p>版权声明: 本文采用<a rel="license" href ="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
-        </div>
     
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2018/06/23/微信小程序实现侧滑菜单/" title= 微信小程序实现侧滑菜单 >
-                    <div class="nextTitle">微信小程序实现侧滑菜单</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/04/08/在微信小程序中使用阿里图标库的图标/" title= 在微信小程序中使用阿里图标库的图标 >
-                    <div class="prevTitle">在微信小程序中使用阿里图标库的图标</div>
+                <a href= "/2018/10/08/搭建Vue2-0脚手架/" title= 搭建Vue2.0脚手架 >
+                    <div class="prevTitle">搭建Vue2.0脚手架</div>
                 </a>
             
         </li>
@@ -574,7 +609,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-grow的使用"><span class="toc-number">1.</span> <span class="toc-text"><a href="#flex-grow&#x7684;&#x4F7F;&#x7528;" class="headerlink" title="flex-grow&#x7684;&#x4F7F;&#x7528;"></a>flex-grow&#x7684;&#x4F7F;&#x7528;</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC"><span class="toc-number">1.</span> <span class="toc-text"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义"><span class="toc-number">1.1.</span> <span class="toc-text"><a href="#&#x5B9A;&#x4E49;" class="headerlink" title="&#x5B9A;&#x4E49;"></a>&#x5B9A;&#x4E49;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BFC布局规则"><span class="toc-number">1.2.</span> <span class="toc-text"><a href="#BFC&#x5E03;&#x5C40;&#x89C4;&#x5219;" class="headerlink" title="BFC&#x5E03;&#x5C40;&#x89C4;&#x5219;"></a>BFC&#x5E03;&#x5C40;&#x89C4;&#x5219;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建BFC"><span class="toc-number">1.3.</span> <span class="toc-text"><a href="#&#x521B;&#x5EFA;BFC" class="headerlink" title="&#x521B;&#x5EFA;BFC"></a>&#x521B;&#x5EFA;BFC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BFC的作用"><span class="toc-number">1.4.</span> <span class="toc-text"><a href="#BFC&#x7684;&#x4F5C;&#x7528;" class="headerlink" title="BFC&#x7684;&#x4F5C;&#x7528;"></a>BFC&#x7684;&#x4F5C;&#x7528;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#举例说明"><span class="toc-number">1.5.</span> <span class="toc-text"><a href="#&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;" class="headerlink" title="&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;"></a>&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#包含块（containing-block）"><span class="toc-number">2.</span> <span class="toc-text"><a href="#&#x5305;&#x542B;&#x5757;&#xFF08;containing-block&#xFF09;" class="headerlink" title="&#x5305;&#x542B;&#x5757;&#xFF08;containing block&#xFF09;"></a>&#x5305;&#x542B;&#x5757;&#xFF08;containing block&#xFF09;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#个人理解"><span class="toc-number">2.1.</span> <span class="toc-text"><a href="#&#x4E2A;&#x4EBA;&#x7406;&#x89E3;" class="headerlink" title="&#x4E2A;&#x4EBA;&#x7406;&#x89E3;"></a>&#x4E2A;&#x4EBA;&#x7406;&#x89E3;</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
