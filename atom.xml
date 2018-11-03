@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://road-sun.github.io/"/>
-  <updated>2018-10-12T13:23:38.648Z</updated>
+  <updated>2018-11-03T13:43:17.197Z</updated>
   <id>https://road-sun.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js实现简易计算器</title>
+    <link href="https://road-sun.github.io/2018/11/03/js%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93%E8%AE%A1%E7%AE%97%E5%99%A8/"/>
+    <id>https://road-sun.github.io/2018/11/03/js实现简易计算器/</id>
+    <published>2018-11-03T13:36:15.000Z</published>
+    <updated>2018-11-03T13:43:17.197Z</updated>
+    
+    <content type="html"><![CDATA[<p>实现思路：利用js数组的栈方法记录运算过程</p><ul><li><a href="https://blog.mosillion.top/calculator/" target="_blank" rel="noopener">项目地址</a></li><li><a href="https://blog.csdn.net/wulala_hei/article/details/80488674" target="_blank" rel="noopener">源码</a> </li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;实现思路：利用js数组的栈方法记录运算过程&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.mosillion.top/calculator/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;项目地址&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a h
+      
+    
+    </summary>
+    
+      <category term="javascript" scheme="https://road-sun.github.io/categories/javascript/"/>
+    
+    
+      <category term="Vue" scheme="https://road-sun.github.io/tags/Vue/"/>
+    
+      <category term="javascript" scheme="https://road-sun.github.io/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>对包含块(containing block)和块级格式化上下文(BFC)的理解</title>
@@ -45,7 +75,7 @@
     <link href="https://road-sun.github.io/2018/10/08/%E6%90%AD%E5%BB%BAVue2-0%E8%84%9A%E6%89%8B%E6%9E%B6/"/>
     <id>https://road-sun.github.io/2018/10/08/搭建Vue2-0脚手架/</id>
     <published>2018-10-08T14:41:53.000Z</published>
-    <updated>2018-10-08T15:54:36.854Z</updated>
+    <updated>2018-11-03T13:38:48.784Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://p74fhw4q5.bkt.clouddn.com/blog/timg.jpg" alt="Vue"><br><a id="more"></a> </p><h3 id="vue-cli搭建"><a href="#vue-cli搭建" class="headerlink" title="vue-cli搭建"></a>vue-cli搭建</h3><ul><li>安装webpack  <ul><li>全局安装 <code>npm install webpack -g</code>   </li><li>查看版本 <code> webpack -v</code>  </li><li>安装webpack-cli依赖 <code> npm install webpack webpack-cli -g</code></li></ul></li><li>安装vue-cli<ul><li>全局安装 <code>npm install –global vue-cli</code></li><li>查看版本 <code> vue -V</code></li></ul></li><li><p>用vue-cli来构建项目</p><ul><li>新建一个文件夹用来存放项目 ，cd到该文件下</li><li><p><code>vue init webpack xxx</code> xxx为自定义的项目名称</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Project name (baoge)： -----项目名称，直接回车，按照括号中默认名字（注意这里的名字不能有大写字母，如果有会报错Sorry, name can no longer contain capital letters），阮一峰老师博客为什么文件名要小写 ，可以参考一下。</span><br><span class="line">Project description (A Vue.js project)： ----项目描述，也可直接点击回车，使用默认名字</span><br><span class="line">Author ()： ----作者，输入你的大名接下来会让用户选择：</span><br><span class="line">Runtime + Compiler: recommended for most users 运行加编译，既然已经说了推荐，就选它了Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specificHTML) are ONLY allowed in .vue files - render functions are required elsewhere 仅运行时，已经有推荐了就选择第一个了</span><br><span class="line">Install vue-router? (Y/n) 是否安装vue-router，这是官方的路由，大多数情况下都使用，这里就输入“y”后回车即可。</span><br><span class="line">Use ESLint to lint your code? (Y/n) 是否使用ESLint管理代码，ESLint是个代码风格管理工具，是用来统一代码风格的，一般项目中都会使用。接下来也是选择题</span><br><span class="line">Pick an ESLint preset (Use arrow keys) 选择一个ESLint预设，编写vue项目时的代码风格，直接y回车</span><br><span class="line">Setup unit tests with Karma + Mocha? (Y/n) 是否安装单元测试，我选择安装y回车</span><br><span class="line">Setup e2e tests with Nightwatch(Y/n)? 是否安装e2e测试 ，我选择安装y回车</span><br></pre></td></tr></table></figure></li><li><p>cd到xxx文件夹下，安装依赖<code>npm install</code><br><img src="http://p74fhw4q5.bkt.clouddn.com/blog/10868449-01a038fa573b22c8.png" alt="文件目录"></p></li></ul></li><li>启动项目<ul><li>启动项目<code>npm run dev</code></li><li>打包项目<code>npm run build</code></li><li>修改端口 config/index.js<br><img src="http://p74fhw4q5.bkt.clouddn.com/blog/10868449-3a6a5874d3e8d445.png" alt="index.js"></li><li>assetsPublicPath 应该为’./‘ 这样打包后生成的dist文件路径才能正确</li><li>npm run dev后,项目会在localhost:8075上显示,如果要关闭服务器,Ctrl+C退出,如果用的git bash,则需要在任务管理器中终结node进程。</li><li>生成的dist可以直接放入到服务器上  </li></ul></li><li><a href="https://blog.csdn.net/wulala_hei/article/details/80488674" target="_blank" rel="noopener">原文地址</a>  </li></ul><h3 id="Vuex安装"><a href="#Vuex安装" class="headerlink" title="Vuex安装"></a>Vuex安装</h3><ul><li>cd到项目文件下 <code>npm install –save vuex</code></li><li><p>使用Vuex</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> vuex <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line">Vue.use(vuex);</span><br><span class="line"><span class="keyword">var</span> store = <span class="keyword">new</span> vuex.Store(&#123;<span class="comment">//store对象</span></span><br><span class="line">    state:&#123;</span><br><span class="line">        show:<span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li><li><p><a href="https://segmentfault.com/a/1190000009404727" target="_blank" rel="noopener">学习地址</a></p></li></ul><h3 id="Vue-sass-安装"><a href="#Vue-sass-安装" class="headerlink" title="Vue sass 安装"></a>Vue sass 安装</h3><ul><li>cd到项目文件下 <code>npm install sass-loader node-sass vue-style-loader –D</code></li><li><p>打开build文件夹下面的webpack.base.config.js</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">        &#123;  <span class="comment">//手动添加这一段，相当于是编译识别sass!</span></span><br><span class="line">           test: <span class="regexp">/\.scss$/</span>,</span><br><span class="line">           loaders: [<span class="string">"style"</span>, <span class="string">"css"</span>, <span class="string">"sass"</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>使用时加上 lang=”scss”</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">"scss"</span> <span class="attr">scoped</span>=<span class="string">""</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    $primary-color: #333;</span></span><br><span class="line"><span class="undefined">    body &#123;</span></span><br><span class="line"><span class="undefined">      color: $primary-color;  </span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p><a href="https://www.jianshu.com/p/8e60048baeb7" target="_blank" rel="noopener">原文地址</a>  </p></li></ul><h3 id="vue-router学习"><a href="#vue-router学习" class="headerlink" title="vue-router学习"></a>vue-router学习</h3><ul><li><a href="https://segmentfault.com/a/1190000011123089" target="_blank" rel="noopener">学习地址</a></li></ul>]]></content>
     
@@ -273,9 +303,9 @@
       <category term="微信小程序学习" scheme="https://road-sun.github.io/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="微信小程序" scheme="https://road-sun.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
       <category term="Vue" scheme="https://road-sun.github.io/tags/Vue/"/>
+    
+      <category term="微信小程序" scheme="https://road-sun.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
@@ -505,31 +535,6 @@
     </summary>
     
       <category term="java基础程序设计" scheme="https://road-sun.github.io/categories/java%E5%9F%BA%E7%A1%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="java" scheme="https://road-sun.github.io/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java基础 3 字符串</title>
-    <link href="https://road-sun.github.io/2017/12/13/Java%E5%9F%BA%E7%A1%803/"/>
-    <id>https://road-sun.github.io/2017/12/13/Java基础3/</id>
-    <published>2017-12-13T09:50:38.000Z</published>
-    <updated>2017-12-13T10:39:03.617Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h5 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h5><p> 使用equals()比较<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String str1=<span class="string">"hello"</span>;</span><br><span class="line">String str2=<span class="keyword">new</span> String(<span class="string">"hello"</span>);</span><br><span class="line">str1.equals(str2);</span><br><span class="line">str1.equalsIgnoreCase(str2);<span class="comment">//忽略大小写</span></span><br></pre></td></tr></table></figure></p><h5 id="字符串与字符数组，byte数组的转换"><a href="#字符串与字符数组，byte数组的转换" class="headerlink" title="字符串与字符数组，byte数组的转换"></a>字符串与字符数组，byte数组的转换</h5> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">String str1=<span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">char</span> c[]=str1.toCharArray();<span class="comment">//字符串变字符数组</span></span><br><span class="line">String str2=<span class="keyword">new</span> String(c);<span class="comment">//字符数组变字符串</span></span><br><span class="line">String str3=<span class="keyword">new</span> String(c,<span class="number">0</span>,<span class="number">3</span>);<span class="comment">//hel 起始位置 长度</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">byte</span> b[]=str1.getBytes();</span><br><span class="line">String str2=<span class="keyword">new</span> String(b,<span class="number">0</span>,<span class="number">3</span>);</span><br></pre></td></tr></table></figure><h5 id="从字符串中取出指定位置的字符"><a href="#从字符串中取出指定位置的字符" class="headerlink" title="从字符串中取出指定位置的字符"></a>从字符串中取出指定位置的字符</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String str1=<span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">char</span> a=str1.charAt(<span class="number">3</span>);<span class="comment">//取出字符串第四个字符</span></span><br></pre></td></tr></table></figure><h5 id="查找一个指定字符串是否存在"><a href="#查找一个指定字符串是否存在" class="headerlink" title="查找一个指定字符串是否存在"></a>查找一个指定字符串是否存在</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str1=<span class="string">"hello"</span>;</span><br><span class="line">str1.indexOf(<span class="string">"e"</span>); <span class="comment">//返回位置，没查到返回-1</span></span><br><span class="line">str1.indexOf(<span class="string">"c"</span>,<span class="number">3</span>); <span class="comment">//从指定位置查询</span></span><br></pre></td></tr></table></figure><h5 id="字符串去左右空格，字符串截取"><a href="#字符串去左右空格，字符串截取" class="headerlink" title="字符串去左右空格，字符串截取"></a>字符串去左右空格，字符串截取</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str1.trim();</span><br><span class="line">str1.substring(<span class="number">6</span>);<span class="comment">//从第7个位置开始截取</span></span><br><span class="line">str1.substring(<span class="number">0</span>,<span class="number">5</span>);<span class="comment">//截取0~5个位置的内容</span></span><br></pre></td></tr></table></figure><h5 id="按照指定要求拆分字符串"><a href="#按照指定要求拆分字符串" class="headerlink" title="按照指定要求拆分字符串"></a>按照指定要求拆分字符串</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s[] =str1.split(<span class="string">" "</span>); <span class="comment">//按空格进行字符串的拆分</span></span><br><span class="line">str1.split(<span class="string">"*"</span>) <span class="comment">//按*号进行字符串拆分</span></span><br></pre></td></tr></table></figure><h5 id="字符串大小写转换"><a href="#字符串大小写转换" class="headerlink" title="字符串大小写转换"></a>字符串大小写转换</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str1.toUpperCase();<span class="comment">//转成大写</span></span><br><span class="line">str1.toLowerCase();<span class="comment">//转成小写</span></span><br></pre></td></tr></table></figure><h5 id="判断是否以指定的字符串开头或结尾"><a href="#判断是否以指定的字符串开头或结尾" class="headerlink" title="判断是否以指定的字符串开头或结尾"></a>判断是否以指定的字符串开头或结尾</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str1.starsWith(<span class="string">"*"</span>);<span class="comment">//判断是否以“*”结尾，返回ture</span></span><br><span class="line">str1.endsWith(<span class="string">"*"</span>);</span><br></pre></td></tr></table></figure><h5 id="将一个指定的字符串替换成其他的字符串"><a href="#将一个指定的字符串替换成其他的字符串" class="headerlink" title="将一个指定的字符串替换成其他的字符串"></a>将一个指定的字符串替换成其他的字符串</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String str1=<span class="string">"hello"</span>;</span><br><span class="line">str1.replaceAll(<span class="string">"l"</span>,<span class="string">"x"</span>);<span class="comment">//hexxo</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;字符串&quot;&gt;&lt;a href=&quot;#字符串&quot; class=&quot;headerlink&quot; title=&quot;字符串&quot;&gt;&lt;/a&gt;字符串&lt;/h3&gt;&lt;h5 id=&quot;字符串比较&quot;&gt;&lt;a href=&quot;#字符串比较&quot; class=&quot;headerlink&quot; title=&quot;字符串比较&quot;&gt;&lt;/a&gt;
-      
-    
-    </summary>
-    
-      <category term="java面向对象基础" scheme="https://road-sun.github.io/categories/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/"/>
     
     
       <category term="java" scheme="https://road-sun.github.io/tags/java/"/>
