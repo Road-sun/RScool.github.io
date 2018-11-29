@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://road-sun.github.io/"/>
-  <updated>2018-11-03T13:47:20.007Z</updated>
+  <updated>2018-11-29T13:31:37.214Z</updated>
   <id>https://road-sun.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搭建NodeJS-Express框架，实现MVC</title>
+    <link href="https://road-sun.github.io/2018/11/29/%E6%90%AD%E5%BB%BANodeJS-Express%E6%A1%86%E6%9E%B6%EF%BC%8C%E5%AE%9E%E7%8E%B0MVC/"/>
+    <id>https://road-sun.github.io/2018/11/29/搭建NodeJS-Express框架，实现MVC/</id>
+    <published>2018-11-29T13:19:45.000Z</published>
+    <updated>2018-11-29T13:31:37.214Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>安装node与express框架<br><a href="https://blog.csdn.net/u012468376/article/details/53245002" target="_blank" rel="noopener">推荐文章</a> </li><li>热更新（修改内容后自动更新）<br><a href="https://blog.csdn.net/twodogya/article/details/80183565" target="_blank" rel="noopener">推荐文章</a> </li><li>封装mysql<br><a href="https://blog.csdn.net/crazy_jialin/article/details/78042855" target="_blank" rel="noopener">推荐文章</a></li><li>实现MVC<br><a href="https://github.com/Road-sun/NodeJS-MVC" target="_blank" rel="noopener">项目源码</a>  </li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;安装node与express框架&lt;br&gt;&lt;a href=&quot;https://blog.csdn.net/u012468376/article/details/53245002&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;推荐文章&lt;/a&gt; &lt;/l
+      
+    
+    </summary>
+    
+      <category term="node学习" scheme="https://road-sun.github.io/categories/node%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="node" scheme="https://road-sun.github.io/tags/node/"/>
+    
+  </entry>
   
   <entry>
     <title>js实现简易计算器</title>
@@ -91,9 +117,9 @@
     <link href="https://road-sun.github.io/2018/10/03/%E5%AD%A6%E4%B9%A0%E4%BD%BF%E7%94%A8git%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81/"/>
     <id>https://road-sun.github.io/2018/10/03/学习使用git提交代码/</id>
     <published>2018-10-03T08:34:48.000Z</published>
-    <updated>2018-10-08T15:41:48.525Z</updated>
+    <updated>2018-11-29T13:16:35.780Z</updated>
     
-    <content type="html"><![CDATA[<ul><li><p><code>git init</code>把这个文件夹变成Git可管理的仓库（第一次）</p></li><li><p>修改本地代码</p></li><li><p><code>git status</code> 查看状态</p></li><li><p>git add把项目添加到仓库<br><code>git add . </code> 添加所有</p></li><li><p><code>git status</code> 查看状态</p></li><li><p><code>git commit -m “注释内容”</code> 提交到远程仓库</p></li><li><p><code>git pull –rebase origin master</code> 合并分支</p></li><li><p><code>git push origin master</code> 推送到远程仓库<br><code>git push -u origin master</code>第一次推送要加上 -u</p></li></ul><a id="more"></a> <p><a href="https://blog.csdn.net/zamamiro/article/details/70172900" target="_blank" rel="noopener">原文地址</a> </p><ul><li><p>查看远程仓库地址<br><code>git remote -v</code></p></li><li><p>修改远程仓库地址<br><code>git remote set-url origin <a href="http://....git" target="_blank" rel="noopener">http://....git</a></code></p></li><li><p>删除远程仓库地址<br><code>git remote rm origin</code></p></li><li><p>添加远程仓库地址<br><code>git remote add origin <a href="http://....git" target="_blank" rel="noopener">http://....git</a></code></p></li></ul>]]></content>
+    <content type="html"><![CDATA[<ul><li><p><code>git init</code>把这个文件夹变成Git可管理的仓库（第一次）</p></li><li><p>修改本地代码</p></li><li><p><code>git status</code> 查看状态</p></li><li><p>git add把项目添加到仓库<br><code>git add . </code> 添加所有</p></li><li><p><code>git status</code> 查看状态</p></li><li><p><code>git commit -m “注释内容”</code> 提交到远程仓库</p></li><li><p><code>git pull –rebase origin master</code> 合并分支</p></li><li><p><code>git push origin master</code> 推送到远程仓库<br><code>git push -u origin master</code>第一次推送要加上 -u</p></li></ul><a id="more"></a> <p><a href="https://blog.csdn.net/zamamiro/article/details/70172900" target="_blank" rel="noopener">原文地址</a> </p><ul><li><p>查看远程仓库地址<br><code>git remote -v</code></p></li><li><p>修改远程仓库地址<br><code>git remote set-url origin <a href="http://....git" target="_blank" rel="noopener">http://....git</a></code></p></li><li><p>删除远程仓库地址<br><code>git remote rm origin</code></p></li><li><p>添加远程仓库地址<br><code>git remote add origin <a href="http://....git" target="_blank" rel="noopener">http://....git</a></code></p></li><li><p>删除本地git仓库（在本地仓库目录下）<br><code>find . -name “.git” | xargs rm -Rf</code></p></li></ul>]]></content>
     
     <summary type="html">
     
@@ -297,9 +323,9 @@
       <category term="微信小程序学习" scheme="https://road-sun.github.io/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="微信小程序" scheme="https://road-sun.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
       <category term="Vue" scheme="https://road-sun.github.io/tags/Vue/"/>
+    
+      <category term="微信小程序" scheme="https://road-sun.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
@@ -503,35 +529,6 @@
     
     
       <category term="hexo" scheme="https://road-sun.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java基础4 面向对象</title>
-    <link href="https://road-sun.github.io/2017/12/13/java%E5%9F%BA%E7%A1%804/"/>
-    <id>https://road-sun.github.io/2017/12/13/java基础4/</id>
-    <published>2017-12-13T10:39:19.000Z</published>
-    <updated>2017-12-22T09:54:48.784Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="方法重载与方法覆写的区别"><a href="#方法重载与方法覆写的区别" class="headerlink" title="方法重载与方法覆写的区别"></a>方法重载与方法覆写的区别</h3><table><thead><tr><th>区别</th><th style="text-align:center">方法重载</th><th style="text-align:center">方法复写</th></tr></thead><tbody><tr><td>英文</td><td style="text-align:center">Overloading</td><td style="text-align:center">Override</td></tr><tr><td>概念</td><td style="text-align:center">方法名称相同,参数的个数或者类型不同</td><td style="text-align:center">方法名称相同,参数的个数和类型相同,方法的访问权限不能更严格</td></tr><tr><td>使用范围</td><td style="text-align:center">发生在同一个类中</td><td style="text-align:center">发生在继承关系中,是由子类进行复写</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;方法重载与方法覆写的区别&quot;&gt;&lt;a href=&quot;#方法重载与方法覆写的区别&quot; class=&quot;headerlink&quot; title=&quot;方法重载与方法覆写的区别&quot;&gt;&lt;/a&gt;方法重载与方法覆写的区别&lt;/h3&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;区别&lt;/th&gt;
-
-      
-    
-    </summary>
-    
-      <category term="java基础程序设计" scheme="https://road-sun.github.io/categories/java%E5%9F%BA%E7%A1%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="java" scheme="https://road-sun.github.io/tags/java/"/>
     
   </entry>
   
