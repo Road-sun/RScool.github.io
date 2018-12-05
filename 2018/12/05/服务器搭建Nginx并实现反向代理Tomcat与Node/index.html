@@ -15,7 +15,7 @@
     <meta name="description" content="做自己爱做的事，爱自己在做的事！">
     <meta name="Cache-Control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>mysql id自增 · This is my world</title>
+    <title>服务器搭建Nginx并实现反向代理Tomcat与Node · This is my world</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -225,7 +225,7 @@
                 <a href="/" >My blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">mysql id自增</a>
+                <a href="#" class="post-name">服务器搭建Nginx并实现反向代理Tomcat与Node</a>
             </div>
     </div>
     
@@ -257,7 +257,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            mysql id自增
+            服务器搭建Nginx并实现反向代理Tomcat与Node
             <!-- 404 -->
             
         </h1>
@@ -276,18 +276,18 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "mysql">mysql</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Nginx">Nginx</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count">45</span> / Reading time: <span class="post-count">1 min</span></span>
+                        <span>Word count: <span class="post-count">193</span> / Reading time: <span class="post-count">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/09/26</span>
+                    <span class="post-intro-time">2018/12/05</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -412,14 +412,56 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <ul>
-<li><p>创建表格时添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create table table1(id int auto_increment primary key,...)</span><br></pre></td></tr></table></figure>
+<li><p>安装nginx(部署https)<br><a href="http://www.cnblogs.com/hsbt2333/p/9921097.html" target="_blank" rel="noopener">推荐文章</a> </p>
 </li>
-<li><p>创建表格后添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table table1 add id int auto_increment primary key;</span><br></pre></td></tr></table></figure>
+<li><p>nginx详解（正向代理、反向代理、负载均衡原理）<br><a href="https://blog.csdn.net/tsummerb/article/details/79248015" target="_blank" rel="noopener">推荐文章</a> </p>
 </li>
-<li><p>id从10000开始自增</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table users AUTO_INCREMENT=10000;</span><br></pre></td></tr></table></figure></li>
+<li><p>nginx反向代理tomcat，node出现的问题   </p>
+<ul>
+<li>代理之后访问tomcat下部署的非默认项目，无法识别到其index.html页面</li>
+<li><p>代理node 需在此加斜杠 <a href="http://nodes/" target="_blank" rel="noopener">http://nodes/</a><br><a href="https://blog.csdn.net/iamlihongwei/article/details/77881955?tdsourcetag=s_pcqq_aiomsg" target="_blank" rel="noopener">推荐文章</a> </p>
+<pre><code class="editorconfig">#添加代理服务器
+        upstream tomcats{
+            server 39.106.3.41:8080; #tomcat端口号，weight 权重
+        }
+
+        upstream nodes{
+            server 39.106.3.41:3000; #node端口号，weight 权重
+        }
+
+    server {
+        listen       80;
+        server_name  localhost;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+            proxy_pass http://tomcats;
+        }
+        # 解决问题1
+        location /Get/ {
+                    root   html;
+                    index  index.html index.htm;
+                    proxy_pass http://tomcats/Get/;
+                }
+
+        location /TestNode/ {
+                    proxy_set_header X-Real-IP $remote_addr;
+                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                    proxy_set_header Host  $http_host;
+                    proxy_set_header X-Nginx-Proxy true;
+                    proxy_set_header Connection &quot;&quot;;
+                    # 解决问题2
+                    proxy_pass http://nodes/;
+        }
+</code></pre>
+</li>
+</ul>
+</li>
 </ul>
 
     </article>
@@ -429,17 +471,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2018/09/26/微信小程序图片懒加载/" title= 微信小程序图片懒加载 >
-                    <div class="nextTitle">微信小程序图片懒加载</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2018/09/01/关于HTML5中meta-name-viewport-的用法/" title= 关于HTML5中meta name='viewport' 的用法 >
-                    <div class="prevTitle">关于HTML5中meta name='viewport' 的用法</div>
+                <a href= "/2018/11/30/‘获取免费SSL证书，设置https/" title= 获取免费SSL证书，设置https >
+                    <div class="prevTitle">获取免费SSL证书，设置https</div>
                 </a>
             
         </li>

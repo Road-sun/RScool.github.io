@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://road-sun.github.io/"/>
-  <updated>2018-11-30T04:44:58.934Z</updated>
+  <updated>2018-12-05T14:32:09.370Z</updated>
   <id>https://road-sun.github.io/</id>
   
   <author>
@@ -17,13 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>服务器搭建Nginx并实现反向代理Tomcat与Node</title>
+    <link href="https://road-sun.github.io/2018/12/05/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BANginx%E5%B9%B6%E5%AE%9E%E7%8E%B0%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86Tomcat%E4%B8%8ENode/"/>
+    <id>https://road-sun.github.io/2018/12/05/服务器搭建Nginx并实现反向代理Tomcat与Node/</id>
+    <published>2018-12-05T14:19:23.000Z</published>
+    <updated>2018-12-05T14:32:09.370Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>安装nginx(部署https)<br><a href="http://www.cnblogs.com/hsbt2333/p/9921097.html" target="_blank" rel="noopener">推荐文章</a> </p></li><li><p>nginx详解（正向代理、反向代理、负载均衡原理）<br><a href="https://blog.csdn.net/tsummerb/article/details/79248015" target="_blank" rel="noopener">推荐文章</a> </p></li><li><p>nginx反向代理tomcat，node出现的问题   </p><ul><li>代理之后访问tomcat下部署的非默认项目，无法识别到其index.html页面</li><li><p>代理node 需在此加斜杠 <a href="http://nodes/" target="_blank" rel="noopener">http://nodes/</a><br><a href="https://blog.csdn.net/iamlihongwei/article/details/77881955?tdsourcetag=s_pcqq_aiomsg" target="_blank" rel="noopener">推荐文章</a> </p><pre><code class="editorconfig">#添加代理服务器        upstream tomcats{            server 39.106.3.41:8080; #tomcat端口号，weight 权重        }        upstream nodes{            server 39.106.3.41:3000; #node端口号，weight 权重        }    server {        listen       80;        server_name  localhost;        #charset koi8-r;        #access_log  logs/host.access.log  main;        location / {            root   html;            index  index.html index.htm;            proxy_pass http://tomcats;        }        # 解决问题1        location /Get/ {                    root   html;                    index  index.html index.htm;                    proxy_pass http://tomcats/Get/;                }        location /TestNode/ {                    proxy_set_header X-Real-IP $remote_addr;                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;                    proxy_set_header Host  $http_host;                    proxy_set_header X-Nginx-Proxy true;                    proxy_set_header Connection &quot;&quot;;                    # 解决问题2                    proxy_pass http://nodes/;        }</code></pre></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;安装nginx(部署https)&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/hsbt2333/p/9921097.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;推荐文章&lt;/a&gt; &lt;/p&gt;
+&lt;/li&gt;
+
+      
+    
+    </summary>
+    
+      <category term="nginx搭建" scheme="https://road-sun.github.io/categories/nginx%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="Nginx" scheme="https://road-sun.github.io/tags/Nginx/"/>
+    
+  </entry>
+  
+  <entry>
     <title>获取免费SSL证书，设置https</title>
     <link href="https://road-sun.github.io/2018/11/30/%E2%80%98%E8%8E%B7%E5%8F%96%E5%85%8D%E8%B4%B9SSL%E8%AF%81%E4%B9%A6%EF%BC%8C%E8%AE%BE%E7%BD%AEhttps/"/>
     <id>https://road-sun.github.io/2018/11/30/‘获取免费SSL证书，设置https/</id>
     <published>2018-11-30T04:31:48.000Z</published>
-    <updated>2018-11-30T04:44:58.934Z</updated>
+    <updated>2018-11-30T04:48:41.227Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>申请阿里免费ssl证书<br><a href="https://blog.csdn.net/hx7013/article/details/79711288" target="_blank" rel="noopener">推荐文章</a><br><a href="https://ninghao.net/blog/4449" target="_blank" rel="noopener">推荐文章</a><br><a href="https://common-buy.aliyun.com/?spm=5176.2020520163.cas.1.zTLyhO&amp;commodityCode=cas#/buy" target="_blank" rel="noopener">申请地址</a></li><li>tomcat配置ssl证书<br><a href="https://help.aliyun.com/video_detail/54217.html?spm=5176.10695662.1996646101.searchclickresult.3b402a35e0rWaF" target="_blank" rel="noopener">官方指导</a> </li></ul>]]></content>
+    <content type="html"><![CDATA[<ul><li>申请阿里免费ssl证书<br><a href="https://blog.csdn.net/hx7013/article/details/79711288" target="_blank" rel="noopener">推荐文章</a><br><a href="https://ninghao.net/blog/4449" target="_blank" rel="noopener">推荐文章</a><br><a href="https://common-buy.aliyun.com/?spm=5176.2020520163.cas.1.zTLyhO&amp;commodityCode=cas#/buy" target="_blank" rel="noopener">申请地址</a></li><li>tomcat配置ssl证书<br><a href="https://help.aliyun.com/video_detail/54217.html?spm=5176.10695662.1996646101.searchclickresult.3b402a35e0rWaF" target="_blank" rel="noopener">官方指导</a></li><li>注意事项<br>-该证书只能适用一个端口，若其他端口也需https，则其他端口也需申请一个ssl证书</li></ul>]]></content>
     
     <summary type="html">
     
@@ -349,9 +377,9 @@
       <category term="微信小程序学习" scheme="https://road-sun.github.io/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="微信小程序" scheme="https://road-sun.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
       <category term="Vue" scheme="https://road-sun.github.io/tags/Vue/"/>
+    
+      <category term="微信小程序" scheme="https://road-sun.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
@@ -503,31 +531,6 @@
     
     
       <category term="javascript" scheme="https://road-sun.github.io/tags/javascript/"/>
-    
-      <category term="微信小程序" scheme="https://road-sun.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> 微信小程序改变原生按钮与滚动条样式</title>
-    <link href="https://road-sun.github.io/2018/04/08/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%94%B9%E5%8F%98%E5%8E%9F%E7%94%9F%E6%8C%89%E9%92%AE%E4%B8%8E%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%A0%B7%E5%BC%8F-1/"/>
-    <id>https://road-sun.github.io/2018/04/08/微信小程序改变原生按钮与滚动条样式-1/</id>
-    <published>2018-04-08T11:05:12.000Z</published>
-    <updated>2018-06-23T01:26:09.250Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="小程序去掉原生按钮的边框变成直角"><a href="#小程序去掉原生按钮的边框变成直角" class="headerlink" title="小程序去掉原生按钮的边框变成直角"></a>小程序去掉原生按钮的边框变成直角</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">button</span>&#123;</span><br><span class="line"> <span class="attribute">border-radius</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">button</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line"> <span class="attribute">border</span>:<span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h5 id="小程序隐藏原生滚动条"><a href="#小程序隐藏原生滚动条" class="headerlink" title="小程序隐藏原生滚动条"></a>小程序隐藏原生滚动条</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">::-webkit-scrollbar</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">color</span>: transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h5 id=&quot;小程序去掉原生按钮的边框变成直角&quot;&gt;&lt;a href=&quot;#小程序去掉原生按钮的边框变成直角&quot; class=&quot;headerlink&quot; title=&quot;小程序去掉原生按钮的边框变成直角&quot;&gt;&lt;/a&gt;小程序去掉原生按钮的边框变成直角&lt;/h5&gt;&lt;figure class=&quot;hi
-      
-    
-    </summary>
-    
-      <category term="微信小程序学习" scheme="https://road-sun.github.io/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AD%A6%E4%B9%A0/"/>
-    
     
       <category term="微信小程序" scheme="https://road-sun.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
